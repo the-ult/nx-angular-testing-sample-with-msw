@@ -1,19 +1,24 @@
 import { Component } from '@angular/core';
-import { RouterLinkWithHref, RouterOutlet } from '@angular/router';
+import { RouterLinkActive, RouterLinkWithHref, RouterOutlet } from '@angular/router';
 import { UltAppBarComponent, UltNavItemComponent } from '@ult/shared/ui/app-bar';
 
 @Component({
   standalone: true,
   selector: 'ult-root',
   template: ` <ult-app-bar>
-      <!-- TODO: add proper routerLinkActive -->
-      <a ultNavItem [routerLink]="['/movies']" routerLinkActive="router-link-active">movies</a>
-      <a ultNavItem [routerLink]="['/series']" routerLinkActive="router-link-active">series</a>
+      <a ultNavItem [routerLink]="['/movies']" routerLinkActive="active-link"> movies </a>
+      <a ultNavItem [routerLink]="['/series']" routerLinkActive="active-link"> series </a>
     </ult-app-bar>
     <main>
       <router-outlet></router-outlet>
     </main>`,
-  imports: [RouterOutlet, RouterLinkWithHref, UltAppBarComponent, UltNavItemComponent],
+  imports: [
+    RouterLinkActive,
+    RouterLinkWithHref,
+    RouterOutlet,
+    UltAppBarComponent,
+    UltNavItemComponent,
+  ],
   styles: [
     `
       :host {

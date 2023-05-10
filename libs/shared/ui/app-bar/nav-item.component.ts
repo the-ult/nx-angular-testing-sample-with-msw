@@ -35,6 +35,10 @@ import { Component } from '@angular/core';
           border-bottom: 2px solid var(--ult-theme-secondary);
         }
       }
+
+      :host-context(.active-link) {
+        border-bottom: 2px solid var(--ult-theme-secondary);
+      }
     `,
   ],
 })
