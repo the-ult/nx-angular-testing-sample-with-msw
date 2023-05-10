@@ -1,10 +1,9 @@
 import { DatePipe, NgOptimizedImage } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, inject } from '@angular/core';
 import { RouterLinkWithHref } from '@angular/router';
 import { ENVIRONMENT, RouteType } from '@ult/shared/data-access';
-import { Required } from '@ult/shared/utils';
 import { UserScoreComponent } from '../user-score';
-import { isMovieCardInput, MediaCardInput } from './media-card.model';
+import { MediaCardInput, isMovieCardInput } from './media-card.model';
 
 @Component({
   selector: 'ult-media-card',
@@ -79,12 +78,10 @@ import { isMovieCardInput, MediaCardInput } from './media-card.model';
 export class UltMediaCardComponent {
   protected readonly ENV = inject(ENVIRONMENT);
 
-  @Required()
-  @Input()
+  @Input({ required: true })
   mediaData!: MediaCardInput;
 
-  @Required()
-  @Input()
+  @Input({ required: true })
   mediaType!: RouteType;
 
   get title() {

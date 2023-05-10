@@ -5,17 +5,17 @@
   "projectType": "library",
   "targets": {
     "build": {
-      "executor": "@nrwl/js:tsc",
+      "executor": "@nx/js:tsc",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/libs/shared/cypress",
-        "main": "libs/shared/cypress/src/index.ts",
-        "tsConfig": "libs/shared/cypress/tsconfig.lib.json",
-        "assets": ["libs/shared/cypress/*.md"]
+        "outputPath": "dist/libs/shared/test/cypress",
+        "main": "libs/shared/test/cypress/src/index.ts",
+        "tsConfig": "libs/shared/test/cypress/tsconfig.lib.json",
+        "assets": ["libs/shared/test/cypress/*.md"]
       }
     },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": ["libs/shared/test/cypress/**/*.ts"]

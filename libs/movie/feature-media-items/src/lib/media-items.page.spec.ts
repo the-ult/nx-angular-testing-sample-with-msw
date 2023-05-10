@@ -13,7 +13,7 @@ import { MediaItemsPage } from './media-items.page';
  *
  * @see {@link Jest - ES Modules | https://github.com/facebook/jest/issues/9430}
  */
-// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
+// eslint-disable-next-line @nx/enforce-module-boundaries
 import * as TEST_DATA from '../../../../shared/test/mocks/src/lib/movie/movies-popular-page-2.json';
 
 describe('MediaItemsPage', () => {

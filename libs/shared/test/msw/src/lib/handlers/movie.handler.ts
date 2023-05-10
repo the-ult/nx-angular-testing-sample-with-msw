@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-return */
 
-// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
+// eslint-disable-next-line @nx/enforce-module-boundaries
 import type { MediaError, Movies } from '@ult/shared/data-access';
 import { MoviesPopularPage1, MoviesPopularPage2 } from '@ult/shared/test/mocks';
 import type { RequestHandler } from 'msw';

@@ -4,7 +4,7 @@ import { tap } from 'rxjs';
 import type { z } from 'zod';
 /// In this case we allow the usage of the @nrwl/nx/enforce-module-boundaries rule
 /// because we are using the ENVIRONMENT token from the shared/data-access module
-// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
+// eslint-disable-next-line @nx/enforce-module-boundaries
 import { ENVIRONMENT } from '@ult/shared/data-access';
 
 /**

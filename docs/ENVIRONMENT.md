@@ -36,7 +36,7 @@ This target will automatically be used to load the proper `.env.mock` environmen
 "targets": {
   "build":{},
   "serve": {
-      "executor": "@nrwl/angular:webpack-dev-server",
+      "executor": "@nx/angular:webpack-dev-server",
       "configurations": {
         "production": {
           "browserTarget": "movie-db:build:production"

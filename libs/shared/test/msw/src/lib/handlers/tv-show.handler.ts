@@ -1,4 +1,4 @@
-// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
+// eslint-disable-next-line @nx/enforce-module-boundaries
 import type { MediaError, TvShows } from '@ult/shared/data-access';
 import { TVShowsPopularPage1, TVShowsPopularPage2 } from '@ult/shared/test/mocks';
 import type { RequestHandler } from 'msw';

@@ -14,7 +14,7 @@
   },
   "tasksRunnerOptions": {
     "default": {
-      "runner": "@nrwl/nx-cloud",
+      "runner": "nx-cloud",
       "options": {
         "cacheDirectory": "./.cache/nx",
         "cacheableOperations": ["build", "lint", "test", "e2e", "component-test"],
@@ -46,7 +46,7 @@
     "sharedGlobals": []
   },
   "generators": {
-    "@nrwl/angular:application": {
+    "@nx/angular:application": {
       "style": "scss",
       "linter": "eslint",
       "unitTestRunner": "jest",
@@ -54,7 +54,7 @@
       "standalone": true,
       "standaloneConfig": true
     },
-    "@nrwl/angular:library": {
+    "@nx/angular:library": {
       "linter": "eslint",
       "unitTestRunner": "jest",
       "buildable": true,
@@ -65,22 +65,22 @@
       "standaloneConfig": true,
       "style": "scss"
     },
-    "@nrwl/angular:component": {
+    "@nx/angular:component": {
       "style": "scss",
       "changeDetection": "OnPush",
       "displayBlock": true,
       "standalone": true
     },
-    "@nrwl/angular:directive": {
+    "@nx/angular:directive": {
       "displayBlock": true,
       "standalone": true,
       "style": "scss"
     },
-    "@nrwl/workspace:library": {
+    "@nx/workspace:library": {
       "buildable": true,
       "skipBabelrc": true
     },
-    "@nrwl/linter:eslint": {
+    "@nx/linter:eslint": {
       "cache": true,
       "cacheLocation": "./cache/eslint"
     }

@@ -3,7 +3,7 @@
 ## Create shared/test/cypress library
 
 ```
-npx nx generate @nrwl/workspace:library cypress --directory=shared/test --skipBabelrc --standaloneConfig --tags=scope:shared,type:test --unitTestRunner=none --no-interactive
+npx nx generate @nx/workspace:library cypress --directory=shared/test --skipBabelrc --standaloneConfig --tags=scope:shared,type:test --unitTestRunner=none --no-interactive
 ```
 
 ### Types

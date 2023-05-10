@@ -22,7 +22,7 @@ npm install msw -D
 ## Create msw library
 
 ```console
-npx nx generate @nrwl/workspace:library msw --directory=shared/test --skipBabelrc --tags=scope:shared-test,type:msw --unitTestRunner=none --buildable --no-interactive
+npx nx generate @nx/workspace:library msw --directory=shared/test --skipBabelrc --tags=scope:shared-test,type:msw --unitTestRunner=none --buildable --no-interactive
 ```
 
 ### Remove obsolete file
@@ -191,7 +191,7 @@ Import the worker in your (dev) `environment.ts`
  * Since we only add it to our development environment, it is only started here
  *
  * @see: /libs/shared/test/msw/README.md
- * eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
+ * eslint-disable-next-line @nx/enforce-module-boundaries
  */
 import '@ult/shared/test/msw/browser';
 
