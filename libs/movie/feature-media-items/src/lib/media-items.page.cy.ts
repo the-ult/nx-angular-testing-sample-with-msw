@@ -5,13 +5,13 @@ import { mswMock } from '@ult/shared/test/cypress';
 import { ENV_MOCK, MoviesPopularPage2 } from '@ult/shared/test/mocks';
 import { startMswForBrowser, worker } from '@ult/shared/test/msw';
 import { MountConfig } from 'cypress/angular';
-import { MoviesPage } from './movies.page';
+import { MediaItemsPage } from './media-items.page';
 
-describe(MoviesPage.name, () => {
+describe(MediaItemsPage.name, () => {
   before(() => startMswForBrowser());
   afterEach(() => worker.resetHandlers());
 
-  const config: MountConfig<MoviesPage> = {
+  const config: MountConfig<MediaItemsPage> = {
     declarations: [],
     // TODO: use provideHttpClientTesting()
     imports: [HttpClientTestingModule],
@@ -25,8 +25,8 @@ describe(MoviesPage.name, () => {
     /// Override the default mock-data
     mswMock('movie/popular', TEST_DATA);
 
-    TestBed.overrideComponent(MoviesPage, { add: { providers: config.providers } });
-    cy.mount(MoviesPage, config);
+    TestBed.overrideComponent(MediaItemsPage, { add: { providers: config.providers } });
+    cy.mount(MediaItemsPage, config);
 
     /// ---------------------------------------------------------------
     cy.log('CHECK MOVIES');

@@ -6,4 +6,5 @@ export * from './lib/media.model';
 export * from './lib/media.type';
 export * from './lib/movie-detail.model';
 export * from './lib/movie.model';
+export * from './lib/route.data';
 export * from './lib/tv-show.model';

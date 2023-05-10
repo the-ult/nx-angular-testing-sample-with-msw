@@ -1,22 +1,22 @@
 {
-  "name": "movies-feature-movies",
+  "name": "movie-feature-media-items",
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
-  "sourceRoot": "libs/movie/feature-movies/src",
+  "sourceRoot": "libs/movie/feature-media-items/src",
   "prefix": "ult",
   "targets": {
     "build": {
       "executor": "@nrwl/angular:ng-packagr-lite",
       "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
       "options": {
-        "project": "libs/movie/feature-movies/ng-package.json"
+        "project": "libs/movie/feature-media-items/ng-package.json"
       },
       "configurations": {
         "production": {
-          "tsConfig": "libs/movie/feature-movies/tsconfig.lib.prod.json"
+          "tsConfig": "libs/movie/feature-media-items/tsconfig.lib.prod.json"
         },
         "development": {
-          "tsConfig": "libs/movie/feature-movies/tsconfig.lib.json"
+          "tsConfig": "libs/movie/feature-media-items/tsconfig.lib.json"
         }
       },
       "defaultConfiguration": "production"
@@ -25,7 +25,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "libs/movie/feature-movies/jest.config.ts",
+        "jestConfig": "libs/movie/feature-media-items/jest.config.ts",
         "passWithNoTests": true
       }
     },
@@ -33,15 +33,15 @@
       "executor": "@nrwl/linter:eslint",
       "options": {
         "lintFilePatterns": [
-          "libs/movie/feature-movies/**/*.ts",
-          "libs/movie/feature-movies/**/*.html"
+          "libs/movie/feature-media-items/**/*.ts",
+          "libs/movie/feature-media-items/**/*.html"
         ]
       }
     },
     "component-test": {
       "executor": "@nrwl/cypress:cypress",
       "options": {
-        "cypressConfig": "libs/movie/feature-movies/cypress.config.ts",
+        "cypressConfig": "libs/movie/feature-media-items/cypress.config.ts",
         "testingType": "component",
         "skipServe": true,
         "devServerTarget": "movie-db:build"

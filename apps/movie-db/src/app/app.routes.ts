@@ -1,13 +1,34 @@
 /* eslint-disable unicorn/no-await-expression-member */
 import { Route } from '@angular/router';
+import { RouteType } from '@ult/shared/data-access';
 
-export const MOVIE_DB_ROUTES: Route[] = [
+interface MovieRoute extends Route {
+  data?: {
+    mediaType: RouteType;
+  };
+}
+
+export const MOVIE_DB_ROUTES: MovieRoute[] = [
   {
     path: 'movies',
-    loadComponent: async () => (await import('@ult/movie/feature-movies')).MoviesPage,
+    loadComponent: async () => (await import('@ult/movie/feature-media-items')).MediaItemsPage,
+    data: {
+      mediaType: 'movies',
+    },
   },
   {
     path: 'movies/:movieId',
+    loadComponent: async () => (await import('@ult/movie/feature-movie-detail')).MovieDetailPage,
+  },
+  {
+    path: 'tv-shows',
+    loadComponent: async () => (await import('@ult/movie/feature-media-items')).MediaItemsPage,
+    data: {
+      mediaType: 'tvShows',
+    },
+  },
+  {
+    path: 'tv-shows/:tvShowId',
     loadComponent: async () => (await import('@ult/movie/feature-movie-detail')).MovieDetailPage,
   },
   {

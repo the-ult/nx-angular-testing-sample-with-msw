@@ -3,7 +3,7 @@
   padding-bottom: var(--ult-space-xl);
 }
 
-section.movie-wall {
+section.media-items-wall {
   display: grid;
   gap: var(--ult-space-xl);
   grid-template-columns: repeat(auto-fill, minmax(182px, 1fr));

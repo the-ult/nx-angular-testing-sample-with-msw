@@ -3,7 +3,7 @@ import { render, screen, within } from '@testing-library/angular';
 import { ENVIRONMENT } from '@ult/shared/data-access';
 import { ENV_MOCK } from '@ult/shared/test/mocks';
 import { mswServer, rest } from '@ult/shared/test/msw/server';
-
+import { MediaItemsPage } from './media-items.page';
 /**
  * Sadly Jest (still) does not properly support ES Modules.
  * And does not support default export/import, so we cannot do:
@@ -16,9 +16,7 @@ import { mswServer, rest } from '@ult/shared/test/msw/server';
 // eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
 import * as TEST_DATA from '../../../../shared/test/mocks/src/lib/movie/movies-popular-page-2.json';
 
-import { MoviesPage } from './movies.page';
-
-describe('MoviesPage', () => {
+describe('MediaItemsPage', () => {
   it('should show all movies in cards', async () => {
     mswServer.use(
       // eslint-disable-next-line @typescript-eslint/no-unsafe-return
@@ -32,7 +30,7 @@ describe('MoviesPage', () => {
     //   )
     // );
 
-    await render(MoviesPage, {
+    await render(MediaItemsPage, {
       imports: [HttpClientModule],
       providers: [{ provide: ENVIRONMENT, useValue: ENV_MOCK }],
     });
@@ -42,7 +40,7 @@ describe('MoviesPage', () => {
     expect(headerControl).toBeVisible();
 
     // Check all media-cards
-    const allMediaCards = await screen.findAllByTestId(/^movie-page-media-card-/);
+    const allMediaCards = await screen.findAllByTestId(/^media-item-page-media-card-/);
     expect(allMediaCards).toHaveLength(TEST_DATA.results.length);
 
     /// Check each movie from our testdata

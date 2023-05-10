@@ -17,7 +17,7 @@ import { UltAppBarComponent, UltNavItemComponent } from '@ult/shared/ui/app-bar'
   template: `
     <ult-app-bar>
       <a ultNavItem [routerLink]="['/movies']" routerLinkActive="active-link"> movies </a>
-      <a ultNavItem [routerLink]="['/series']" routerLinkActive="active-link"> series </a>
+      <a ultNavItem [routerLink]="['/tv-shows']" routerLinkActive="active-link"> series </a>
     </ult-app-bar>
     <main>
       <router-outlet></router-outlet>

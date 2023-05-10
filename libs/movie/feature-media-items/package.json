@@ -1,5 +1,5 @@
 {
-  "name": "@ult/movie/feature-movies",
+  "name": "@ult/movie/feature-media-items",
   "version": "0.0.1",
   "peerDependencies": {
     "@angular/common": "*",

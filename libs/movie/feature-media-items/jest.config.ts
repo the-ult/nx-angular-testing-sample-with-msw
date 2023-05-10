@@ -1,5 +1,5 @@
 export default {
-  displayName: 'movies-feature-movies',
+  displayName: 'movie-feature-media-items',
   preset: '../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
@@ -8,7 +8,7 @@ export default {
       stringifyContentPathRegex: '\\.(html|svg)$',
     },
   },
-  coverageDirectory: '../../../coverage/libs/movie/feature-movies',
+  coverageDirectory: '../../../coverage/libs/movie/feature-media-items',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': 'jest-preset-angular',
   },
