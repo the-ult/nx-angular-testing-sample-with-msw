@@ -4,14 +4,14 @@ import { RouterLinkWithHref } from '@angular/router';
 import { ENVIRONMENT, RouteType } from '@ult/shared/data-access';
 import { Required } from '@ult/shared/utils';
 import { UserScoreComponent } from '../user-score';
-import { MediaCardInput } from './media-card.model';
+import { isMovieCardInput, MediaCardInput } from './media-card.model';
 
 @Component({
   selector: 'ult-media-card',
   standalone: true,
   imports: [NgOptimizedImage, RouterLinkWithHref, UserScoreComponent, DatePipe],
   template: `
-    <a [routerLink]="[mediaType, mediaData.id]">
+    <a [routerLink]="['/', mediaType, mediaData.id]">
       <img width="180" height="275" [alt]="title" [ngSrc]="ENV.url.img + mediaData.poster_path" />
     </a>
     <div class="card__content">
@@ -70,7 +70,7 @@ import { MediaCardInput } from './media-card.model';
       ult-user-score {
         position: absolute;
         top: calc(-1 * var(--ult-space-md));
-        left: var(--ult-space-xs);
+        right: var(--ult-space-xs);
       }
     `,
   ],
@@ -87,17 +87,13 @@ export class UltMediaCardComponent {
   @Input()
   mediaType!: RouteType;
 
-  get title(): string {
-    if ('title' in this.mediaData) {
-      return this.mediaData.title;
-    }
-    return this.mediaData.name;
+  get title() {
+    return isMovieCardInput(this.mediaData) ? this.mediaData.title : this.mediaData.name;
   }
 
-  get releaseDate(): string {
-    if ('title' in this.mediaData) {
-      return this.mediaData.release_date;
-    }
-    return this.mediaData.first_air_date;
+  get releaseDate() {
+    return isMovieCardInput(this.mediaData)
+      ? this.mediaData.release_date
+      : this.mediaData.first_air_date;
   }
 }

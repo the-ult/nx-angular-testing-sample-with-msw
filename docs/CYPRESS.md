@@ -21,7 +21,7 @@ declare global {
     msw: {
       graphql: typeof graphql;
       rest: typeof rest;
-      worker: SetupWorkerApi;
+      worker: SetupWorker;
     };
   }
 }

@@ -1,5 +1,7 @@
+import { provideHttpClient } from '@angular/common/http';
 import { HttpClientTestingModule, provideHttpClientTesting } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
 import { ENVIRONMENT } from '@ult/shared/data-access';
 import { mswMock } from '@ult/shared/test/cypress';
 import { ENV_MOCK, MoviesPopularPage2 } from '@ult/shared/test/mocks';
@@ -17,7 +19,12 @@ describe(MediaItemsPage.name, () => {
     imports: [HttpClientTestingModule],
     //   TODO: create test ENV
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-    providers: [provideHttpClientTesting(), { provide: ENVIRONMENT, useValue: ENV_MOCK }],
+    providers: [
+      provideHttpClient,
+      provideHttpClientTesting(),
+      provideRouter([]),
+      { provide: ENVIRONMENT, useValue: ENV_MOCK },
+    ],
   };
 
   it('renders', () => {

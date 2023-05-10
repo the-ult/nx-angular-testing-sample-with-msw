@@ -6,7 +6,7 @@ _If you like to test it yourself with [TMDB](https://developers.themoviedb.org/3
 
 ### 1. tsconfig.(base).json
 
-Voor Mock files:
+For Mock files:
 Why: To enable exporting and importing our `json` files.
 
 Add:

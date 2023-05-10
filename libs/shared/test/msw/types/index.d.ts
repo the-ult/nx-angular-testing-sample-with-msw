@@ -1,4 +1,4 @@
-import { graphql, rest, SetupWorkerApi } from 'msw';
+import { graphql, rest, SetupWorker } from 'msw';
 
 export {};
 
@@ -8,7 +8,7 @@ declare global {
     msw: {
       graphql: typeof graphql;
       rest: typeof rest;
-      worker: SetupWorkerApi;
+      worker: SetupWorker;
     };
   }
 }

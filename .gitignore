@@ -255,12 +255,11 @@ typings/
 
 # dotenv environment variables file
 .env.*
-.env.serve
-.env.e2e
 .env.local
+.env.e2e
 .env.development
 .env.test
-!.env.mock
+!.env.msw
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache

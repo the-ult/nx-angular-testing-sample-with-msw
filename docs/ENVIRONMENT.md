@@ -6,19 +6,18 @@
 
 ## APP
 
-Create a `apps/movie-db/.env.serve` which will be used as default.
+Create a `apps/movie-db/.env.local` which will be used as default.
 If you wish to use the service with your own API key, add the Bearer token of [TMDB](https://www.themoviedb.org/settings/api):
 
 ```env
 # DEFAULT LOCAL DEVELOPMENT ENV SETTINGS
 NX_API_URL=https://api.themoviedb.org/3
 NX_IMG_URL=https://image.tmdb.org/t/p/w220_and_h330_face
-
 NX_TMDB_BEARER=[YOUR BEARER TOKEN: https://developers.themoviedb.org/3]
 NX_MSW_API_MOCKING=false
 ```
 
-and a `apps/movie-db/` for usage with MSW:
+and an `apps/movie-db/.env.serve.msw` for usage with MSW:
 
 ```
 # MOCK/MSW LOCAL DEVELOPMENT ENV SETTINGS
@@ -30,26 +29,33 @@ NX_TMDB_BEARER=MOCK_BEARER
 
 ### project.json
 
-Add an extra target: `mock` and configuration `msw` to `apps/movie-db/project.json`.
+Add an extra configuration: `msw` to the `serve` target in `apps/movie-db/project.json`.
 This target will automatically be used to load the proper `.env.mock` environment settings.
 
 ```json
 "targets": {
   "build":{},
-  "serve": {},
-  "mock": {
+  "serve": {
       "executor": "@nrwl/angular:webpack-dev-server",
       "configurations": {
+        "production": {
+          "browserTarget": "movie-db:build:production"
+        },
+        "development": {
+          "browserTarget": "movie-db:build:development"
+        },
+        // ADD MSW target
         "msw": {
           "browserTarget": "movie-db:build:development"
         }
       },
-      "defaultConfiguration": "msw"
+      // YOU COULD EVEN CHANGE THE DEFAULT TO "msw"
+      "defaultConfiguration": "development"
     },
 }
 ```
 
-Run with: `nx mock movie-db`
+Run with: `nx serve -c=msw movie-db`
 
 ## For E2E
 

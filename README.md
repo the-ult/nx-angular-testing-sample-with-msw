@@ -1,6 +1,10 @@
-# Nx and Angular Playground
+# MOVIE-DB - Nx and Angular Playground
+
+![Main page](./docs/img/movie-db-main.png)
 
 ## What
+
+![WIP](./docs/img/wip.png)
 
 A Movies DB demo app based on the amazing [The Movie DB](https://www.themoviedb.org/) to play with the newest [Nx](https://nx.dev) and [Angular](https://angular.io) _'best practices'_ like [Standalone Components](https://angular.io/guide/standalone-components), `Inject()` and plenty more. While following Semantic HTML and newest CSS solutions.
 
@@ -10,13 +14,9 @@ Using tools like: [Cypress](https://cypress.io), [MSWjs](https://mswjs.io), [Zod
 
 Trying to provide a good base for both a learning and as a starter repository.
 
-## Screenshots
-
-[TODO]
-
 ## Why
 
-I wanted to write a blogpost about using [MSWjs](https://mswjs.io) in a Nx repo with both Cypress, Cypress Component Tests and Jest/Testing-library.
+I wanted to write a blogpost about using [MSWjs](https://mswjs.io) in a Nx repo with both Cypress, Cypress Component Tests and @testing-library/angular.
 To be able to write a proper blogpost, I needed to setup a proper example repo.
 While creating this example repo, I figured, let's use and try the newest Angular best practices.
 And create an example app, which can be used as a starter/example for future projects as well.
@@ -46,7 +46,6 @@ And create an example app, which can be used as a starter/example for future pro
 
 ```
 ❯ pnpm install
-
 ```
 
 ## Run
@@ -68,7 +67,10 @@ Or run with live data.
 > In this case you first have to add your TMDB BEARER token
 > to [apps/movie-db/.env.serve](./apps/movie-db/.env.serve)
 >
-> _See: https://developers.themoviedb.org/3/getting-started/authentication#bearer-token_
+> See:
+>
+> - [TMDB - documentation](https://developers.themoviedb.org/3/getting-started/authentication#bearer-token)
+> - [TMDB - user settings](https://www.themoviedb.org/settings/api)
 
 ```
 ❯ nx serve movie-db
@@ -84,6 +86,18 @@ OR
 
 ```
 ❯ nx e2e movie-db-e2e [--watch --browser=chrome]
+```
+
+### Cypress Component Test
+
+```
+pnpm nx component-test movie-feature-media-items --watch
+```
+
+OR
+
+```
+nx run movie-feature-media-items:component-test --watch
 ```
 
 ## Best practices followed
