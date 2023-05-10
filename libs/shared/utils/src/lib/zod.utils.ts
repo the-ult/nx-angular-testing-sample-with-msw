@@ -29,15 +29,15 @@ export function parseResponse<T>(schema: ZodType): MonoTypeOperatorFunction<T> {
     next: (value: any) => {
       // console.log('parse', schema.parse(value));
 
-      if (!env.production) {
-        // Throw in development so we're aware of the error
-        schema.parse(value);
-      } else {
+      if (env.production) {
         const parsed = schema.safeParse(value);
         if (!parsed.success) {
           // Log to service to be informed
           console.error(parsed.error);
         }
+      } else {
+        // Throw in development so we're aware of the error
+        schema.parse(value);
       }
     },
   });
