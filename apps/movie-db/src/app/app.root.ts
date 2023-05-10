@@ -22,7 +22,7 @@ import { UltAppBarComponent, UltNavItemComponent } from '@ult/shared/ui/app-bar'
       }
 
       main {
-        background-color: var(--mdc-theme-background);
+        background-color: var(--ult-theme-background);
         height: calc(100vh - 64px);
         padding: var(--ult-space-md) var(--ult-space);
         margin-inline: auto;

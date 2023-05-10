@@ -25,13 +25,11 @@ import { UserScoreComponent } from '@ult/shared/ui/user-score';
   `,
   styles: [
     `
-      @use '@material/theme';
-
       :host {
         display: block;
         border: 1px solid #e3e3e3;
         box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 8px 0px;
-        border-radius: var(--ult-imageBorderRadius);
+        border-radius: var(--ult-image-border-radius);
         background-color: #fff;
         /*  ! FIXME: proper sizes */
         width: 182px;
@@ -39,7 +37,7 @@ import { UserScoreComponent } from '@ult/shared/ui/user-score';
 
       img {
         background-image: cover;
-        border-radius: var(--ult-imageBorderRadius) var(--ult-imageBorderRadius) 0 0;
+        border-radius: var(--ult-image-border-radius) var(--ult-image-border-radius) 0 0;
       }
 
       .card__content {
@@ -57,7 +55,7 @@ import { UserScoreComponent } from '@ult/shared/ui/user-score';
 
       p.date {
         margin: 0;
-        /* color: var(--mdc-theme-text-secondary-on-light); */
+        /* color: var(--ult-theme-text-secondary-on-light); */
         color: rgba(0, 0, 0, 0.6);
         font-size: 12px;
       }

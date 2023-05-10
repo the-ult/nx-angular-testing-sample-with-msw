@@ -19,16 +19,16 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
         line-height: 24px;
         vertical-align: center;
 
-        font-size: var(--mdc-typography-caption-font-size);
-        font-weight: var(--mdc-typography-subtitle2-font-weight);
+        font-size: var(--ult-typography-caption-font-size);
+        font-weight: var(--ult-typography-subtitle2-font-weight);
 
         /* TODO: proper color variable */
-        /* color: var(--mdc-) */
+        /* color: var(--ult-) */
         color: #fff;
         background-color: #204529;
         /* background-color: #571435;
         background-color: #423d0f; */
-        /* background-color: var(--mdc-theme-background); */
+        /* background-color: var(--ult-theme-background); */
       }
     `,
   ],

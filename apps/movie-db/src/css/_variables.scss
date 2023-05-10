@@ -2,9 +2,14 @@
   --ult-radius-small: 4px;
   --ult-radius-medium: 8px;
   --ult-radius-round: 50%;
-  --ult-imageBorderRadius: 8px;
+  --ult-image-border-radius: 8px;
 
   // TODO: add different widths and use them with container-queries
-  // --ult-page-width: 100em;
   --ult-page-width: min(95%, 70rem);
+  --ult-typography-font-family: 'Roboto Flex', sans-serif;
+
+  /// THEME
+  --ult-theme-primary: hsl(207deg 91.2% 13%);
+  --ult-theme-secondary: hsl(193deg 99% 45%);
+  --ult-theme-text-primary-on-dark: hsl(0deg 0% 100%);
 }

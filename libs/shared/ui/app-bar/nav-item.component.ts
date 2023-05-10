@@ -20,11 +20,11 @@ import { Component } from '@angular/core';
     `
       :host {
         text-decoration: none;
-        color: var(--mdc-theme-text-primary-on-dark);
+        color: var(--ult-theme-text-primary-on-dark);
         padding: 4px 16px;
         text-transform: uppercase;
-        font-size: var(--mdc-typography-headline6-font-size);
-        font-weight: var(--mdc-typography-headline6-font-weight);
+        font-size: var(--ult-typography-headline6-font-size);
+        font-weight: var(--ult-typography-headline6-font-weight);
 
         &:not(:last-child) {
           margin-right: var(--ult-space);
@@ -32,7 +32,7 @@ import { Component } from '@angular/core';
 
         &:hover,
         &:active {
-          border-bottom: 2px solid var(--mdc-theme-secondary);
+          border-bottom: 2px solid var(--ult-theme-secondary);
         }
       }
     `,
