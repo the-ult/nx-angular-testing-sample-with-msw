@@ -37,6 +37,15 @@
           "libs/movie/feature-movie-detail/**/*.html"
         ]
       }
+    },
+    "component-test": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "libs/movie/feature-movie-detail/cypress.config.ts",
+        "testingType": "component",
+        "skipServe": true,
+        "devServerTarget": "movie-db:build"
+      }
     }
   },
   "tags": ["type:feature", "scope:movie"]
