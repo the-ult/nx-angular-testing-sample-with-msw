@@ -36,7 +36,7 @@ export function parseResponse<T>(schema: ZodType): MonoTypeOperatorFunction<T> {
         const parsed = schema.safeParse(value);
         if (!parsed.success) {
           // Log to service to be informed
-          console.log(parsed.error);
+          console.error(parsed.error);
         }
       }
     },

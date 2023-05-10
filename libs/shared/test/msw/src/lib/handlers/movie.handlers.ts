@@ -23,17 +23,22 @@ export const MOVIE_HANDLERS: RequestHandler[] = [
 
     const pageParameter = Number(url.searchParams.get('page'));
 
-    if (pageParameter === 1) {
+    if (pageParameter === 0 || pageParameter === 1) {
       return HttpResponse.json<Movies>(MoviesPopularPage1);
     }
     if (pageParameter === 2) {
       return HttpResponse.json<Movies>(MoviesPopularPage2);
     }
 
-    return HttpResponse.json<MovieError>({
-      status_code: 34,
-      status_message: `Movies for page: ${pageParameter} not found`,
-    });
+    return HttpResponse.json<MovieError>(
+      {
+        status_code: 34,
+        status_message: `Movies for page: ${pageParameter} not found`,
+      },
+      {
+        status: 404,
+      }
+    );
   }),
 
   /**
