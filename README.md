@@ -2,7 +2,7 @@
 
 ## What
 
-A test/playground based on the amazing [The Movie DB](https://www.themoviedb.org/) to play with the newest [Nx](https://nx.dev) and [Angular](https://angular.io) _'best practices'_ like [Standalone Components](https://angular.io/guide/standalone-components), `Inject()` and plenty more. While following Semantic HTML and newest CSS solutions.
+A Movies DB demo app based on the amazing [The Movie DB](https://www.themoviedb.org/) to play with the newest [Nx](https://nx.dev) and [Angular](https://angular.io) _'best practices'_ like [Standalone Components](https://angular.io/guide/standalone-components), `Inject()` and plenty more. While following Semantic HTML and newest CSS solutions.
 
 And providing the best [VSCode settings](.vscode/settings.json), [VSCode extensions](.vscode/extensions.json) and [ESLint](.eslintrc.json) settings.
 
@@ -17,6 +17,9 @@ Trying to provide a good base for both a learning and as a starter repository.
 
 ## Why
 
+## Screenshots
+
+
 [TODO]
 
 ## Tech / Tools used
@@ -30,18 +33,20 @@ Trying to provide a good base for both a learning and as a starter repository.
 - [MSWjs](https://mswjs.io)
 - [Zod](https://zod.dev/?id=introduction)
 
-## Run
 
-App with mocking:
-
-```
-pnpm start:msw movie-db
-```
-
-OR
+## Setup
 
 ```
-nx mock movie-db
+# Enable pnpm
+$ corepack enable
+
+# Install dependencies
+$ pnpm install
+
+# Start dev server with MSW mocking at localhost:4200
+$ pnpm start:msw movie-db
+# OR
+$ nx mock movie-db
 ```
 
 ### E2E
@@ -56,9 +61,9 @@ OR
 nx e2e movie-db-e2e [--watch --browser=chrome]
 ```
 
-## Resources / Thanks / Shout-outs
+## Credits / Resources / Thanks / Shout-outs
 
-- [The Movie DB](https://www.themoviedb.org)
+- Data provided by [The Movie DB](https://www.themoviedb.org)
 - [Netanel Basal](https://netbasal.medium.com/)
   - Amazing (short) blogposts
   - Creator of [ngneat](https://github.com/ngneat) with great tools like: [Elf](ngneat.github.io/elf/), [Transloco](ngneat.github.io/transloco/), [until-destroy](https://github.com/ngneat/until-destroy) and plenty more.
