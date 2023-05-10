@@ -1,13 +1,15 @@
 import { HttpClientTestingModule, provideHttpClientTesting } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { ENVIRONMENT } from '@ult/shared/data-access';
+import { E2E_MSW_FILE } from '@ult/shared/test/cypress';
 import { ENV_MOCK } from '@ult/shared/test/mocks';
+import { mswBrowserWorker, startMswForBrowser } from '@ult/shared/test/msw';
 import { MountConfig } from 'cypress/angular';
 import { MoviesPage } from './movies.page';
 
 describe(MoviesPage.name, () => {
-  // before(() => waitForServiceWorker);
-  // afterEach(() => serviceWorker.resetHandlers());
+  before(() => startMswForBrowser(E2E_MSW_FILE, '/'));
+  afterEach(() => mswBrowserWorker.resetHandlers());
 
   const config: MountConfig<MoviesPage> = {
     declarations: [],

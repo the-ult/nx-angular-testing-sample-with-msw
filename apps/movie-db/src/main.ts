@@ -39,8 +39,8 @@ bootstrapApplication(AppRoot, {
     {
       provide: ENVIRONMENT_INITIALIZER,
       multi: true,
-      useValue() {
-        inject(MswService).initMswForBrowser();
+      async useValue() {
+        await inject(MswService).initMswForBrowser();
       },
     },
   ],

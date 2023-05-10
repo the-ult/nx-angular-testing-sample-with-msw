@@ -1,4 +1,4 @@
-import { RequestHandler, setupWorker, StartOptions } from 'msw';
+import { setupWorker, StartOptions } from 'msw';
 import { HANDLERS } from '../handlers';
 
 type UnhandledRequestStrategy = StartOptions['onUnhandledRequest'];
@@ -9,18 +9,14 @@ export type Options = {
   scope?: string;
 };
 
-//  TODO ??: => use the promise, so we can wait for it
-// TODO: improve this method => simplify
-export const startMswForBrowser = (
+export const mswBrowserWorker = setupWorker(...HANDLERS);
+
+export const startMswForBrowser = async (
   mswFile = 'mockServiceWorker.js',
   scope = '/',
-  handlers: RequestHandler[] = HANDLERS,
   onUnhandledRequest: UnhandledRequestStrategy = 'bypass'
 ) => {
-  const worker = setupWorker(...handlers);
-
-  // eslint-disable-next-line @typescript-eslint/no-floating-promises
-  worker.start({
+  await mswBrowserWorker.start({
     serviceWorker: {
       url: `${mswFile}`,
       options: {
@@ -35,7 +31,15 @@ export const startMswForBrowser = (
     onUnhandledRequest,
   });
 
-  return { worker };
+  return { mswBrowserWorker };
 
-  // throw new Error('startMswForBrowser can only be used in a browser context');
+  /**
+   * Add the MSW objects to the window, so we can easily use them with Cypress
+   * @see: {@link [MSW Cypress example](https://mswjs.io/docs/api/setup-worker/use#examples)}
+   */
+  // ! FIXME: seems to be needed voor E2E only? Move to Cypress?
+  // ! FIXME: somehow the types do not work yet
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  // window.msw = { graphql, rest, worker: mswBrowserWorker };
 };

@@ -1,1 +1,1 @@
-export { startMswForBrowser } from './browser';
+export { mswBrowserWorker, startMswForBrowser } from './browser';
