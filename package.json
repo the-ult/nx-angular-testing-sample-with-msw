@@ -8,9 +8,9 @@
     "start": "nx serve",
     "build": "nx build",
     "test": "nx test",
-    "lint:fix:all": "nx run-many --all --target=lint --fix --parallel=3 && npm run stylelint:fix",
+    "lint:fix:all": "nx run-many --all --target=lint --fix --parallel=3 && pnpm stylelint:fix",
     "stylelint": "stylelint {apps,libs}/**/**/*.scss",
-    "stylelint:fix": "npm run stylelint --fix",
+    "stylelint:fix": "pnpm stylelint --fix",
     "stylelint:prettier:check": "stylelint-config-prettier-check"
   },
   "private": true,
