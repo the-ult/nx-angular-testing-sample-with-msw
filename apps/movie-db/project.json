@@ -76,18 +76,12 @@
         },
         "development": {
           "browserTarget": "movie-db:build:development"
-        }
-      },
-      "defaultConfiguration": "development"
-    },
-    "mock": {
-      "executor": "@nrwl/angular:webpack-dev-server",
-      "configurations": {
+        },
         "msw": {
           "browserTarget": "movie-db:build:development"
         }
       },
-      "defaultConfiguration": "msw"
+      "defaultConfiguration": "development"
     },
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
