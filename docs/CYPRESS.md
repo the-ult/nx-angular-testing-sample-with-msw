@@ -87,33 +87,52 @@ export const mswResetWorker = () => {
  * @param handlers
  */
 export const mswMock = (handlers: RequestHandler[]): void => {
-  if (Cypress.env('mock') === 'true') {
+  if (Cypress.env('apiMocking') === 'true') {
     Cypress.log({
       name: 'mswMock',
       displayName: '🔐  MOCK THE MSW WORKERS for given handlers',
       autoEnd: true,
     });
-    cy.window().then((win) => {
-      const { worker } = win.msw;
 
-      worker.use(...handlers);
+    cy.window().then((win) => {
+      const { rest, worker } = win.msw;
+
+      // worker.use(rest.get(url, () => HttpResponse.json(data)));
+      worker.use(rest.get(url, (_req, res, ctx) => res(ctx.json(data))));
     });
+  } else {
+    // eslint-disable-next-line no-console, no-restricted-syntax
+    console.info('🛑 !! MOCK ENV is not enabled !!');
   }
 };
 ````
 
 ## app/my-app-e2e
 
-add: `import '@ult/shared/test/cypress';` to `apps/movie-db-e2e/src/support/e2e.ts`;
+add:
 
-<!-- ! FIXME => Add proper way (also with `.env.local` file) -->
+```ts
+import '@ult/shared/test/cypress';
+```
+
+to
+
+```
+apps/movie-db-e2e/src/support/commands.ts
+```
+
+<!-- ! FIXME => Add proper way => ENVIRONMENT.MD -->
 
 ## RUN E2E
 
-Add `--env.apiMocking=true` to enable with mocking
+### Setup ENVIRONMENT for Cypress
+
+See: [Setup Environment](/docs/ENVIRONMENT.md#for-e2e)
+
+Add `--configuration=msw` to enable with mocking
 
 ```
-NX_MSW_API_MOCKING=true nx e2e movie-db-e2e [--watch --browser=chrome]
+nx e2e movie-db-e2e --configuration=msw [--watch --browser=chrome]
 ```
 
 ## BONUS Pro Tip =>

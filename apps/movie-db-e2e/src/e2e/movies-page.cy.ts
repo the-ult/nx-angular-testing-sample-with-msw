@@ -34,7 +34,9 @@ describe('Movies Page', () => {
     /// ---------------------------------------------------------------
     cy.log('CHECK MOVIE LINK');
     /// ---------------------------------------------------------------
-    cy.findAllByTestId('movie-page-media-card').first().click();
+    cy.findAllByTestId(/^movie-page-media-card-/)
+      .first()
+      .click();
     cy.url().should('contain', `/movies/${TEST_DATA.results[0].id}`);
 
     cy.findByText(TEST_DATA.results[0].title).should('be.visible');

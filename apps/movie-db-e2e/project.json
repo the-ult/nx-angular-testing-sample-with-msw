@@ -15,6 +15,9 @@
       "configurations": {
         "production": {
           "devServerTarget": "movie-db:serve:production"
+        },
+        "msw": {
+          "devServerTarget": "movie-db:mock:msw"
         }
       }
     },
@@ -27,6 +30,6 @@
       }
     }
   },
-  "tags": [],
+  "tags": ["scope:test"],
   "implicitDependencies": ["movie-db"]
 }

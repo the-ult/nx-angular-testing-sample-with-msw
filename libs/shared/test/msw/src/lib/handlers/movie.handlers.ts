@@ -1,8 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-return */
 
+// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
 import { MovieError, Movies } from '@ult/movie/data-access';
 import { MoviesPopularPage1, MoviesPopularPage2 } from '@ult/shared/test/mocks';
-import { HttpResponse, RequestHandler, rest } from 'msw';
+import { RequestHandler, rest } from 'msw';
 
 /**
  *
@@ -13,39 +14,50 @@ export const MOVIE_HANDLERS: RequestHandler[] = [
    * Handle the requests for POPULAR Movies
    * @see: https://developers.themoviedb.org/3/movies/get-popular-movies
    */
-  rest.get<never, never, Movies | MovieError>('/movie/popular', ({ request }) => {
-    // rest.get<Movies | MovieError>('/movie/popular', (request, res, ctx) => {
+  /// New MSW API
+  // rest.get<never, never, Movies | MovieError>('/movie/popular', ({ request }) => {
+  //   const url = new URL(request.url);
+
+  //   const pageParameter = Number(url.searchParams.get('page'));
+
+  //   if (pageParameter === 0 || pageParameter === 1) {
+  //     return HttpResponse.json<Movies>(MoviesPopularPage1);
+  //   }
+  //   if (pageParameter === 2) {
+  //     return HttpResponse.json<Movies>(MoviesPopularPage2);
+  //   }
+
+  //   return HttpResponse.json<MovieError>(
+  //     {
+  //       status_code: 34,
+  //       status_message: `Movies for page: ${pageParameter} not found`,
+  //     },
+  //     {
+  //       status: 404,
+  //     }
+  //   );
+  // }),
+  /// OLD/CURRENT API 0.49.x
+  rest.get<Movies | MovieError>('/movie/popular', (request, res, ctx) => {
     const url = new URL(request.url);
 
     const pageParameter = Number(url.searchParams.get('page'));
 
     if (pageParameter === 0 || pageParameter === 1) {
-      return HttpResponse.json<Movies>(MoviesPopularPage1);
-      // return res(ctx.json(MoviesPopularPage1));
+      return res(ctx.json(MoviesPopularPage1));
     }
     if (pageParameter === 2) {
-      return HttpResponse.json<Movies>(MoviesPopularPage2);
-      // return res(ctx.json(MoviesPopularPage2));
+      return res(ctx.json(MoviesPopularPage2));
     }
 
-    return HttpResponse.json<MovieError>(
-      {
-        status_code: 34,
-        status_message: `Movies for page: ${pageParameter} not found`,
-      },
-      {
-        status: 404,
-      }
+    return res(
+      // Send a valid HTTP status code
+      ctx.status(404),
+      // And a response body, if necessary
+      ctx.json({
+        errorMessage: `Movies for page: ${pageParameter} not found`,
+      })
     );
-
-    // return res(
-    //   // Send a valid HTTP status code
-    //   ctx.status(404),
-    //   // And a response body, if necessary
-    //   ctx.json({
-    //     errorMessage: `Movies for page: ${pageParameter} not found`,
-    //   })
-    // );
   }),
 
   /**

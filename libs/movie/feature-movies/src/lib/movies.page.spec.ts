@@ -1,9 +1,8 @@
 import { HttpClientModule } from '@angular/common/http';
 import { render, screen, within } from '@testing-library/angular';
-import { MovieError, Movies } from '@ult/movie/data-access';
 import { ENVIRONMENT } from '@ult/shared/data-access';
 import { ENV_MOCK } from '@ult/shared/test/mocks';
-import { HttpResponse, mswServer, rest } from '@ult/shared/test/msw/server';
+import { mswServer, rest } from '@ult/shared/test/msw/server';
 
 /**
  * Sadly Jest (still) does not properly support ES Modules.
@@ -22,10 +21,14 @@ import { MoviesPage } from './movies.page';
 describe('MoviesPage', () => {
   it('should show all movies in cards', async () => {
     mswServer.use(
-      rest.get<never, never, Movies | MovieError>('http://localhost:4200/movie/popular', () =>
-        HttpResponse.json<Movies>(TEST_DATA)
-      )
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+      rest.get('http://localhost:4200/movie/popular', (_req, res, ctx) => res(ctx.json(TEST_DATA)))
     );
+    // mswServer.use(
+    //   rest.get<never, never, Movies | MovieError>('http://localhost:4200/movie/popular', () =>
+    //     HttpResponse.json<Movies>(TEST_DATA)
+    //   )
+    // );
 
     await render(MoviesPage, {
       imports: [HttpClientModule],

@@ -4,7 +4,7 @@ declare namespace Cypress {
   interface Chainable<Subject> {}
 }
 
-import { DefaultBodyType, HttpResponse } from 'msw';
+import { DefaultBodyType } from 'msw';
 
 /**
  * Reset the msw mock server
@@ -54,7 +54,8 @@ export const mswMock = (url: string, data: DefaultBodyType): void => {
     cy.window().then((win) => {
       const { rest, worker } = win.msw;
 
-      worker.use(rest.get(url, () => HttpResponse.json(data)));
+      // worker.use(rest.get(url, () => HttpResponse.json(data)));
+      worker.use(rest.get(url, (_req, res, ctx) => res(ctx.json(data))));
     });
   } else {
     // eslint-disable-next-line no-console, no-restricted-syntax
