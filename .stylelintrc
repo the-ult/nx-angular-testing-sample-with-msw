@@ -1,9 +1,5 @@
 {
-  "extends": [
-    "stylelint-config-standard-scss",
-    "stylelint-8-point-grid",
-    "stylelint-config-prettier"
-  ],
+  "extends": ["stylelint-config-standard-scss", "stylelint-8-point-grid"],
   "plugins": ["stylelint-color-format"],
   "rules": {
     "at-rule-no-unknown": null,
@@ -15,6 +11,7 @@
       }
     ],
     "at-rule-no-vendor-prefix": true,
+    "declaration-property-value-no-unknown": true,
     "max-nesting-depth": 3,
     "media-feature-name-no-vendor-prefix": true,
     "property-no-vendor-prefix": true,
