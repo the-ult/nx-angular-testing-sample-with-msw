@@ -34,12 +34,13 @@ importers:
       '@nrwl/linter': 15.3.3
       '@nrwl/nx-cloud': 15.0.2
       '@nrwl/workspace': 15.3.3
-      '@testing-library/angular': ~12.3.0
+      '@testing-library/angular': ~13.0.0
       '@testing-library/cypress': ~9.0.0
       '@testing-library/jest-dom': ~5.16.5
       '@testing-library/user-event': ~14.4.3
       '@types/jest': 28.1.1
       '@types/node': 18.11.14
+      '@types/testing-library__cypress': 5.0.9
       '@types/testing-library__jest-dom': ~5.14.5
       '@typescript-eslint/eslint-plugin': ~5.46.1
       '@typescript-eslint/parser': ~5.46.1
@@ -61,7 +62,7 @@ importers:
       jest: 28.1.1
       jest-environment-jsdom: 28.1.1
       jest-preset-angular: ~12.2.3
-      msw: 0.49.1
+      msw: 0.49.2
       ng-packagr: ~15.0.3
       nx: 15.3.3
       postcss: ^8.4.20
@@ -117,12 +118,13 @@ importers:
       '@nrwl/linter': 15.3.3_laz75pwsupha2c4axgvhxcpgqu
       '@nrwl/nx-cloud': 15.0.2
       '@nrwl/workspace': 15.3.3_inulksvuwhzgv4fhejozepzeya
-      '@testing-library/angular': 12.3.0_xnbrm64s3edetxspprhhmplatq
+      '@testing-library/angular': 13.0.0_xnbrm64s3edetxspprhhmplatq
       '@testing-library/cypress': 9.0.0_cypress@12.1.0
       '@testing-library/jest-dom': 5.16.5
       '@testing-library/user-event': 14.4.3
       '@types/jest': 28.1.1
       '@types/node': 18.11.14
+      '@types/testing-library__cypress': 5.0.9
       '@types/testing-library__jest-dom': 5.14.5
       '@typescript-eslint/eslint-plugin': 5.46.1_5qsqpdn56f5bnl5stru3tfou6u
       '@typescript-eslint/parser': 5.46.1_6rep66rojmwsn4bfraotajskeu
@@ -144,7 +146,7 @@ importers:
       jest: 28.1.1_bc7tlvhcwewbokgzoddgjsdvnu
       jest-environment-jsdom: 28.1.1
       jest-preset-angular: 12.2.3_3vaecd67oefvsemi5oq6h5vh44
-      msw: 0.49.1_typescript@4.8.4
+      msw: 0.49.2_typescript@4.8.4
       ng-packagr: 15.0.3_5nhoxd6pb43w2b7d476njfe4xm
       nx: 15.3.3
       postcss: 8.4.20
@@ -2495,6 +2497,14 @@ packages:
       '@babel/types': 7.20.5
       esutils: 2.0.3
 
+  /@babel/runtime-corejs3/7.20.6:
+    resolution: {integrity: sha512-tqeujPiuEfcH067mx+7otTQWROVMKHXEaOQcAeNV5dDdbPWvPcFA8/W9LXw2NfjNmOetqLl03dfnG2WALPlsRQ==}
+    engines: {node: '>=6.9.0'}
+    dependencies:
+      core-js-pure: 3.26.1
+      regenerator-runtime: 0.13.11
+    dev: true
+
   /@babel/runtime/7.20.1:
     resolution: {integrity: sha512-mrzLkl6U9YLF8qpqI7TB82PESyEGjm/0Ly91jG575eVxMMlb8fYfOXFZIJ8XfLrJZQbm7dlKry2bJmXBUEkdFg==}
     engines: {node: '>=6.9.0'}
@@ -3448,6 +3458,17 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
+  /@jest/types/26.6.2:
+    resolution: {integrity: sha512-fC6QCp7Sc5sX6g8Tvbmj4XUTbyrik0akgRy03yjXbQaBWWNWGE7SGtJk98m0N8nzegD/7SggrUlivxo5ax4KWQ==}
+    engines: {node: '>= 10.14.2'}
+    dependencies:
+      '@types/istanbul-lib-coverage': 2.0.4
+      '@types/istanbul-reports': 3.0.1
+      '@types/node': 18.11.14
+      '@types/yargs': 15.0.14
+      chalk: 4.1.2
+    dev: true
+
   /@jest/types/28.1.3:
     resolution: {integrity: sha512-RyjiyMUZrKz/c+zlMFO1pm70DcIlST8AeWTkoUdZevew44wcNZQHsEVOiCVtgVnlFFD82FPaXycys58cf2muVQ==}
     engines: {node: ^12.13.0 || ^14.15.0 || ^16.10.0 || >=17.0.0}
@@ -4167,13 +4188,13 @@ packages:
       - supports-color
     dev: true
 
-  /@testing-library/angular/12.3.0_xnbrm64s3edetxspprhhmplatq:
-    resolution: {integrity: sha512-T9uytwsao/7ByfZFJOj98ebotCobedMfcQLGmswPdVwrOXMM0R6LIAsArJQBnyC27j+IDlJ6+USTPBwuKbrdiA==}
+  /@testing-library/angular/13.0.0_xnbrm64s3edetxspprhhmplatq:
+    resolution: {integrity: sha512-8q7o2XhyEc4VczYiHMAVkh4oSJUaV/cZeklSzR5wa8JXPTmkJVAwH8WEXEpe+OvX+Fa2ZUIG5jbkeIIHGTKCSA==}
     peerDependencies:
-      '@angular/common': '>= 14.0.0'
-      '@angular/core': '>= 14.0.0'
-      '@angular/platform-browser': '>= 14.0.0'
-      '@angular/router': '>= 14.0.0'
+      '@angular/common': '>= 14.1.0'
+      '@angular/core': '>= 14.1.0'
+      '@angular/platform-browser': '>= 14.1.0'
+      '@angular/router': '>= 14.1.0'
     dependencies:
       '@angular/common': 15.0.3_t36irnboizi3fmcfpq7ninqjea
       '@angular/core': 15.0.3_rxjs@7.6.0+zone.js@0.12.0
@@ -4192,6 +4213,20 @@ packages:
       '@babel/runtime': 7.20.6
       '@testing-library/dom': 8.19.0
       cypress: 12.1.0
+    dev: true
+
+  /@testing-library/dom/7.31.2:
+    resolution: {integrity: sha512-3UqjCpey6HiTZT92vODYLPxTBWlM8ZOOjr3LX5F37/VRipW2M1kX6I/Cm4VXzteZqfGfagg8yXywpcOgQBlNsQ==}
+    engines: {node: '>=10'}
+    dependencies:
+      '@babel/code-frame': 7.18.6
+      '@babel/runtime': 7.20.6
+      '@types/aria-query': 4.2.2
+      aria-query: 4.2.2
+      chalk: 4.1.2
+      dom-accessibility-api: 0.5.14
+      lz-string: 1.4.4
+      pretty-format: 26.6.2
     dev: true
 
   /@testing-library/dom/8.19.0:
@@ -4502,6 +4537,13 @@ packages:
     resolution: {integrity: sha512-ipixuVrh2OdNmauvtT51o3d8z12p6LtFW9in7U79der/kwejjdNchQC5UMn5u/KxNoM7VHHOs/l8KS8uHxhODQ==}
     dev: true
 
+  /@types/testing-library__cypress/5.0.9:
+    resolution: {integrity: sha512-WTiIZhZKWDnV+Tgo42pxff8YfHdmaNFQz/bFoTlmfw2vbXcstCcb39VRaRi5yFHj/lb7t3K47btKYEbR1fci+Q==}
+    dependencies:
+      '@testing-library/dom': 7.31.2
+      cypress: 12.1.0
+    dev: true
+
   /@types/testing-library__jest-dom/5.14.5:
     resolution: {integrity: sha512-SBwbxYoyPIvxHbeHxTZX2Pe/74F/tX2/D3mMvzabdeJ25bBojfW0TyB8BHrbq/9zaaKICJZjLP+8r6AeZMFCuQ==}
     dependencies:
@@ -4548,6 +4590,12 @@ packages:
 
   /@types/yargs-parser/21.0.0:
     resolution: {integrity: sha512-iO9ZQHkZxHn4mSakYV0vFHAVDyEOIJQrV2uZ06HxEPcx+mt8swXoZHIbaaJ2crJYFfErySgktuTZ3BeLz+XmFA==}
+
+  /@types/yargs/15.0.14:
+    resolution: {integrity: sha512-yEJzHoxf6SyQGhBhIYGXQDSCkJjB6HohDShto7m8vaKg9Yp0Yn8+71J9eakh2bnPg6BfsH9PRMhiRTZnd4eXGQ==}
+    dependencies:
+      '@types/yargs-parser': 21.0.0
+    dev: true
 
   /@types/yargs/17.0.15:
     resolution: {integrity: sha512-ZHc4W2dnEQPfhn06TBEdWaiUHEZAocYaiVMfwOipY5jcJt/251wVrKCBWBetGZWO5CF8tdb7L3DmdxVlZ2BOIg==}
@@ -5275,6 +5323,14 @@ packages:
 
   /argparse/2.0.1:
     resolution: {integrity: sha512-8+9WqebbFzpX9OR+Wa6O29asIogeRMzcGtAINdpMHHyAg10f05aSFVBbcEqGf/PXw1EjAZ+q2/bEBg3DvurK3Q==}
+
+  /aria-query/4.2.2:
+    resolution: {integrity: sha512-o/HelwhuKpTj/frsOsbNLNgnNGVIFsVP/SW2BSF14gVl7kAfMOJ6/8wUAUvG1R1NHKrfG+2sHZTu0yauT1qBrA==}
+    engines: {node: '>=6.0'}
+    dependencies:
+      '@babel/runtime': 7.20.6
+      '@babel/runtime-corejs3': 7.20.6
+    dev: true
 
   /aria-query/5.1.3:
     resolution: {integrity: sha512-R5iJ5lkuHybztUfuOAznmboyjWq8O6sqNqtK7CLOqdydi54VNbORp49mb14KbWgG1QD3JFO9hJdZ+y4KutfdOQ==}
@@ -6397,6 +6453,11 @@ packages:
     resolution: {integrity: sha512-622/KzTudvXCDLRw70iHW4KKs1aGpcRcowGWyYJr2DEBfRrd6hNJybxSWJFuZYD4ma86xhrwDDHxmDaIq4EA8A==}
     dependencies:
       browserslist: 4.21.4
+
+  /core-js-pure/3.26.1:
+    resolution: {integrity: sha512-VVXcDpp/xJ21KdULRq/lXdLzQAtX7+37LzpyfFM973il0tWSsDEoyzG38G14AjTpK9VTfiNM9jnFauq/CpaWGQ==}
+    requiresBuild: true
+    dev: true
 
   /core-util-is/1.0.2:
     resolution: {integrity: sha512-3lqz5YjWTYnW6dlDa5TLaTCcShfar1e40rmcJVwCBJC6mWlFuj0eCHIElmG1g5kyuJ/GD+8Wn4FFCcz4gJPfaQ==}
@@ -10943,8 +11004,8 @@ packages:
   /ms/2.1.3:
     resolution: {integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==}
 
-  /msw/0.49.1_typescript@4.8.4:
-    resolution: {integrity: sha512-JpIIq4P65ofj0HVmDMkJuRwgP9s5kcdutpZ15evMTb2k91/USB7IKWRLV9J1Mzc3OqTdwNj4RwtOWJ5y/FulQQ==}
+  /msw/0.49.2_typescript@4.8.4:
+    resolution: {integrity: sha512-70/E10f+POE2UmMw16v8PnKatpZplpkUwVRLBqiIdimpgaC3le7y2yOq9JmOrL15jpwWM5wAcPTOj0f550LI3g==}
     engines: {node: '>=14'}
     hasBin: true
     requiresBuild: true
@@ -12619,6 +12680,16 @@ packages:
     dependencies:
       lodash: 4.17.21
       renderkid: 3.0.0
+
+  /pretty-format/26.6.2:
+    resolution: {integrity: sha512-7AeGuCYNGmycyQbCqd/3PWH4eOoX/OiCa0uphp57NVTeAGdJGaAliecxwBDHYQCIvrW7aDBZCYeNTP/WX69mkg==}
+    engines: {node: '>= 10'}
+    dependencies:
+      '@jest/types': 26.6.2
+      ansi-regex: 5.0.1
+      ansi-styles: 4.3.0
+      react-is: 17.0.2
+    dev: true
 
   /pretty-format/27.5.1:
     resolution: {integrity: sha512-Qb1gy5OrP5+zDf2Bvnzdl3jsTf1qXVMazbvCoKhtKqVs4/YK4ozX4gKQJJVyNe+cajNPn0KoC0MC3FUmaHWEmQ==}

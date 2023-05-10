@@ -10,7 +10,11 @@
     - https://timdeschryver.dev/blog/how-zod-fixture-can-help-with-your-test-setups
     - https://timdeschryver.dev/blog/using-zod-fixture-with-msw-to-generate-mocked-api-responses
 
-!! Nadelen Mocks beschrijven
+## Why Use MSWjs: (See -> https://www.capocaccia.dev/posts/cypressMsw)
+
+> The cy.intercept API is fantastic. However, it is an API that is specific to Cypress. When using MSW, we do lose some functionality of cy.intercept. However, we gain the ability to use a single library in Unit tests, End-to-End tests, and our applications UI. See, MSW is not only a testing tool. It is a standalone network request mocking library. That means we can develop an entire UI and scaffold out a backend API using mock data.
+
+## !! Nadelen Mocks beschrijven
 
 - Wat als je API/data wijzigt?
 - Kunnen we dat checken? -> Echte API calls en ZOD?

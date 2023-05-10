@@ -6,7 +6,8 @@ import { MountConfig } from 'cypress/angular';
 import { MoviesPage } from './movies.page';
 
 describe(MoviesPage.name, () => {
-  // before(() => startMswForBrowser());
+  // before(() => waitForServiceWorker);
+  // afterEach(() => serviceWorker.resetHandlers());
 
   const config: MountConfig<MoviesPage> = {
     declarations: [],

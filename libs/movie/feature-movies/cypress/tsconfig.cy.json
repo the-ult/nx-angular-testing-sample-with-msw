@@ -4,10 +4,10 @@
     "outDir": "../../../../dist/out-tsc",
     "module": "es2022",
     "types": [
-      "cypress",
       "node",
+      "cypress",
       "@testing-library/cypress",
-      "../../../../libs/shared/test/cypress/types"
+      "../../../../shared/test/cypress/types"
     ]
   },
   "include": [

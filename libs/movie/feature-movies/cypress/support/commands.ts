@@ -1,46 +1,32 @@
-/// <reference types="cypress" />
 import '@testing-library/cypress/add-commands';
+import { HANDLERS } from '@ult/shared/test/msw';
+
+import { setupWorker } from 'msw';
 
 // import '@ult/shared/test/cypress';
 import { mount } from 'cypress/angular';
 
-// ***********************************************
-// This example commands.ts shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
+///-----------------------------------------------------------------
+/// SETUP MSW
+///-----------------------------------------------------------------
+const MSW_FILE = '/__cypress/src/mockServiceWorker.js';
 
-// const MSW_FILE = '/mockServiceWorker.js';
-// const worker = setupWorker(...HANDLERS);
+const serviceWorker = setupWorker(...HANDLERS);
 
-// before((done) => {
-//   worker
-//     .start({
-//       serviceWorker: {
-//         url: `${MSW_FILE}`,
-//         options: {
-//           // Narrow the scope of the Service Worker to intercept requests
-//           // only from pages under this path.
-//           scope: '/__cypress/src/',
-//           // scope: '/',
-//         },
-//       },
-//       findWorker: (scriptURL) => scriptURL.includes(MSW_FILE),
-//       onUnhandledRequest: (req) => {
-//         if (!req.url.pathname.includes('__cypress') && !req.url.pathname.includes('static')) {
-//           console.error('Unhandled Request:', req);
-//           throw new Error('Unhandled Request');
-//         }
-//       },
-//     })
-//     .then(() => done());
-// });
+before(() =>
+  serviceWorker.start({
+    serviceWorker: {
+      url: MSW_FILE,
+      options: {
+        scope: '/',
+      },
+    },
+  })
+);
 
-// afterEach(() => worker.resetHandlers());
+afterEach(() => serviceWorker.resetHandlers());
+
+///-----------------------------------------------------------------
 
 declare global {
   // eslint-disable-next-line @typescript-eslint/no-namespace
@@ -53,15 +39,3 @@ declare global {
 }
 
 Cypress.Commands.add('mount', mount);
-
-//
-// -- This is a child command --
-// Cypress.Commands.add("drag", { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add("dismiss", { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })

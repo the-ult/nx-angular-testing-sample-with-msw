@@ -12,10 +12,10 @@ export type Options = {
 //  TODO ??: => use the promise, so we can wait for it
 // TODO: improve this method => simplify
 export const startMswForBrowser = (
-  handlers: RequestHandler[] = HANDLERS,
   mswFile = 'mockServiceWorker.js',
-  onUnhandledRequest: UnhandledRequestStrategy = 'bypass',
-  scope = '/'
+  scope = '/',
+  handlers: RequestHandler[] = HANDLERS,
+  onUnhandledRequest: UnhandledRequestStrategy = 'bypass'
 ) => {
   const worker = setupWorker(...handlers);
 
