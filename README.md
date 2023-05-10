@@ -2,11 +2,11 @@
 
 ## What
 
-A test/playground to play with the newest [Nx](https://nx.dev) and [Angular](https://angular.io) 'best practices' like Stand Alone Components, `Inject()` and plenty more.
+A test/playground based on the amazing [The Movie DB](https://www.themoviedb.org/) to play with the newest [Nx](https://nx.dev) and [Angular](https://angular.io) _'best practices'_ like [Standalone Components](https://angular.io/guide/standalone-components), `Inject()` and plenty more. While following Semantic HTML and newest CSS solutions.
 
 Using tools like: [Cypress](https://cypress.io), [MSWjs](https://mswjs.io), [Zod](https://zod.dev/?id=introduction) and others.
 
-Trying to provide a good base for both learning and as a starter repository.
+Trying to provide a good base for both a learning and as a starter repository.
 
 ## Why
 
@@ -26,7 +26,6 @@ Trying to provide a good base for both learning and as a starter repository.
 ## Resources / Thanks / Shout-outs
 
 - [The Movie DB](https://www.themoviedb.org)
-- [The ultimate guide to style content projection in Angular](https://kevinkreuzer.medium.com/the-ultimate-guide-to-style-projected-content-in-angular-731c0721902f)
 - [Netanel Basal](https://netbasal.medium.com/)
   - Amazing (short) blogposts
   - Creator of [ngneat](https://github.com/ngneat) with great tools like: [Elf](ngneat.github.io/elf/), [Transloco](ngneat.github.io/transloco/), [until-destroy](https://github.com/ngneat/until-destroy) and plenty more.
@@ -35,3 +34,14 @@ Trying to provide a good base for both learning and as a starter repository.
 - [Kent C. Dodds](https://kentcdodds.com/blog?q=testing)
   - Creator of Testing Library
   - Testing Jedi
+- And of course the amazing teams and community of [@Angular](https://www.angular.io) and [Nx](https://nx.dev)!
+
+## Things I would like to add
+
+- [ ] [@ngrx/component-store](https://ngrx.io/guide/component-store) or [@ngneat/elf](https://ngneat.github.io/elf/)
+- [ ] [Playwright tests](https://playwright.dev/)
+- [ ] New App with [GraphQL Yoga](https://the-guild.dev/graphql/yoga-server) and TypedDocumentNode
+- [ ] Separate branches / forks (Or.. since it is a mono-repo in the same repo) for:
+  - [ ] Build with ESBuild
+  - [ ] Vite
+  - [ ] [Rome](https://rome.tools/)
