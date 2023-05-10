@@ -1,0 +1,32 @@
+{
+  "name": "movie-db-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/movie-db-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "tsConfig": "apps/movie-db-e2e/tsconfig.json",
+        "cypressConfig": "apps/movie-db-e2e/cypress.config.ts",
+        "devServerTarget": "movie-db:serve:development",
+        "testingType": "e2e"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "movie-db:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "tsConfig": "apps/movie-db-e2e/tsconfig.json",
+        "lintFilePatterns": ["apps/movie-db-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["movie-db"]
+}

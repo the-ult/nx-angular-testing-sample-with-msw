@@ -1,0 +1,170 @@
+{
+  "root": true,
+  "ignorePatterns": ["**/*"],
+  "plugins": ["@nrwl/nx"],
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+      "rules": {
+        "@nrwl/nx/enforce-module-boundaries": [
+          "error",
+          {
+            "enforceBuildableLibDependency": true,
+            "allow": [],
+            "depConstraints": [
+              {
+                "sourceTag": "*",
+                "onlyDependOnLibsWithTags": ["*"]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "files": ["*.ts", "*.tsx"],
+      "extends": [
+        "plugin:@nrwl/nx/typescript",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking",
+        "plugin:unicorn/recommended"
+      ],
+      "rules": {
+        "no-console": "warn",
+        "no-unused-vars": "off",
+        "no-await-in-loop": "error",
+        "no-promise-executor-return": "error",
+        "require-atomic-updates": "error",
+        "max-nested-callbacks": ["error", 3],
+        "no-return-await": "error",
+        "prefer-promise-reject-errors": "error",
+        "unicorn/prevent-abbreviations": [
+          "error",
+          {
+            "ignore": [
+              "\\.e2e$",
+              "\\.prod$",
+              "args",
+              "ctx",
+              "dialogRef",
+              "e2e",
+              "env",
+              "i18n",
+              "req",
+              "res"
+            ]
+          }
+        ],
+        "unicorn/prefer-top-level-await": "off"
+      }
+    },
+    {
+      "files": ["*.ts"],
+      "extends": ["plugin:@nrwl/nx/angular"],
+      "rules": {
+        "@angular-eslint/component-class-suffix": [
+          "error",
+          {
+            "suffixes": ["Component", "Container", "Dialog", "Form", "Layout", "Page", "Root"]
+          }
+        ]
+      }
+    },
+    {
+      "files": ["*.ts"],
+      "parser": "@typescript-eslint/parser",
+      "parserOptions": {
+        "ecmaVersion": 2019,
+        "project": ["tsconfig.*?.json"],
+        "sourceType": "module"
+      },
+      "plugins": ["rxjs-angular"],
+      "extends": ["plugin:rxjs/recommended"],
+      "rules": {
+        "rxjs-angular/prefer-async-pipe": "error",
+        "rxjs/finnish": [
+          "error",
+          {
+            "types": {
+              "^EventEmitter$": false,
+              "^Subject$": false,
+              "^BehaviorSubject$": false
+            }
+          }
+        ],
+        "rxjs/prefer-observer": "error",
+        "rxjs/no-topromise": "error",
+        "rxjs/no-exposed-subjects": "error",
+        "rxjs/no-subject-value": "error",
+        "rxjs/no-unsafe-first": ["error", { "observable": "[Aa]ction(s|s\\$|\\$)$" }],
+        "rxjs/no-unsafe-takeuntil": [
+          "error",
+          {
+            "alias": ["untilDestroyed", "take", "first"]
+          }
+        ],
+        "rxjs/suffix-subjects": [
+          "error",
+          {
+            "parameters": true,
+            "properties": true,
+            "suffix": "Subject",
+            "types": {
+              "^EventEmitter$": false
+            },
+            "variables": true
+          }
+        ],
+        "rxjs/throw-error": "error"
+      }
+    },
+    {
+      "files": ["*.js", "*.jsx"],
+      "extends": ["plugin:@nrwl/nx/javascript"],
+      "rules": {}
+    },
+    {
+      "files": ["*.spec.ts", "*.spec.tsx", "*.spec.js", "*.spec.jsx"],
+      "env": {
+        "jest": true
+      },
+      "rules": {}
+    },
+    {
+      "files": ["*.spec.ts"],
+      "env": {
+        "jest": true
+      },
+      "extends": [
+        "plugin:jest/recommended",
+        "plugin:jest/style",
+        "plugin:testing-library/angular",
+        "plugin:jest-dom/recommended"
+      ],
+      "rules": {
+        "@typescript-eslint/no-unsafe-call": "off",
+        "@typescript-eslint/unbound-method": "off",
+        "jest/consistent-test-it": ["error"],
+        "jest/unbound-method": "error",
+        "testing-library/prefer-explicit-assert": "error"
+      }
+    },
+    {
+      "files": ["**/*.cy.ts", "**/*.command.ts"],
+      "plugins": ["ui-testing", "jest"],
+      "extends": ["plugin:cypress/recommended", "plugin:ui-testing/cypress"],
+      "rules": {
+        "@typescript-eslint/explicit-function-return-type": "off",
+        "@typescript-eslint/no-explicit-any": "warn",
+        "@typescript-eslint/no-unsafe-call": "off",
+        "@typescript-eslint/no-unsafe-member-access": "off",
+        "@typescript-eslint/no-unsafe-return": "off",
+        "@typescript-eslint/unbound-method": "off",
+        "jest/unbound-method": "error",
+        "max-nested-callbacks": ["error", 5],
+        // does not make sense in Cypress world
+        "promise/prefer-await-to-then": "off",
+        "ui-testing/missing-assertion-in-test": "off"
+      }
+    }
+  ]
+}

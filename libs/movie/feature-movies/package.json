@@ -1,0 +1,11 @@
+{
+  "name": "@ult/movie/feature-movies",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "*",
+    "@angular/core": "*"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  }
+}

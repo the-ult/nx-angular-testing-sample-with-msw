@@ -1,0 +1,46 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": ".",
+    "rootDir": ".",
+    "allowSyntheticDefaultImports": true,
+    "declaration": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": true,
+    "importHelpers": true,
+    "lib": ["ES2022", "dom"],
+    "module": "esnext",
+    "moduleResolution": "node",
+    "pretty": true,
+    "resolveJsonModule": true,
+    "skipDefaultLibCheck": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "target": "es2022",
+    "strict": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "paths": {
+      "@ult/movie/data-access": ["libs/movie/data-access/src/index.ts"],
+      "@ult/movie/feature-movie-detail": ["libs/movie/feature-movie-detail/src/index.ts"],
+      "@ult/movie/feature-movies": ["libs/movie/feature-movies/src/index.ts"],
+      "@ult/shared/data-access": ["libs/shared/data-access/src/index.ts"],
+      "@ult/shared/test/cypress": ["libs/shared/test/cypress/src/index.ts"],
+      "@ult/shared/test/mocks": ["libs/shared/test/mocks/src/index.ts"],
+      "@ult/shared/test/msw": ["libs/shared/test/msw/src/index.ts"],
+      "@ult/shared/ui/*": ["libs/shared/ui/*"],
+      "@ult/shared/utils": ["libs/shared/utils/src/index.ts"]
+    }
+  },
+  "angularCompilerOptions": {
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
+  },
+  "exclude": ["node_modules", "tmp"]
+}

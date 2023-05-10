@@ -1,0 +1,10 @@
+:root {
+  --ult-radius-small: 4px;
+  --ult-radius-medium: 8px;
+  --ult-radius-round: 50%;
+  --ult-imageBorderRadius: 8px;
+
+  // TODO: add different widths and use them with container-queries
+  // --ult-page-width: 100em;
+  --ult-page-width: min(95%, 70rem);
+}

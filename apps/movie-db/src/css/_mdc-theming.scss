@@ -1,0 +1,27 @@
+@use '@material/theme';
+@use '@material/typography/mdc-typography';
+
+// Overwrite the https://m2.material.io/develop/web/guides/typography
+html {
+  --mdc-typography-font-family: 'Roboto Flex', sans-serif;
+
+  // --mdc-theme-text-primary-on-light: #000;
+  // --mdc-theme-text-primary-on-dark: #fff;
+  // --mdc-theme-on-primary
+
+  /// THEME
+  --mdc-theme-primary: hsl(207deg 91.2% 13%);
+  --mdc-theme-secondary: hsl(193deg 99% 45%);
+  --mdc-theme-text-primary-on-dark: hsl(0deg 0% 100%);
+
+  /// https://m2.material.io/develop/web/theming/color
+  //    --mdc-theme-primary	The theme primary color
+  // --mdc-theme-secondary	The theme secondary color
+  // --mdc-theme-background	The theme background color
+  // --mdc-theme-surface	The theme surface color
+  // --mdc-theme-on-primary	Text color on top of a primary background
+  // --mdc-theme-on-secondary	Text color on top of a secondary background
+  // --mdc-theme-on-surface	Text color on top of a surface background
+  // --mdc-theme-text-<TEXT_STYLE>-on-light	Text color for TEXT_STYLE on top of light background. Please see Text styles section.
+  // --mdc-theme-text-<TEXT_STYLE>-on-dark	Text color for TEXT_STYLE on top of dark background. Please see Text styles section.
+}

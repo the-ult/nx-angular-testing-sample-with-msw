@@ -1,0 +1,12 @@
+:host {
+  display: block;
+  padding-bottom: var(--ult-space-xl);
+}
+
+section {
+  display: grid;
+  gap: var(--ult-space-xl);
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+
+  // grid-auto-flow: dense;
+}

@@ -1,0 +1,26 @@
+{
+  "name": "shared-test-cypress",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/shared/test/cypress/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/shared/cypress",
+        "main": "libs/shared/cypress/src/index.ts",
+        "tsConfig": "libs/shared/cypress/tsconfig.lib.json",
+        "assets": ["libs/shared/cypress/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/shared/test/cypress/**/*.ts"]
+      }
+    }
+  },
+  "tags": ["scope:shared", "type:test"]
+}
