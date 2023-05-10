@@ -42,6 +42,7 @@ Trying to provide a good base for both a learning and as a starter repository.
 
 ## Things I would like to add
 
+- [ ] Do not use image url's while testing (add images to mock assets)
 - [ ] [@ngrx/component-store](https://ngrx.io/guide/component-store) or [@ngneat/elf](https://ngneat.github.io/elf/)
 - [ ] [Playwright tests](https://playwright.dev/)
 - [ ] New App with [GraphQL Yoga](https://the-guild.dev/graphql/yoga-server) and TypedDocumentNode
@@ -49,3 +50,4 @@ Trying to provide a good base for both a learning and as a starter repository.
   - [ ] Build with ESBuild
   - [ ] Vite
   - [ ] [Rome](https://rome.tools/)
+- [ ] Create an app with [SvelteKit](https://kit.svelte.dev/)

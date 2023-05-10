@@ -1,1 +1,2 @@
-export { mswBrowserWorker, startMswForBrowser } from './browser';
+export { graphql, rest } from 'msw';
+export { startMswForBrowser, worker } from './browser';

@@ -8,7 +8,7 @@
     "start:msw": "nx mock",
     "build": "nx build",
     "test": "nx test --runInBand",
-    "e2e:msw": "nx e2e movie-db-e2e --configuration=msw --watch --browser=chrome",
+    "e2e:msw": "nx e2e movie-db-e2e --watch --browser=chrome",
     "lint:fix:all": "nx run-many --all --target=lint --fix --parallel=3 && pnpm stylelint:prettier:check && pnpm stylelint:fix",
     "stylelint": "stylelint {apps,libs}/**/**/*.scss",
     "stylelint:fix": "pnpm stylelint --fix",

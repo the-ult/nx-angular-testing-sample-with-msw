@@ -1,4 +1,5 @@
 import { Movies } from '@ult/movie/data-access';
+import { mswMock, mswResetWorkerHandlers } from '@ult/shared/test/cypress';
 import { MoviesPopularPage2 } from '@ult/shared/test/mocks';
 
 const TEST_DATA: Movies = MoviesPopularPage2;
@@ -8,11 +9,12 @@ describe('Movies Page', () => {
     cy.visit('/');
   });
 
-  // after(() => mswResetWorker());
+  afterEach(() => mswResetWorkerHandlers());
+  // afterEach(() => worker.resetHandlers());
 
   it('should display welcome message', () => {
-    /// Override the default mock-data and use the page 2 data
-    // mswMock('movie/popular', TEST_DATA);
+    /// Override the default mock-data and use the page 2 data, to show how to use mswMock
+    mswMock('movie/popular', TEST_DATA);
 
     cy.url().should('contain', `/movies`);
 

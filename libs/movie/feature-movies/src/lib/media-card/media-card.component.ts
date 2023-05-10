@@ -10,7 +10,7 @@ import { UserScoreComponent } from '@ult/shared/ui/user-score';
   standalone: true,
   imports: [NgOptimizedImage, RouterLinkWithHref, UserScoreComponent, DatePipe],
   template: `
-    <a [routerLink]="['movies/', mediaData.id]">
+    <a [routerLink]="['/movies', mediaData.id]">
       <img
         [alt]="mediaData.title"
         [ngSrc]="ENV.url.img + mediaData.poster_path"

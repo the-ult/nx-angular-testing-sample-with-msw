@@ -10,16 +10,13 @@ import { DefaultBodyType } from 'msw';
  * Reset the msw mock server
  *
  */
-export const mswResetWorker = () => {
+export const mswResetWorkerHandlers = () => {
   Cypress.log({
     name: 'mswResetWorker',
     displayName: '🔐  RESET THE MSW WORKERS',
     autoEnd: true,
   });
 
-  // ! TODO: somehow we always have to get the worker from the window
-  // ! instead of just importing it.
-  // ! afterEach(() => worker.resetHandlers());
   cy.window().then((win) => {
     const { worker } = win.msw;
     worker.resetHandlers();
@@ -52,6 +49,7 @@ export const mswMock = (url: string, data: DefaultBodyType): void => {
     });
 
     cy.window().then((win) => {
+      // Reference global instances set in "src/mocks.js".
       const { rest, worker } = win.msw;
 
       // worker.use(rest.get(url, () => HttpResponse.json(data)));
