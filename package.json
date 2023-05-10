@@ -25,7 +25,7 @@
     "@angular/platform-browser-dynamic": "15.0.0-rc.3",
     "@angular/router": "15.0.0-rc.3",
     "@babel/runtime": "~7.20.1",
-    "@nrwl/angular": "15.0.13",
+    "@nrwl/angular": "15.1.1",
     "rxjs": "~7.5.7",
     "tslib": "^2.4.1",
     "zod": "~3.19.1",
@@ -40,13 +40,13 @@
     "@angular/compiler-cli": "15.0.0-rc.3",
     "@angular/language-service": "15.0.0-rc.3",
     "@cypress/webpack-dev-server": "^3.0.1",
-    "@nrwl/cli": "15.0.13",
-    "@nrwl/cypress": "15.0.13",
-    "@nrwl/eslint-plugin-nx": "15.0.13",
-    "@nrwl/jest": "15.0.13",
-    "@nrwl/js": "15.0.13",
-    "@nrwl/linter": "15.0.13",
-    "@nrwl/workspace": "15.0.13",
+    "@nrwl/cli": "15.1.1",
+    "@nrwl/cypress": "15.1.1",
+    "@nrwl/eslint-plugin-nx": "15.1.1",
+    "@nrwl/jest": "15.1.1",
+    "@nrwl/js": "15.1.1",
+    "@nrwl/linter": "15.1.1",
+    "@nrwl/workspace": "15.1.1",
     "@testing-library/cypress": "~8.0.3",
     "@types/jest": "28.1.1",
     "@types/node": "16.11.7",
@@ -70,7 +70,7 @@
     "jest-preset-angular": "~12.2.2",
     "msw": "~0.48.1",
     "ng-packagr": "~14.2.0",
-    "nx": "15.0.13",
+    "nx": "15.1.1",
     "postcss": "^8.4.18",
     "postcss-import": "~15.0.0",
     "postcss-preset-env": "~7.8.2",
@@ -89,3 +89,4 @@
     "workerDirectory": "libs/shared/test/msw/src/assets"
   }
 }
+

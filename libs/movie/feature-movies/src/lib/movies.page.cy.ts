@@ -1,4 +1,5 @@
 import { HttpClientTestingModule, provideHttpClientTesting } from '@angular/common/http/testing';
+import { TestBed } from '@angular/core/testing';
 import { ENVIRONMENT } from '@ult/shared/data-access';
 import { ENV_MOCK } from '@ult/shared/test/mocks';
 import { MountConfig } from 'cypress/angular';
@@ -12,6 +13,7 @@ describe(MoviesPage.name, () => {
     // TODO: use provideHttpClientTesting()
     imports: [HttpClientTestingModule],
     //   TODO: create test ENV
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     providers: [provideHttpClientTesting(), { provide: ENVIRONMENT, useValue: ENV_MOCK }],
   };
 
@@ -20,6 +22,7 @@ describe(MoviesPage.name, () => {
     // /// Override the default mock-data
     // mswMock('movie/popular', TEST_DATA);
 
+    TestBed.overrideComponent(MoviesPage, { add: { providers: config.providers } });
     cy.mount(MoviesPage, config);
 
     /// ---------------------------------------------------------------
