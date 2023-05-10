@@ -1,3 +1,122 @@
 {
+  "files.defaultLanguage": "typescript",
+  "html.autoClosingTags": true,
+  "javascript.autoClosingTags": true,
+  "typescript.autoClosingTags": true,
+
+  /// =========================================================================
+  /// Auto Trim whitespaces
+  /// =========================================================================
+  "files.trimTrailingWhitespace": true,
+  "[markdown]": {
+    "files.trimTrailingWhitespace": false
+  },
+
+  /// =========================================================================
+  /// Rainbow brackets
+  /// =========================================================================
+  "editor.bracketPairColorization.enabled": true,
+  /// =========================================================================
+  // Import
+  /// =========================================================================
+  "javascript.suggest.autoImports": true,
+  "javascript.updateImportsOnFileMove.enabled": "prompt",
+  "typescript.suggest.autoImports": true,
+  "typescript.updateImportsOnFileMove.enabled": "prompt",
+  "editor.codeActionsOnSave": {
+    /// Or set to false if you whish to let ESLint eslint-plugin-import handle this
+    "source.organizeImports": true,
+    "source.fixAll": true,
+    "source.addMissingImports": true
+  },
+
+  /// =========================================================================
+  /// ESLINT
+  /// =========================================================================
+
+  "eslint.options": {
+    "extensions": [".ts", ".html", ".graphql"]
+  },
+
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "graphql",
+    "html"
+  ],
+  /// =========================================================================
+  /// FORMATTING
+  /// =========================================================================
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "prettier.singleQuote": true,
+  "prettier.requireConfig": true,
+  "javascript.format.enable": false,
+  "typescript.format.enable": false,
+  "json.format.enable": false,
+
+  /// =========================================================================
+  /// Stylelint settings
+  /// Disable: linting is handled by stylelint
+  /// =========================================================================
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
+  "scss.lint.important": "warning",
+  "stylelint.enable": true,
+  "[css,scss]": {
+    "editor.suggest.insertMode": "replace"
+  },
+  "stylelint.reportInvalidScopeDisables": true,
+  "stylelint.reportNeedlessDisables": true,
+  "stylelint.validate": [
+    "css",
+    "less",
+    "postcss",
+    "sass",
+    "scss",
+    "source.css.styled",
+    "styled-css"
+  ],
+
+  /// =========================================================================
+  /// CYPRESS settings
+  /// Enables automatic checking with cypress schema
+  /// =========================================================================
+  "json.schemas": [
+    {
+      "fileMatch": ["cypress.json"],
+      "url": "https://on.cypress.io/cypress.schema.json"
+    }
+  ],
+  /// =========================================================================
+  /// FILE NESTING SETTINGS
+  /// https://dzhavat.github.io/2022/02/07/file-nesting-in-vs-code.html
+  /// =========================================================================
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.patterns": {
+    ".gitignore": ".gitattributes, .gitmodules, .gitmessage, .mailmap, .git-blame*",
+    "*.js": "$(capture).js.map, $(capture).min.js, $(capture).d.ts",
+    "*.jsx": "$(capture).js",
+    "*.ts": "$(capture).js, $(capture).*.ts, $(capture).*.graphql",
+    "*.tsx": "$(capture).ts",
+    "angular.json": "ngcc.config.js",
+    "nx.json": "nx.json,decorate-angular-cli.js, .nxignore, workspace.json, ngcc.config.js, migrations.json, angular.json",
+    "NX": "nx.json,decorate-angular-cli.js, .nxignore, workspace.json, ngcc.config.js, migrations.json, angular.json",
+    ".config": ".all-contributorsrc, .editorconfig, .eslintrc*, .eslintignore, .jslint*,  .prettier*, .stylelint*, tslint*, cypress.json, stylelint*,  tsconfig.*, .github*, .gitlab*, .gitpod*, .gitignore, .graphql*, apollo.config.js, karma*,  jest.config.*, openapi*, jest.*, prettier*,  vercel*, vetur.config.*, vitest.config.*, webpack.config.*, xo.config.*, .dockerignore, dockerfile*, .docker*, Dockerfile-*, .commitlint*, commitlint*,",
+    "index.d.ts": "*.d.ts",
+    "shims.d.ts": "*.d.ts",
+    "*.cpp": "$(capture).hpp, $(capture).h, $(capture).hxx",
+    "*.cxx": "$(capture).hpp, $(capture).h, $(capture).hxx",
+    "*.cc": "$(capture).hpp, $(capture).h, $(capture).hxx",
+    "*.c": "$(capture).h",
+    "BUILD.bazel": "*.bzl, *.bazel, *.bazelrc, bazel.rc, .bazelignore, .bazelproject, WORKSPACE",
+    ".env": "*.env, .env*, env.d.ts",
+    "dockerfile": ".dockerignore, dockerfile*, .docker*, Dockerfile-*,",
+    "package.json": ".browserslist*, .circleci*, .codecov,.firebase*, .flowconfig,  .huskyrc*,  .lintstagedrc*, .markdownlint*, .mocha*, .node-version, .nodemon*, .npm*, .nvmrc, .pm2*, .pnp.*, .pnpm*, .releaserc*, .sentry*, .stackblitz*, .styleci*, .tazerc*, .textlint*, .travis*, .vscode*, .watchman*, .xo-config*, .yamllint*, .yarnrc*, api-extractor.json, appveyor*, ava.config.*, azure-pipelines*, bower.json, build.config.*, crowdin*,  dangerfile*, dprint.json, firebase.json, grunt*, gulp*, jasmine.*, jenkins*, jsconfig.*, lerna*, lint-staged*, nest-cli.*, netlify*, nodemon*, package-lock.json, playwright.config.*, pm2.*, pnpm*, pullapprove*, puppeteer.config.*, renovate*, rollup.config.*, tsdoc.*,  tsup.config.*, turbo*, typedoc*, yarn*, .version*",
+    "readme.*": "authors, backers.md, changelog*, citation*, code_of_conduct.md, codeowners, contributing.md, contributors, copying, credits, governance.md, history.md, license*, maintainers, readme*, security.md, sponsors.md"
+  },
+
   "dotenv.enableAutocloaking": false
 }

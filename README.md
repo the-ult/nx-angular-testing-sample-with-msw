@@ -38,6 +38,7 @@ Trying to provide a good base for both a learning and as a starter repository.
 - [Movies App](https://tastejs.com/movies/) - Amazing sample applications for different frameworks.
 - [Versatile Angular - Younes Jaaidi](https://marmicode.io/blog/versatile-angular) - Angular (SFC) with Vite
 - [Analogjs](https://github.com/analogjs/analog) - Amazing all in one framework for Angular by Brandon Roberts. Using Vite
+- [Unnecessary VSCode Extensions](https://javascript.plainenglish.io/unnecessary-vscode-extensions-e72cb637f1cf) - See [VSCode Extension Settings](/.vscode/extensions.json) and [VSCode workspace settings](.vscode/settings.json)
 
 ## Things I would like to add
 
