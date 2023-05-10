@@ -7,7 +7,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   imports: [NgOptimizedImage],
   template: `
     <header>
-      <a href="/" class="logo">
+      <a href="/" class="logo" title="Home" aria-label="Back to Home">
         <img ngSrc="assets/tmdb_logo.svg" alt="The Movie Database (TMDB)" width="154" height="20" />
       </a>
       <nav>

@@ -31,13 +31,13 @@
       "@ult/movie/feature-media-items": ["libs/movie/feature-media-items/src/index.ts"],
       "@ult/movie/feature-movie-detail": ["libs/movie/feature-movie-detail/src/index.ts"],
       "@ult/movie/feature-shell": ["libs/movie/feature-shell/src/index.ts"],
+      "@ult/movie/ui/*": ["libs/movie/ui/*"],
       "@ult/shared/core": ["libs/shared/core/src/index.ts"],
       "@ult/shared/data-access": ["libs/shared/data-access/src/index.ts"],
       "@ult/shared/test/cypress": ["libs/shared/test/cypress/src/index.ts"],
       "@ult/shared/test/mocks": ["libs/shared/test/mocks/src/index.ts"],
       "@ult/shared/test/msw": ["libs/shared/test/msw/src/index.ts"],
       "@ult/shared/test/msw/server": ["libs/shared/test/msw/src/lib/server/index.ts"],
-      "@ult/shared/ui/*": ["libs/shared/ui/*"],
       "@ult/shared/utils": ["libs/shared/utils/src/index.ts"]
     }
   },

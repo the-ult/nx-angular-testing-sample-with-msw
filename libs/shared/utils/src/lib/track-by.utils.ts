@@ -1,4 +1,6 @@
 import { TrackByFunction } from '@angular/core';
+// TODO: we should move these Angular specific utils to a different library.
+// Otherwise when a library uses some utils, `@angular/core` will be bundled as well
 
 /**
  * Easily create a typeSafe `trackBy` Function for your Angular `*ngFor`

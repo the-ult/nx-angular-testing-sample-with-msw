@@ -1,7 +1,7 @@
 import { NgOptimizedImage } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLinkActive, RouterLinkWithHref, RouterOutlet } from '@angular/router';
-import { UltAppBarComponent, UltNavItemComponent } from '@ult/shared/ui/app-bar';
+import { UltAppBarComponent, UltNavItemComponent } from '@ult/movie/ui/app-bar';
 
 @Component({
   standalone: true,
@@ -26,7 +26,8 @@ import { UltAppBarComponent, UltNavItemComponent } from '@ult/shared/ui/app-bar'
       <a
         href="https://github.com/the-ult/angular-nx-playground"
         target="_blank"
-        aria-label="Github repo: tmdb playground"
+        aria-label="Github repo: TMDB playground"
+        title="Github repo: TMDB playground"
       >
         <svg width="20px" height="20px" viewBox="0 0 16 16" fill="currentColor">
           <path
@@ -34,7 +35,12 @@ import { UltAppBarComponent, UltNavItemComponent } from '@ult/shared/ui/app-bar'
           ></path>
         </svg>
       </a>
-      <a href="https://twitter.com/the_ult_dev" target="_blank" aria-label="Follow me on Twitter">
+      <a
+        href="https://twitter.com/the_ult_dev"
+        target="_blank"
+        aria-label="Follow me on Twitter"
+        title="Follow me on Twitter"
+      >
         <svg
           fill="currentColor"
           viewBox="0 0 24 24"
@@ -51,7 +57,7 @@ import { UltAppBarComponent, UltNavItemComponent } from '@ult/shared/ui/app-bar'
       <span class="flex-spacer"></span>
       <div>
         Data provided by:
-        <a href="https://www.themoviedb.org/" target="_blank" aria-label="TMDB">
+        <a href="https://www.themoviedb.org/" target="_blank" aria-label="TMDB" title="TMDB">
           <img
             ngSrc="assets/tmdb_logo.svg"
             aria-label="The Movie Database (TMDB)"
@@ -62,52 +68,6 @@ import { UltAppBarComponent, UltNavItemComponent } from '@ult/shared/ui/app-bar'
       </div>
     </footer>
   `,
-  styles: [
-    `
-      :host {
-        display: block;
-        min-height: 100vh;
-      }
-
-      main {
-        height: calc(100vh - var(--ult-app-bar-height));
-        background-color: var(--ult-theme-background);
-        padding: var(--ult-space-md) 0;
-        margin-inline: auto;
-        margin-top: var(--ult-app-bar-height);
-        // TODO: use media queries
-        max-width: var(--ult-page-width);
-      }
-
-      footer {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        display: flex;
-        align-items: center;
-        color: var(--ult-color-default-contrast);
-        padding: var(--ult-space-md);
-        background-image: linear-gradient(
-          to top right,
-          var(--ult-theme-primary),
-          var(--ult-theme-secondary)
-        );
-        margin-inline: auto;
-        max-width: var(--ult-page-width);
-        border-top-left-radius: var(--ult-radius-small);
-        border-top-right-radius: var(--ult-radius-small);
-
-        a {
-          text-decoration: none;
-          color: inherit;
-          margin-right: var(--ult-space-md);
-          &:hover {
-            color: var(--ult-theme-secondary);
-          }
-        }
-      }
-    `,
-  ],
+  styleUrls: ['./app.root.scss'],
 })
 export class AppRoot {}

@@ -1,7 +1,7 @@
 export type EnvironmentType = 'local' | 'e2e' | 'prd' | 'dev' | 'acc' | 'tst';
 
 export interface EnvironmentBase {
-  [x: string]: any;
+  [x: string]: unknown;
   production: boolean;
   appName?: string;
   environment: EnvironmentType;

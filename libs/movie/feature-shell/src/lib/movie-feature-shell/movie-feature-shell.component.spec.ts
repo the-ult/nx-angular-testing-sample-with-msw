@@ -2,7 +2,7 @@ import { AsyncPipe, NgForOf } from '@angular/common';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { render, screen, within } from '@testing-library/angular';
 import { ENVIRONMENT } from '@ult/shared/data-access';
-import { UltMediaCardComponent } from '@ult/shared/ui/media-card';
+import { UltMediaCardComponent } from '@ult/movie/ui/media-card';
 
 import { ENV_MOCK } from '@ult/shared/test/mocks';
 import { MovieFeatureShellPage } from './movie-feature-shell.component';

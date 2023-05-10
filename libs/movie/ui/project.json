@@ -1,22 +1,22 @@
 {
-  "name": "shared-ui",
+  "name": "movie-ui",
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
-  "sourceRoot": "libs/shared/ui",
+  "sourceRoot": "libs/movie/ui",
   "prefix": "ult",
   "targets": {
     "build": {
       "executor": "@nrwl/angular:ng-packagr-lite",
       "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
       "options": {
-        "project": "libs/shared/ui/ng-package.json"
+        "project": "libs/movie/ui/ng-package.json"
       },
       "configurations": {
         "production": {
-          "tsConfig": "libs/shared/ui/tsconfig.lib.prod.json"
+          "tsConfig": "libs/movie/ui/tsconfig.lib.prod.json"
         },
         "development": {
-          "tsConfig": "libs/shared/ui/tsconfig.lib.json"
+          "tsConfig": "libs/movie/ui/tsconfig.lib.json"
         }
       },
       "defaultConfiguration": "production"
@@ -25,7 +25,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "libs/shared/ui/jest.config.ts",
+        "jestConfig": "libs/movie/ui/jest.config.ts",
         "passWithNoTests": true
       }
     },
@@ -33,26 +33,26 @@
       "executor": "@nrwl/linter:eslint",
       "options": {
         "lintFilePatterns": [
-          "libs/shared/ui/**/*.ts",
-          "libs/shared/ui/**/*.html",
-          "libs/shared/ui/header/**/*.ts",
-          "libs/shared/ui/header/**/*.html",
-          "libs/shared/ui/user-score/**/*.ts",
-          "libs/shared/ui/user-score/**/*.html",
-          "libs/shared/ui/carousel/**/*.ts",
-          "libs/shared/ui/carousel/**/*.html"
+          "libs/movie/ui/**/*.ts",
+          "libs/movie/ui/**/*.html",
+          "libs/movie/ui/header/**/*.ts",
+          "libs/movie/ui/header/**/*.html",
+          "libs/movie/ui/user-score/**/*.ts",
+          "libs/movie/ui/user-score/**/*.html",
+          "libs/movie/ui/carousel/**/*.ts",
+          "libs/movie/ui/carousel/**/*.html"
         ]
       }
     },
     "component-test": {
       "executor": "@nrwl/cypress:cypress",
       "options": {
-        "cypressConfig": "libs/shared/ui/cypress.config.ts",
+        "cypressConfig": "libs/movie/ui/cypress.config.ts",
         "testingType": "component",
         "skipServe": true,
         "devServerTarget": "movie-db:build"
       }
     }
   },
-  "tags": ["type:ui", "scope:shared"]
+  "tags": ["type:ui", "scope:movie"]
 }

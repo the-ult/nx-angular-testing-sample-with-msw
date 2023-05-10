@@ -351,3 +351,4 @@ migrations.json
 
 .angular
 
+apps/movie-db/.env.serve

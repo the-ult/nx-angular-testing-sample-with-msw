@@ -1,7 +1,7 @@
 import { DatePipe, NgOptimizedImage } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject, Input } from '@angular/core';
 import { RouterLinkWithHref } from '@angular/router';
-import { ENVIRONMENT } from '@ult/shared/data-access';
+import { ENVIRONMENT, RouteType } from '@ult/shared/data-access';
 import { UserScoreComponent } from '../user-score';
 import { MediaCardInput } from './media-card.model';
 
@@ -79,6 +79,8 @@ export class UltMediaCardComponent {
   protected readonly ENV = inject(ENVIRONMENT);
 
   @Input() mediaData!: MediaCardInput;
+  // ! FIXME: Add required decorator and rename RouteType
+  @Input() mediaType!: RouteType;
 
   get title(): string {
     if ('title' in this.mediaData) {

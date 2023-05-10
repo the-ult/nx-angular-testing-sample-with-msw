@@ -3,7 +3,7 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MovieService, TVShowService } from '@ult/movie/data-access';
 import { Movie, RouteType, TvShow } from '@ult/shared/data-access';
-import { UltMediaCardComponent } from '@ult/shared/ui/media-card';
+import { UltMediaCardComponent } from '@ult/movie/ui/media-card';
 import { trackByProp } from '@ult/shared/utils';
 import { map, Observable } from 'rxjs';
 

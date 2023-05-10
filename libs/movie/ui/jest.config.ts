@@ -1,5 +1,5 @@
 export default {
-  displayName: 'shared-ui',
+  displayName: 'movie-ui',
   preset: '../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/test-setup.ts'],
   globals: {
@@ -8,7 +8,7 @@ export default {
       stringifyContentPathRegex: '\\.(html|svg)$',
     },
   },
-  coverageDirectory: '../../../coverage/libs/shared/ui',
+  coverageDirectory: '../../../coverage/libs/movie/ui',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': 'jest-preset-angular',
   },

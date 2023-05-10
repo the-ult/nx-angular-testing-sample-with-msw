@@ -8,6 +8,7 @@ interface MovieRoute extends Route {
   };
 }
 
+// TODO: move media/movies routes to libs/movie/???
 export const MOVIE_DB_ROUTES: MovieRoute[] = [
   {
     path: 'movies',
