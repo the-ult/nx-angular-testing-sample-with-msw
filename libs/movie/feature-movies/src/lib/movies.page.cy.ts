@@ -1,15 +1,15 @@
 import { HttpClientTestingModule, provideHttpClientTesting } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { ENVIRONMENT } from '@ult/shared/data-access';
-import { E2E_MSW_FILE } from '@ult/shared/test/cypress';
-import { ENV_MOCK } from '@ult/shared/test/mocks';
-import { mswBrowserWorker, startMswForBrowser } from '@ult/shared/test/msw';
+import { mswMock } from '@ult/shared/test/cypress';
+import { ENV_MOCK, MoviesPopularPage2 } from '@ult/shared/test/mocks';
+import { startMswForBrowser, worker } from '@ult/shared/test/msw';
 import { MountConfig } from 'cypress/angular';
 import { MoviesPage } from './movies.page';
 
 describe(MoviesPage.name, () => {
-  before(() => startMswForBrowser(E2E_MSW_FILE, '/'));
-  afterEach(() => mswBrowserWorker.resetHandlers());
+  before(() => startMswForBrowser());
+  afterEach(() => worker.resetHandlers());
 
   const config: MountConfig<MoviesPage> = {
     declarations: [],
@@ -21,9 +21,9 @@ describe(MoviesPage.name, () => {
   };
 
   it('renders', () => {
-    // const TEST_DATA = MoviesPopularPage2;
-    // /// Override the default mock-data
-    // mswMock('movie/popular', TEST_DATA);
+    const TEST_DATA = MoviesPopularPage2;
+    /// Override the default mock-data
+    mswMock('movie/popular', TEST_DATA);
 
     TestBed.overrideComponent(MoviesPage, { add: { providers: config.providers } });
     cy.mount(MoviesPage, config);

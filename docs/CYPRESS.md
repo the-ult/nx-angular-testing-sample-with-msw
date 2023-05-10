@@ -121,18 +121,14 @@ to
 apps/movie-db-e2e/src/support/commands.ts
 ```
 
-<!-- ! FIXME => Add proper way => ENVIRONMENT.MD -->
-
 ## RUN E2E
 
 ### Setup ENVIRONMENT for Cypress
 
 See: [Setup Environment](/docs/ENVIRONMENT.md#for-e2e)
 
-Add `--configuration=msw` to enable with mocking
-
 ```
-nx e2e movie-db-e2e --configuration=msw [--watch --browser=chrome]
+nx e2e movie-db-e2e [--watch --browser=chrome]
 ```
 
 ## BONUS Pro Tip =>

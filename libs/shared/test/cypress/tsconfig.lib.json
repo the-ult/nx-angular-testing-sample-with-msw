@@ -3,8 +3,8 @@
   "compilerOptions": {
     "outDir": "../../../../dist/out-tsc",
     "declaration": true,
-    "types": ["node", "cypress", "@testing-library/cypress", "./types"]
+    "types": ["node", "cypress", "@testing-library/cypress"]
   },
-  "include": ["**/*.ts", "../types/index.d.ts"],
+  "include": ["**/*.ts", "../msw/types/index.d.ts"],
   "exclude": ["jest.config.ts", "**/*.spec.ts"]
 }

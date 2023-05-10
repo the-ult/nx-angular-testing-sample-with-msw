@@ -4,12 +4,7 @@
     "sourceMap": false,
     "outDir": "../../dist/out-tsc",
     "allowJs": true,
-    "types": [
-      "node",
-      "cypress",
-      "@testing-library/cypress",
-      "../../libs/shared/test/cypress/types"
-    ],
+    "types": ["node", "cypress", "@testing-library/cypress"],
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitOverride": true,

@@ -13,9 +13,40 @@ export type Options = {
 
 export const worker = setupWorker(...HANDLERS);
 
+export const startMswForBrowser = (
+  mswFile = 'mockServiceWorker.js',
+  scope = '/',
+  onUnhandledRequest: UnhandledRequestStrategy = 'bypass'
+) => {
+  void worker.start({
+    serviceWorker: {
+      url: `${mswFile}`,
+      options: {
+        /// Narrow the scope of the Service Worker to intercept requests
+        /// only from pages under this path.
+        scope,
+      },
+    },
+    /// Return the first registered service worker found with the name
+    /// of `mockServiceWorker`, disregarding all other parts of the URL
+    findWorker: (scriptURL) => scriptURL.includes(mswFile),
+    onUnhandledRequest,
+  });
+
+  /**
+   * Add the MSW objects to the window, so we can easily use them with Cypress
+   * @see: {@link [MSW Cypress example](https://mswjs.io/docs/api/setup-worker/use#examples)}
+   */
+  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+  if (window.Cypress) {
+    window.msw = { graphql, rest, worker };
+  }
+};
+
 /**
  * When we are using the mock environment,
  * we need to check if mswjs.io is available and wait for it to be ready.
+ * This way we can easily check it when using in the `main.ts` of an Angular application
  *
  * @see: https://mswjs.io/docs/api/setup-worker/use#examples
  *
@@ -28,40 +59,10 @@ export const worker = setupWorker(...HANDLERS);
  * },
  * ```
  */
-export const startMswForBrowser = (
-  mswFile = 'mockServiceWorker.js',
-  scope = '/',
-  onUnhandledRequest: UnhandledRequestStrategy = 'bypass'
-) => {
+export const initMswForAngularApp = () => {
   const { apiMocking, production } = inject(ENVIRONMENT);
 
   if (apiMocking && !production) {
-    void worker.start({
-      serviceWorker: {
-        url: `${mswFile}`,
-        options: {
-          /// Narrow the scope of the Service Worker to intercept requests
-          /// only from pages under this path.
-          scope,
-        },
-      },
-      // Return the first registered service worker found with the name
-      // of `mockServiceWorker`, disregarding all other parts of the URL
-      findWorker: (scriptURL) => scriptURL.includes(mswFile),
-      onUnhandledRequest,
-    });
-
-    /**
-     * Add the MSW objects to the window, so we can easily use them with Cypress
-     * @see: {@link [MSW Cypress example](https://mswjs.io/docs/api/setup-worker/use#examples)}
-     * ! FIXME: cypress types are not properly read.
-     */
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    if (window.Cypress) {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      window.msw = { graphql, rest, worker };
-    }
+    startMswForBrowser();
   }
 };

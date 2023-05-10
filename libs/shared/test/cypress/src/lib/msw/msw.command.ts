@@ -17,8 +17,8 @@ export const mswResetWorkerHandlers = () => {
     autoEnd: true,
   });
 
-  cy.window().then((win) => {
-    const { worker } = win.msw;
+  cy.window().then((window) => {
+    const { worker } = window.msw;
     worker.resetHandlers();
   });
 };

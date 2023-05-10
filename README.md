@@ -4,9 +4,16 @@
 
 A test/playground based on the amazing [The Movie DB](https://www.themoviedb.org/) to play with the newest [Nx](https://nx.dev) and [Angular](https://angular.io) _'best practices'_ like [Standalone Components](https://angular.io/guide/standalone-components), `Inject()` and plenty more. While following Semantic HTML and newest CSS solutions.
 
-Using tools like: [Cypress](https://cypress.io), [MSWjs](https://mswjs.io), [Zod](https://zod.dev/?id=introduction) and others.
+And providing the best [VSCode settings](.vscode/settings.json), [VSCode extensions](.vscode/extensions.json) and [ESLint](.eslintrc.json) settings.
+
+Using tools like: [Cypress](https://cypress.io), [MSWjs](https://mswjs.io), [Zod](https://zod.dev/?id=introduction), [Testing Library Angular](https://testing-library.com/docs/angular-testing-library/intro/) and others.
 
 Trying to provide a good base for both a learning and as a starter repository.
+
+**N.B**
+
+- We Set the `"target": "ES2022"`, which means the `"useDefineForClassFields": true` is automatically set to `true`. And Angular will not set it to `false`.
+  We do this to force the use of `inject()` instead of using the `constructor` and be [future proof](https://angular.schule/blog/2022-11-use-define-for-class-fields) and avoid future breaking changes.
 
 ## Why
 
@@ -22,6 +29,32 @@ Trying to provide a good base for both a learning and as a starter repository.
   - [Testing Library Angular](https://testing-library.com/docs/angular-testing-library/intro/) - for unit test assertions
 - [MSWjs](https://mswjs.io)
 - [Zod](https://zod.dev/?id=introduction)
+
+## Run
+
+App with mocking:
+
+```
+pnpm start:msw movie-db
+```
+
+OR
+
+```
+nx mock movie-db
+```
+
+### E2E
+
+```
+pnpm e2e:msw
+```
+
+OR
+
+```
+nx e2e movie-db-e2e [--watch --browser=chrome]
+```
 
 ## Resources / Thanks / Shout-outs
 

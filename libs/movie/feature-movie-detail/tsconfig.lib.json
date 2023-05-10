@@ -6,8 +6,7 @@
     "declarationMap": true,
     "inlineSources": true,
     "types": [],
-    "target": "ES2022",
-    "useDefineForClassFields": false
+    "target": "ES2022"
   },
   "exclude": [
     "src/test-setup.ts",

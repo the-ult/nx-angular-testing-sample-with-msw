@@ -5,7 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { provideRouter, withRouterConfig } from '@angular/router';
 import { authInterceptor } from '@ult/shared/core';
 import { ENVIRONMENT } from '@ult/shared/data-access';
-import { startMswForBrowser } from '@ult/shared/test/msw';
+import { initMswForAngularApp } from '@ult/shared/test/msw';
 
 import { AppRoot } from './app/app.root';
 import { MOVIE_DB_ROUTES } from './app/app.routes';
@@ -34,7 +34,7 @@ bootstrapApplication(AppRoot, {
     {
       provide: ENVIRONMENT_INITIALIZER,
       multi: true,
-      useValue: () => startMswForBrowser(),
+      useValue: () => initMswForAngularApp(),
     },
   ],
 }).catch((error) => console.error(error));

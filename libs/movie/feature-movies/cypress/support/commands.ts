@@ -1,6 +1,6 @@
 import '@testing-library/cypress/add-commands';
 
-import '@ult/shared/test/cypress';
+// import '@ult/shared/test/cypress';
 import { mount } from 'cypress/angular';
 
 declare global {

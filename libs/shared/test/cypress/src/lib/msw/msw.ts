@@ -1,1 +1,1 @@
-export const E2E_MSW_FILE = '/__cypress/src/mockServiceWorker.js';
+export const CYPRESS_MSW_FILE_URL = '/__cypress/src/mockServiceWorker.js';

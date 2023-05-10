@@ -16,8 +16,7 @@ import { MovieService } from './movie.service';
 export class MoviesPage {
   readonly movies$ = inject(MovieService)
     .queryMovies$('popular')
-    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-    .pipe(map((movie) => movie?.results || []));
+    .pipe(map((movie) => movie.results));
 
   readonly movieTrackBy: TrackByFunction<Movie> = (index, { id }) => id || index;
 }
