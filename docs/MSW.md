@@ -22,7 +22,7 @@ npm install msw -D
 ## Create msw library
 
 ```console
-npx nx generate @nrwl/workspace:library msw --directory=shared/test --skipBabelrc --tags=scope:test,type:msw --unitTestRunner=none --buildable --no-interactive
+npx nx generate @nrwl/workspace:library msw --directory=shared/test --skipBabelrc --tags=scope:shared-test,type:msw --unitTestRunner=none --buildable --no-interactive
 ```
 
 ### Remove obsolete file

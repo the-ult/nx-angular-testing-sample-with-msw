@@ -1,0 +1,66 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "name": "Jest Current File [PNPM]",
+      "request": "launch",
+      "runtimeExecutable": "sh",
+      "args": [
+        "test",
+        "--run-in-band",
+        "--watch-all=false",
+        "--codeCoverage=false",
+        "--test-name-pattern",
+        "${jest.testNamePattern}",
+        "--test-path-pattern",
+        "${jest.testFilePattern}"
+      ],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "openOnFirstSessionStart"
+    },
+    {
+      "type": "chrome",
+      "request": "attach",
+      "name": "[Chrome] Attach",
+      "port": 9222,
+      "sourceMaps": true,
+      "timeout": 10000,
+      "webRoot": "${workspaceFolder}",
+      "sourceMapPathOverrides": {
+        "webpack:///./*": "${workspaceRoot}/*"
+      },
+      "skipFiles": ["node_modules", "**/node_modules/**/*.js"],
+      "smartStep": true
+    },
+    {
+      "type": "chrome",
+      "request": "launch",
+      "name": "[Chrome] Launch",
+      "url": "http://localhost:4200/gupo",
+      "userDataDir": "${workspaceRoot}/.vscode/chrome",
+      "sourceMaps": true,
+      "timeout": 10000,
+      "port": 9222,
+      "webRoot": "${workspaceFolder}",
+      "sourceMapPathOverrides": {
+        "webpack:///./*": "${workspaceRoot}/*"
+      },
+      "skipFiles": ["node_modules", "**/node_modules/**/*.js"],
+      "smartStep": true,
+      "runtimeArgs": ["--disable-session-crashed-bubble", "--disable-infobars"]
+    },
+    {
+      "name": "[Node ] Attach",
+      "type": "node",
+      "port": 9229,
+      "request": "attach",
+      "skipFiles": ["<node_internals>/**"],
+      "smartStep": true
+    }
+  ]
+}

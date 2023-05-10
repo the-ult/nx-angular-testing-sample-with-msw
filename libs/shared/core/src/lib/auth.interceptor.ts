@@ -4,6 +4,7 @@ import { ENVIRONMENT } from '@ult/shared/data-access';
 
 export const authInterceptor: HttpInterceptorFn = (req, next) => {
   // TODO: add check if bearer exist, either in AuthService.store or something,
+  // Load dialog.component.ts dynamically => use HTML dialog
   // else show dialog
   const bearerToken = inject(ENVIRONMENT).bearer ?? 'PLEASE ADD BEARER TOKEN';
 

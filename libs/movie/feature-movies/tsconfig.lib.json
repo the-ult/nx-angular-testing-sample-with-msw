@@ -21,7 +21,5 @@
     "**/*.cy.tsx",
     "**/*.cy.jsx"
   ],
-  "include": [
-    "**/*.ts"
-  ]
+  "include": ["**/*.ts"]
 }

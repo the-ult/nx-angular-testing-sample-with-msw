@@ -1,22 +1,97 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientModule } from '@angular/common/http';
+import { render, screen, within } from '@testing-library/angular';
+import { MovieError, Movies } from '@ult/movie/data-access';
+import { ENVIRONMENT } from '@ult/shared/data-access';
+import { ENV_MOCK } from '@ult/shared/test/mocks';
+import { HttpResponse, mswServer, rest } from '@ult/shared/test/msw/server';
+
+/**
+ * Sadly Jest (still) does not properly support ES Modules.
+ * And does not support default export/import, so we cannot do:
+ *
+ * `import { MoviesPopularPage1 } from '@ult/shared/test/mocks';`
+ * But we have to use relative imports
+ *
+ * @see {@link Jest - ES Modules | https://github.com/facebook/jest/issues/9430}
+ */
+// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
+import * as TEST_DATA from '../../../../shared/test/mocks/src/lib/movie/movies-popular-page-2.json';
 
 import { MoviesPage } from './movies.page';
 
 describe('MoviesPage', () => {
-  let component: MoviesPage;
-  let fixture: ComponentFixture<MoviesPage>;
+  it('should show all movies in cards', async () => {
+    mswServer.use(
+      rest.get<never, never, Movies | MovieError>('http://localhost:4200/movie/popular', () =>
+        HttpResponse.json<Movies>(TEST_DATA)
+      )
+    );
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [MoviesPage],
-    }).compileComponents();
+    await render(MoviesPage, {
+      imports: [HttpClientModule],
+      providers: [{ provide: ENVIRONMENT, useValue: ENV_MOCK }],
+    });
 
-    fixture = TestBed.createComponent(MoviesPage);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    const headerControl = screen.getByRole('heading', { level: 2, name: 'Popular Movies' });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(headerControl).toBeInTheDocument();
+
+    // Check all media-cards
+    const allMediaCards = await screen.findAllByTestId(/^movie-page-media-card-/);
+    expect(allMediaCards).toHaveLength(TEST_DATA.results.length);
+
+    /// Check each movie from our testdata
+    /// TODO: code is almost the same as `cy.checkMovieCardData(movie);`
+    /// TODO: See if we can create a re-usable test function
+    for (const [index, mediaCardControl] of allMediaCards.entries()) {
+      /// Get the data from the card from the TEST-DATA, so we can check the content of the media-cards
+      const { id, poster_path, release_date, title, vote_average } = TEST_DATA.results[index];
+
+      /// ---------------------------------------------------------------
+      ///  LINK & POSTER
+      /// ---------------------------------------------------------------
+
+      expect(within(mediaCardControl).getByRole('link')).toHaveAttribute(
+        'href',
+        expect.stringContaining(`/${id}`)
+        // expect.stringContaining(`/movies/${id}`)
+      );
+
+      expect(within(mediaCardControl).getByRole('img')).toHaveAttribute(
+        'src',
+        // ! FIXME: should get proper path from ENVIRONMENT
+        // expect.stringContaining(`https://image.tmdb.org/t/p/w220_and_h330_face${poster_path}`)
+        expect.stringContaining(`${poster_path}`)
+      );
+      expect(within(mediaCardControl).getByRole('img')).toBeVisible();
+
+      /// ---------------------------------------------------------------
+      ///  VOTE
+      /// ---------------------------------------------------------------
+      expect(within(mediaCardControl).getByTestId('movie-score')).toHaveTextContent(
+        vote_average.toString()
+      );
+
+      /// ---------------------------------------------------------------
+      ///  TITLE
+      /// ---------------------------------------------------------------
+      expect(
+        within(mediaCardControl).getByRole('heading', {
+          level: 4,
+          name: title,
+        })
+      ).toHaveTextContent(title);
+
+      /// ---------------------------------------------------------------
+      ///  RELEASE DATE
+      /// ---------------------------------------------------------------
+      const formattedDate = Intl.DateTimeFormat('en-US', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+      }).format(new Date(release_date));
+
+      expect(within(mediaCardControl).getByText(formattedDate)).toBeVisible();
+    }
   });
 });

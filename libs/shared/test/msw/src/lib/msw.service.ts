@@ -27,7 +27,6 @@ import { startMswForBrowser } from './browser';
 export class MswService {
   initMswForBrowser() {
     // !FIXME: use other environment variable
-    // !FIXME: => seems to be needed voor E2E only? Move to Cypress?
     const { apiMocking, production } = inject(ENVIRONMENT);
 
     if (apiMocking && !production) {
@@ -37,6 +36,7 @@ export class MswService {
        * Add the MSW objects to the window, so we can easily use them with Cypress
        * @see: {@link [MSW Cypress example](https://mswjs.io/docs/api/setup-worker/use#examples)}
        */
+      // ! FIXME: seems to be needed voor E2E only? Move to Cypress?
       // ! FIXME: somehow the types do not work yet
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore

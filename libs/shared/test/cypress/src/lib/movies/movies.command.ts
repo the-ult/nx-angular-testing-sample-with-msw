@@ -1,3 +1,5 @@
+// TODO: should we move these movie specific commands to the movie domain?
+// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
 import { Movie } from '@ult/movie/data-access';
 
 declare global {

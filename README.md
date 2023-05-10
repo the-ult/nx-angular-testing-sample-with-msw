@@ -36,6 +36,8 @@ Trying to provide a good base for both a learning and as a starter repository.
   - Testing Jedi
 - And of course the amazing teams and community of [@Angular](https://www.angular.io) and [Nx](https://nx.dev)!
 - [Movies App](https://tastejs.com/movies/) - Amazing sample applications for different frameworks.
+- [Versatile Angular - Younes Jaaidi](https://marmicode.io/blog/versatile-angular) - Angular (SFC) with Vite
+- [Analogjs](https://github.com/analogjs/analog) - Amazing all in one framework for Angular by Brandon Roberts. Using Vite
 
 ## Things I would like to add
 

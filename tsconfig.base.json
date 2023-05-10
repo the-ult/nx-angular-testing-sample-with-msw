@@ -5,12 +5,12 @@
     "rootDir": ".",
     "allowSyntheticDefaultImports": true,
     "declaration": false,
-    "emitDecoratorMetadata": true,
+    "emitDecoratorMetadata": false,
     "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
     "importHelpers": true,
     "lib": ["ES2022", "dom"],
-    "module": "esnext",
+    "module": "ESNext",
     "moduleResolution": "node",
     "pretty": true,
     "resolveJsonModule": true,
@@ -34,6 +34,7 @@
       "@ult/shared/test/cypress": ["libs/shared/test/cypress/src/index.ts"],
       "@ult/shared/test/mocks": ["libs/shared/test/mocks/src/index.ts"],
       "@ult/shared/test/msw": ["libs/shared/test/msw/src/index.ts"],
+      "@ult/shared/test/msw/server": ["libs/shared/test/msw/src/lib/server/index.ts"],
       "@ult/shared/ui/*": ["libs/shared/ui/*"],
       "@ult/shared/utils": ["libs/shared/utils/src/index.ts"]
     }

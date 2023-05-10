@@ -13,6 +13,22 @@
             "allow": [],
             "depConstraints": [
               {
+                "sourceTag": "type:ui",
+                "onlyDependOnLibsWithTags": ["type:ui,type:util"]
+              },
+              {
+                "sourceTag": "type:util",
+                "onlyDependOnLibsWithTags": ["type:util"]
+              },
+              {
+                "sourceTag": "scope:movie",
+                "onlyDependOnLibsWithTags": ["scope:movie", "scope:shared", "scope:shared-test"]
+              },
+              {
+                "sourceTag": "scope:shared",
+                "onlyDependOnLibsWithTags": ["scope:shared"]
+              },
+              {
                 "sourceTag": "*",
                 "onlyDependOnLibsWithTags": ["*"]
               }
@@ -134,22 +150,25 @@
       "rules": {}
     },
     {
-      "files": ["*.spec.ts"],
+      "files": ["**/__tests__/**/*.[jt]s?(x)", "**/?(*.)+(spec|test).[jt]s?(x)"],
       "env": {
         "jest": true
       },
       "extends": [
         "plugin:jest/recommended",
         "plugin:jest/style",
-        "plugin:testing-library/angular",
-        "plugin:jest-dom/recommended"
+        "plugin:jest-dom/recommended",
+        "plugin:testing-library/angular"
       ],
       "rules": {
-        "@typescript-eslint/no-unsafe-call": "off",
-        "@typescript-eslint/unbound-method": "off",
+        "testing-library/prefer-explicit-assert": "error",
+        "testing-library/prefer-user-event": "error",
+        "testing-library/prefer-wait-for": "error",
         "jest/consistent-test-it": ["error"],
-        "jest/unbound-method": "error",
-        "testing-library/prefer-explicit-assert": "error"
+        "@typescript-eslint/unbound-method": "off",
+        "@typescript-eslint/no-unsafe-member-access": "off",
+        "@typescript-eslint/no-unsafe-call": "off",
+        "jest/unbound-method": "error"
       }
     },
     {

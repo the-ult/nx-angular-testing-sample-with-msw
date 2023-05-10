@@ -20,7 +20,6 @@ declare global {
     Cypress?: unknown;
     msw: {
       graphql: typeof graphql;
-      mock: any;
       rest: typeof rest;
       worker: SetupWorkerApi;
     };
@@ -114,7 +113,7 @@ add: `import '@ult/shared/test/cypress';` to `apps/movie-db-e2e/src/support/e2e.
 Add `--env.apiMocking=true` to enable with mocking
 
 ```
-NX_API_MOCKING=true nx e2e movie-db-e2e [--watch --browser=chrome]
+NX_MSW_API_MOCKING=true nx e2e movie-db-e2e [--watch --browser=chrome]
 ```
 
 ## BONUS Pro Tip =>

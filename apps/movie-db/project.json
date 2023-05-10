@@ -83,11 +83,11 @@
     "mock": {
       "executor": "@nrwl/angular:webpack-dev-server",
       "configurations": {
-        "mock": {
+        "msw": {
           "browserTarget": "movie-db:build:development"
         }
       },
-      "defaultConfiguration": "mock"
+      "defaultConfiguration": "msw"
     },
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",

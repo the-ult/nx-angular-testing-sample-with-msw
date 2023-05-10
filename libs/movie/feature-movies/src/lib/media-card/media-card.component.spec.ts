@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterLinkWithHref } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
+import { ENVIRONMENT } from '@ult/shared/data-access';
+import { ENV_MOCK } from '@ult/shared/test/mocks';
 
 import { UltMediaCardComponent } from './media-card.component';
 
@@ -11,6 +13,7 @@ describe('MediaCardComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [UltMediaCardComponent, RouterLinkWithHref, RouterTestingModule],
+      providers: [{ provide: ENVIRONMENT, useValue: ENV_MOCK }],
     }).compileComponents();
 
     fixture = TestBed.createComponent(UltMediaCardComponent);

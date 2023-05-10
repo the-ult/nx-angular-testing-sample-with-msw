@@ -26,9 +26,7 @@ export function parseResponse<T>(schema: ZodType): MonoTypeOperatorFunction<T> {
   // ! And catchError()
   // eslint-disable-next-line @typescript-eslint/no-unsafe-return
   return tap({
-    next: (value: any) => {
-      // console.log('parse', schema.parse(value));
-
+    next: (value: T) => {
       if (env.production) {
         const parsed = schema.safeParse(value);
         if (!parsed.success) {
@@ -37,6 +35,7 @@ export function parseResponse<T>(schema: ZodType): MonoTypeOperatorFunction<T> {
         }
       } else {
         // Throw in development so we're aware of the error
+
         schema.parse(value);
       }
     },

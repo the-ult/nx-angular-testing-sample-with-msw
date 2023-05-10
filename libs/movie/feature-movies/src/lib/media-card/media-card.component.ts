@@ -75,6 +75,6 @@ export class UltMediaCardComponent {
 
   @Input() mediaData!: Pick<
     Movie,
-    'title' | 'id' | 'release_date' | 'vote_average' | 'poster_path'
+    'id' | 'poster_path' | 'release_date' | 'title' | 'vote_average'
   >;
 }

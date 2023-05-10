@@ -26,7 +26,7 @@ Add:
 ### 2. Create `shared/test/mocks`
 
 ```
-npx nx generate @nrwl/workspace:library mock --directory=shared/test --tags=scope:test,type:mock --buildable --skipBabelrc --unitTestRunner=none --no-interactive
+npx nx generate @nrwl/workspace:library mock --directory=shared/test --tags=scope:shared-test,type:mock --buildable --skipBabelrc --unitTestRunner=none --no-interactive
 ```
 
 ### 3. Remove obsolete file

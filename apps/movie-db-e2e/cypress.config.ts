@@ -12,7 +12,7 @@ export default defineConfig({
     viewportHeight: 1050,
     viewportWidth: 1650,
     env: {
-      apiMocking: process.env['NX_API_MOCKING'],
+      apiMocking: process.env['NX_MSW_API_MOCKING'],
     },
   },
 });
