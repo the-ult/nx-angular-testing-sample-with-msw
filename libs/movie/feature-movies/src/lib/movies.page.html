@@ -3,6 +3,6 @@
   <ult-media-card
     *ngFor="let movie of movies$ | async"
     [mediaData]="movie"
-    data-testid="movie-page-media-card"
+    [attr.data-testid]="'movie-page-media-card-' + movie.id"
   ></ult-media-card>
 </section>

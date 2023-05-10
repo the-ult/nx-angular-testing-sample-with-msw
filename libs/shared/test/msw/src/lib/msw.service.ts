@@ -3,6 +3,7 @@ import { graphql, rest } from 'msw';
 import { inject, Injectable } from '@angular/core';
 import { ENVIRONMENT } from '@ult/shared/data-access';
 import { startMswForBrowser } from './browser';
+// import { startMswForBrowser } from './browser';
 
 /**
  * When we are using the mock environment,
@@ -27,9 +28,9 @@ export class MswService {
   initMswForBrowser() {
     // !FIXME: use other environment variable
     // !FIXME: => seems to be needed voor E2E only? Move to Cypress?
-    const { mock, production } = inject(ENVIRONMENT);
+    const { apiMocking, production } = inject(ENVIRONMENT);
 
-    if (mock && !production) {
+    if (apiMocking && !production) {
       const { worker } = startMswForBrowser();
 
       /**

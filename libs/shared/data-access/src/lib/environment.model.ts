@@ -1,9 +1,17 @@
 export type EnvironmentType = 'local' | 'e2e' | 'prd' | 'dev' | 'acc' | 'tst';
 
 export interface EnvironmentBase {
+  [x: string]: any;
   production: boolean;
-  baseUrl: string;
   appName?: string;
   environment: EnvironmentType;
-  mock: boolean;
+  apiMocking: boolean;
+
+  // !FIXME: move to separate EnvironmentMovie
+  bearer?: string;
+  url: {
+    // base: string;
+    api: string;
+    img: string;
+  };
 }

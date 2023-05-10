@@ -2,19 +2,20 @@
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-/**
- * Start the MSW service worker
- * Since we only add it to our development environment, it is only started here
- *
- * @see: /libs/shared/test/msw/README.md
- */
 import { EnvironmentBase } from '@ult/shared/data-access';
+import { primitiveToBoolean } from '@ult/shared/utils';
 
 export const environment: EnvironmentBase = {
   production: false,
-  baseUrl: 'https://api.themoviedb.org/3',
   environment: 'dev',
-  mock: true,
+  apiMocking: primitiveToBoolean(process?.env['NX_API_MOCKING']),
+
+  url: {
+    api: process?.env['NX_API_URL'] ?? 'API_URL_NOT_DEFINED',
+    img: process?.env['NX_IMG_URL'] ?? 'IMG_URL_NOT_DEFINED',
+  },
+  bearer: process?.env['NX_BEARER'],
+  // mock: true,
 };
 
 /*

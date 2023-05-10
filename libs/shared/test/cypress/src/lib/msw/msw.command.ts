@@ -43,8 +43,7 @@ export const mswResetWorker = () => {
 // ! Check graphql generator
 // ! Check errors
 export const mswMock = (url: string, data: DefaultBodyType): void => {
-  // ! FIXME: use global environment, so it is the same 'mock' as used in the app
-  if (Cypress.env('mock') === 'true') {
+  if (Cypress.env('apiMocking') === 'true') {
     Cypress.log({
       name: 'mswMock',
       displayName: '🔐  MOCK THE MSW WORKERS for given handlers',
@@ -58,7 +57,7 @@ export const mswMock = (url: string, data: DefaultBodyType): void => {
     });
   } else {
     // eslint-disable-next-line no-console, no-restricted-syntax
-    console.info('!! MOCK ENV is not enabled');
+    console.info('🛑 !! MOCK ENV is not enabled !!');
   }
 };
 

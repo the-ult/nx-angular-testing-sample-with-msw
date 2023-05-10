@@ -8,7 +8,7 @@ import {
 import { bootstrapApplication } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { provideRouter, withRouterConfig } from '@angular/router';
-import { BASE_URL, ENVIRONMENT } from '@ult/shared/data-access';
+import { ENVIRONMENT } from '@ult/shared/data-access';
 import { MswService } from '@ult/shared/test/msw';
 
 import { AppRoot } from './app/app.root';
@@ -30,7 +30,6 @@ bootstrapApplication(AppRoot, {
     ),
     provideHttpClient(),
     { provide: ENVIRONMENT, useValue: environment },
-    { provide: BASE_URL, useValue: environment.baseUrl },
     // ! FIXME: Is this the proper way to initialize the MswService? Or should we use
     // ! the APPLICATION_INITIALIZER
     // ! AND WHY -> Add documentation

@@ -1,16 +1,17 @@
-/* eslint-disable unicorn/prefer-module */
 import { nxE2EPreset } from '@nrwl/cypress/plugins/cypress-preset';
 import { defineConfig } from 'cypress';
 
-const { MOCK } = process.env;
+import * as dotenv from 'dotenv';
+dotenv.config({ override: true, path: '.env.e2e' });
 
 export default defineConfig({
   e2e: {
+    // eslint-disable-next-line unicorn/prefer-module
     ...nxE2EPreset(__dirname),
     viewportHeight: 1050,
     viewportWidth: 1650,
     env: {
-      mock: MOCK ?? false,
+      apiMocking: process.env['NX_API_MOCKING'],
     },
   },
 });

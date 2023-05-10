@@ -1,7 +1,8 @@
 import { DatePipe, NgOptimizedImage } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, Input } from '@angular/core';
 import { RouterLinkWithHref } from '@angular/router';
 import { Movie } from '@ult/movie/data-access';
+import { ENVIRONMENT } from '@ult/shared/data-access';
 import { UserScoreComponent } from '@ult/shared/ui/user-score';
 
 @Component({
@@ -12,7 +13,7 @@ import { UserScoreComponent } from '@ult/shared/ui/user-score';
     <a [routerLink]="[mediaData.id]">
       <img
         [alt]="mediaData.title"
-        [ngSrc]="'https://image.tmdb.org/t/p/w220_and_h330_face/' + mediaData.poster_path"
+        [ngSrc]="ENV.url.img + mediaData.poster_path"
         width="180"
         height="275"
       />
@@ -70,6 +71,8 @@ import { UserScoreComponent } from '@ult/shared/ui/user-score';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UltMediaCardComponent {
+  protected readonly ENV = inject(ENVIRONMENT);
+
   @Input() mediaData!: Pick<
     Movie,
     'title' | 'id' | 'release_date' | 'vote_average' | 'poster_path'

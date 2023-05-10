@@ -24,7 +24,12 @@ describe('Movies Page', () => {
       .should('be.visible')
       .should('have.text', 'Popular Movies');
 
-    cy.checkMoviesDisplayed(TEST_DATA);
+    cy.findAllByTestId(/^movie-page-media-card-/).should('have.length', TEST_DATA.results.length);
+
+    /// Check each movie from our testdata
+    for (const movie of TEST_DATA.results) {
+      cy.checkMovieCardData(movie);
+    }
 
     /// ---------------------------------------------------------------
     cy.log('CHECK MOVIE LINK');

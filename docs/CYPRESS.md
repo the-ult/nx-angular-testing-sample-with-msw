@@ -107,12 +107,14 @@ export const mswMock = (handlers: RequestHandler[]): void => {
 
 add: `import '@ult/shared/test/cypress';` to `apps/movie-db-e2e/src/support/e2e.ts`;
 
+<!-- ! FIXME => Add proper way (also with `.env.local` file) -->
+
 ## RUN E2E
 
-Add `--env.mock=true` to enable with mocking
+Add `--env.apiMocking=true` to enable with mocking
 
 ```
-nx e2e movie-db-e2e --env.mock=true [--watch]
+NX_API_MOCKING=true nx e2e movie-db-e2e [--watch --browser=chrome]
 ```
 
 ## BONUS Pro Tip =>

@@ -1,4 +1,4 @@
-import { Movies } from '@ult/movie/data-access';
+import { Movie } from '@ult/movie/data-access';
 
 declare global {
   // eslint-disable-next-line @typescript-eslint/no-namespace
@@ -12,55 +12,58 @@ declare global {
        *
        * @param testData
        */
-      checkMoviesDisplayed(testData: Movies): Chainable<void>;
+      checkMovieCardData(movieData: Movie): Chainable<void>;
     }
   }
 }
 
-Cypress.Commands.add('checkMoviesDisplayed', (testData: Movies) => {
+Cypress.Commands.add('checkMovieCardData', (movieData: Movie) => {
   /// ---------------------------------------------------------------
-  cy.log('CHECK MOVIES');
+  Cypress.log({
+    name: 'CHECK MOVIE',
+    displayName: `🎬  Check movie: ${movieData.title}`,
+    autoEnd: true,
+  });
   /// ---------------------------------------------------------------
 
-  cy.findAllByTestId('movie-page-media-card')
-    .should('have.length', testData.results.length)
-    .each((movie, index) => {
-      /// Get the values from our mock-data
-      const { id, poster_path, release_date, title, vote_average } = testData.results[index];
+  const { id, poster_path, release_date, title, vote_average } = movieData;
 
-      /// ---------------------------------------------------------------
-      cy.log('  LINK & POSTER');
-      /// ---------------------------------------------------------------
-      cy.wrap(movie)
-        .findByRole('link')
-        .should('have.attr', 'href', `/movies/${id}`)
-        .findByRole('img')
-        .should('have.attr', 'src', `https://image.tmdb.org/t/p/w220_and_h330_face/${poster_path}`);
+  cy.findByTestId(`movie-page-media-card-${id}`).within(($movie) => {
+    /// ---------------------------------------------------------------
+    cy.log('  LINK & POSTER');
+    /// ---------------------------------------------------------------
+    cy.wrap($movie)
+      .findByRole('link')
+      .should('have.attr', 'href', `/movies/${id}`)
+      .findByRole('img')
+      // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+      .should('have.attr', 'src', `https://image.tmdb.org/t/p/w220_and_h330_face${poster_path}`)
+      .should('be.visible');
 
-      /// ---------------------------------------------------------------
-      cy.log(' VOTE');
-      /// ---------------------------------------------------------------
-      cy.wrap(movie).findByTestId('movie-score').should('have.text', vote_average);
+    /// ---------------------------------------------------------------
+    cy.log(' VOTE');
+    /// ---------------------------------------------------------------
+    cy.wrap($movie).findByTestId('movie-score').should('have.text', vote_average);
 
-      /// ---------------------------------------------------------------
-      cy.log(' TITLE');
-      /// ---------------------------------------------------------------
-      cy.wrap(movie)
-        .findByRole('heading', {
-          level: 4,
-          name: title,
-        })
-        .should('have.text', title);
+    /// ---------------------------------------------------------------
+    cy.log(' TITLE');
+    /// ---------------------------------------------------------------
+    cy.wrap($movie)
+      .findByRole('heading', {
+        level: 4,
+        name: title,
+      })
+      .should('have.text', title);
 
-      /// ---------------------------------------------------------------
-      cy.log('  RELEASE DATE');
-      /// ---------------------------------------------------------------
-      const formattedDate = Intl.DateTimeFormat('en-US', {
-        year: 'numeric',
-        month: 'short',
-        day: 'numeric',
-      }).format(new Date(release_date));
+    /// ---------------------------------------------------------------
+    cy.log('  RELEASE DATE');
+    /// ---------------------------------------------------------------
+    const formattedDate = Intl.DateTimeFormat('en-US', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+    }).format(new Date(release_date));
 
-      cy.wrap(movie).findByText(formattedDate).should('have.text', formattedDate);
-    });
+    cy.wrap($movie).findByText(formattedDate).should('have.text', formattedDate);
+  });
 });

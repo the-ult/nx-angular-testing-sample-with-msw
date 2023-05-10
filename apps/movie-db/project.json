@@ -6,9 +6,12 @@
   "prefix": "ult",
   "targets": {
     "build": {
-      "executor": "@angular-devkit/build-angular:browser",
+      "executor": "@nrwl/angular:webpack-browser",
       "outputs": ["{options.outputPath}"],
       "options": {
+        "customWebpackConfig": {
+          "path": "apps/movie-db/webpack.config.js"
+        },
         "outputPath": "dist/apps/movie-db",
         "index": "apps/movie-db/src/index.html",
         "main": "apps/movie-db/src/main.ts",
@@ -66,7 +69,7 @@
       "defaultConfiguration": "production"
     },
     "serve": {
-      "executor": "@angular-devkit/build-angular:dev-server",
+      "executor": "@nrwl/angular:webpack-dev-server",
       "configurations": {
         "production": {
           "browserTarget": "movie-db:build:production"
@@ -76,6 +79,15 @@
         }
       },
       "defaultConfiguration": "development"
+    },
+    "mock": {
+      "executor": "@nrwl/angular:webpack-dev-server",
+      "configurations": {
+        "mock": {
+          "browserTarget": "movie-db:build:development"
+        }
+      },
+      "defaultConfiguration": "mock"
     },
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
