@@ -30,7 +30,7 @@ Cypress.Commands.add('checkMovieCardData', (movieData: Movie) => {
 
   const { id, poster_path, release_date, title, vote_average } = movieData;
 
-  cy.findByTestId(`movie-page-media-card-${id}`).within(($movie) => {
+  cy.findByTestId(`media-item-page-media-card-${id}`).within(($movie) => {
     /// ---------------------------------------------------------------
     cy.log('  LINK & POSTER');
     /// ---------------------------------------------------------------
