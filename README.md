@@ -17,7 +17,7 @@ Trying to provide a good base for both a learning and as a starter repository.
 ## Why
 
 I wanted to write a blogpost about using [MSWjs](https://mswjs.io) in a Nx repo with both Cypress, Cypress Component Tests and Jest/Testing-library.
-To be able to write a proper blogpost, I wanted to setup a proper example repo.
+To be able to write a proper blogpost, I needed to setup a proper example repo.
 While creating this example repo, I figured, let's use and try the newest Angular best practices.
 And create an example app, which can be used as a starter/example for future projects as well.
 
@@ -63,11 +63,12 @@ OR
 ❯ nx mock movie-db
 ```
 
-Or run with live data
-In that case you first have to add your TMDB BEARER token
-to [apps/movie-db/.env.serve](./apps/movie-db/.env.serve)
+Or run with live data.
 
-_See: https://developers.themoviedb.org/3/getting-started/authentication#bearer-token_
+> In this case you first have to add your TMDB BEARER token
+> to [apps/movie-db/.env.serve](./apps/movie-db/.env.serve)
+>
+> _See: https://developers.themoviedb.org/3/getting-started/authentication#bearer-token_
 
 ```
 ❯ nx serve movie-db
@@ -98,6 +99,8 @@ OR
 
 ## Things I would like to add / improve
 
+- [ ] Working Cypress Component Tests with MSWjs 
+    - They now result in a race condition. See: [MSW leaves cypress component test runner in a loop](https://github.com/mswjs/msw/issues/744)
 - [ ] Proper Error handling
 - [ ] Add proper Logging `provideLogger()`
 - [ ] Setup Github actions and github page
