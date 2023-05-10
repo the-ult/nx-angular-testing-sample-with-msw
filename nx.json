@@ -5,7 +5,7 @@
     "defaultBase": "main"
   },
   "cli": {
-    "packageManager": "pnpm",
+    "packageManager": "yarn",
     "cache": {
       "enabled": true,
       "path": "./.cache/angular",
