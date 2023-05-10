@@ -1,4 +1,7 @@
 ! TODO: -[ ] Initialize (zonder promise in `main.ts`)
+! Gebruik van de BETA [MSW Fetch API support](https://github.com/mswjs/msw/discussions/1464)
+
+- https://github.com/mswjs/msw/blob/feat/standard-api/MIGRATING.md
 
 - Eventueel kijken of het met appInitializer of een andere kan?
 

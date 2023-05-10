@@ -3,12 +3,14 @@ import { z } from 'zod';
 export const MovieDetailSchema = z.object({
   adult: z.boolean(),
   backdrop_path: z.string(),
-  belongs_to_collection: z.object({
-    id: z.number(),
-    name: z.string(),
-    poster_path: z.string(),
-    backdrop_path: z.string(),
-  }),
+  belongs_to_collection: z.optional(
+    z.object({
+      id: z.number(),
+      name: z.string(),
+      poster_path: z.string(),
+      backdrop_path: z.string(),
+    })
+  ),
   budget: z.number(),
   genres: z.array(z.object({ id: z.number(), name: z.string() })),
   homepage: z.string(),
@@ -20,12 +22,20 @@ export const MovieDetailSchema = z.object({
   popularity: z.number(),
   poster_path: z.string(),
   production_companies: z.array(
-    z.object({
-      id: z.number(),
-      logo_path: z.string(),
-      name: z.string(),
-      origin_country: z.string(),
-    })
+    z.union([
+      z.object({
+        id: z.number(),
+        logo_path: z.string(),
+        name: z.string(),
+        origin_country: z.string(),
+      }),
+      z.object({
+        id: z.number(),
+        logo_path: z.null(),
+        name: z.string(),
+        origin_country: z.string(),
+      }),
+    ])
   ),
   production_countries: z.array(z.object({ iso_3166_1: z.string(), name: z.string() })),
   release_date: z.string(),
