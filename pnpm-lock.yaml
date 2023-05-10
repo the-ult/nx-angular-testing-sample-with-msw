@@ -30,7 +30,7 @@ importers:
       '@nrwl/js': 15.1.1
       '@nrwl/linter': 15.1.1
       '@nrwl/workspace': 15.1.1
-      '@testing-library/cypress': ~8.0.3
+      '@testing-library/cypress': ~8.0.7
       '@types/jest': 28.1.1
       '@types/node': 16.11.7
       '@typescript-eslint/eslint-plugin': ^5.42.1
@@ -103,7 +103,7 @@ importers:
       '@nrwl/js': 15.1.1_rnw6rqo66d2ob2ysoo57bbcqpy
       '@nrwl/linter': 15.1.1_ersnrqxyergakzb57gtgh3poya
       '@nrwl/workspace': 15.1.1_q3firod2eakkzbt3xuatcvagey
-      '@testing-library/cypress': 8.0.3_cypress@11.1.0
+      '@testing-library/cypress': 8.0.7_cypress@11.1.0
       '@types/jest': 28.1.1
       '@types/node': 16.11.7
       '@typescript-eslint/eslint-plugin': 5.42.1_2udltptbznfmezdozpdoa2aemq
@@ -2998,11 +2998,11 @@ packages:
       - supports-color
     dev: true
 
-  /@testing-library/cypress/8.0.3_cypress@11.1.0:
-    resolution: {integrity: sha512-nY2YaSbmuPo5k6kL0iLj/pGPPfka3iwb3kpTx8QN/vOCns92Saz9wfACqB8FJzcR7+lfA4d5HUOWqmTddBzczg==}
+  /@testing-library/cypress/8.0.7_cypress@11.1.0:
+    resolution: {integrity: sha512-3HTV725rOS+YHve/gD9coZp/UcPK5xhr4H0GMnq/ni6USdtzVtSOG9WBFtd8rYnrXk8rrGD+0toRFYouJNIG0Q==}
     engines: {node: '>=12', npm: '>=6'}
     peerDependencies:
-      cypress: ^2.1.0 || ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0
+      cypress: ^2.1.0 || ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0 || ^11.0.0
     dependencies:
       '@babel/runtime': 7.20.1
       '@testing-library/dom': 8.19.0
