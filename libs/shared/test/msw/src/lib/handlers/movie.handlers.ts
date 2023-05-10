@@ -45,23 +45,20 @@ export const MOVIE_HANDLERS: RequestHandler[] = [
    * Handle the requests for POPULAR Movies
    * @see: https://developers.themoviedb.org/3/movies/get-popular-movies
    */
-  rest.get<{ movieId: string }, undefined, MovieDetail | MovieError>(
-    'movie/:movieId',
-    ({ params }) => {
-      const movieId = +params['movieId'];
+  rest.get<{ movieId: string }, never, MovieDetail | MovieError>('movie/:movieId', ({ params }) => {
+    const movieId = +params['movieId'];
 
-      if (movieId === 436_270) {
-        return HttpResponse.json<MovieDetail>(BlackAdam);
-      }
-
-      if (movieId === 505_642) {
-        return HttpResponse.json<MovieDetail>(WakandaForever);
-      }
-
-      return HttpResponse.json<MovieError>({
-        status_code: 56,
-        status_message: `Movie with ID: ${movieId} not found`,
-      });
+    if (movieId === 436_270) {
+      return HttpResponse.json<MovieDetail>(BlackAdam);
     }
-  ),
+
+    if (movieId === 505_642) {
+      return HttpResponse.json<MovieDetail>(WakandaForever);
+    }
+
+    return HttpResponse.json<MovieError>({
+      status_code: 56,
+      status_message: `Movie with ID: ${movieId} not found`,
+    });
+  }),
 ];
