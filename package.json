@@ -11,7 +11,8 @@
     "lint:fix:all": "nx run-many --all --target=lint --fix --parallel=3 && pnpm stylelint:fix",
     "stylelint": "stylelint {apps,libs}/**/**/*.scss",
     "stylelint:fix": "pnpm stylelint --fix",
-    "stylelint:prettier:check": "stylelint-config-prettier-check"
+    "stylelint:prettier:check": "stylelint-config-prettier-check",
+    "prepare": "is-ci || husky install"
   },
   "private": true,
   "dependencies": {
@@ -39,6 +40,9 @@
     "@angular/cli": "~15.0.2",
     "@angular/compiler-cli": "15.0.1",
     "@angular/language-service": "15.0.1",
+    "@commitlint/cli": "~17.3.0",
+    "@commitlint/config-conventional": "~17.3.0",
+    "@commitlint/types": "17.0.0",
     "@cypress/webpack-dev-server": "^3.0.1",
     "@nrwl/cli": "15.2.3",
     "@nrwl/cypress": "15.2.3",
@@ -65,6 +69,8 @@
     "eslint-plugin-ui-testing": "~2.0.1",
     "eslint-plugin-unicorn": "~45.0.1",
     "html-webpack-plugin": "^5.5.0",
+    "husky": "^8.0.0",
+    "is-ci": "~3.0.1",
     "jest": "28.1.1",
     "jest-environment-jsdom": "28.1.1",
     "jest-preset-angular": "~12.2.3",
@@ -87,6 +93,14 @@
   },
   "msw": {
     "workerDirectory": "libs/shared/test/msw/src/assets"
+  },
+  "lint-staged": {
+    "{apps,libs}/**/**/*.{css,scss}": [
+      "pnpm stylelint:fix"
+    ],
+    "{apps,libs}/**/**/*.{html,css,scss,md,js,jsx,ts,tsx,graphql,yml}": [
+      "nx affected:lint --fix",
+      "nx format:write --uncommitted"
+    ]
   }
 }
-
