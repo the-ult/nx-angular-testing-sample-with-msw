@@ -5,7 +5,9 @@
     "declaration": true,
     "declarationMap": true,
     "inlineSources": true,
-    "types": []
+    "types": [],
+    "target": "ES2022",
+    "useDefineForClassFields": false
   },
   "exclude": [
     "src/test-setup.ts",
@@ -19,5 +21,7 @@
     "**/*.cy.tsx",
     "**/*.cy.jsx"
   ],
-  "include": ["**/*.ts"]
+  "include": [
+    "**/*.ts"
+  ]
 }
