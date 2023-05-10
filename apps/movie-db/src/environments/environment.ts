@@ -8,13 +8,13 @@ import { primitiveToBoolean } from '@ult/shared/utils';
 export const environment: EnvironmentBase = {
   production: false,
   environment: 'dev',
-  apiMocking: primitiveToBoolean(process?.env['NX_API_MOCKING']),
+  apiMocking: primitiveToBoolean(process.env['NX_API_MOCKING']),
 
   url: {
-    api: process?.env['NX_API_URL'] ?? 'API_URL_NOT_DEFINED',
-    img: process?.env['NX_IMG_URL'] ?? 'IMG_URL_NOT_DEFINED',
+    api: process.env['NX_API_URL'] ?? 'API_URL_NOT_DEFINED',
+    img: process.env['NX_IMG_URL'] ?? 'IMG_URL_NOT_DEFINED',
   },
-  bearer: process?.env['NX_BEARER'],
+  bearer: process.env['NX_BEARER'],
   // mock: true,
 };
 
@@ -26,3 +26,4 @@ export const environment: EnvironmentBase = {
  * on performance if an error is thrown.
  */
 // import 'zone.js/plugins/zone-error';  // Included with Angular CLI.
+

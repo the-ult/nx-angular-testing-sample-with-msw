@@ -5,8 +5,8 @@ export const environment: EnvironmentBase = {
   environment: 'prd',
   apiMocking: false,
   url: {
-    api: process?.env['NX_API_URL'] ?? 'API_URL_NOT_DEFINED',
-    img: process?.env['NX_IMG_URL'] ?? 'IMG_URL_NOT_DEFINED',
+    api: process.env['NX_API_URL'] ?? 'API_URL_NOT_DEFINED',
+    img: process.env['NX_IMG_URL'] ?? 'IMG_URL_NOT_DEFINED',
   },
-  bearer: process?.env['NX_BEARER'],
+  bearer: process.env['NX_BEARER'],
 };
