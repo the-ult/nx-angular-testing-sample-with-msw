@@ -1,9 +1,10 @@
 import { AsyncPipe, NgForOf } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject, TrackByFunction } from '@angular/core';
-import { Movie } from '@ult/movie/data-access';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { MovieService } from '@ult/movie/data-access';
+import { Movie } from '@ult/shared/data-access';
+import { UltMediaCardComponent } from '@ult/shared/ui/media-card';
+import { trackByProp } from '@ult/shared/utils';
 import { map } from 'rxjs';
-import { UltMediaCardComponent } from './media-card/media-card.component';
-import { MovieService } from './movie.service';
 
 @Component({
   selector: 'ult-movies-page',
@@ -18,5 +19,5 @@ export class MoviesPage {
     .queryMovies$('popular')
     .pipe(map((movie) => movie.results));
 
-  readonly movieTrackBy: TrackByFunction<Movie> = (index, { id }) => id || index;
+  readonly movieTrackBy = trackByProp<Movie>('id');
 }

@@ -1,9 +1,9 @@
 import { DatePipe, NgOptimizedImage } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject, Input } from '@angular/core';
 import { RouterLinkWithHref } from '@angular/router';
-import { MediaCardInput } from '@ult/movie/data-access';
 import { ENVIRONMENT } from '@ult/shared/data-access';
-import { UserScoreComponent } from '@ult/shared/ui/user-score';
+import { UserScoreComponent } from '../user-score';
+import { MediaCardInput } from './media-card.model';
 
 @Component({
   selector: 'ult-media-card',
@@ -11,17 +11,12 @@ import { UserScoreComponent } from '@ult/shared/ui/user-score';
   imports: [NgOptimizedImage, RouterLinkWithHref, UserScoreComponent, DatePipe],
   template: `
     <a [routerLink]="['/movies', mediaData.id]">
-      <img
-        [alt]="mediaData.title"
-        [ngSrc]="ENV.url.img + mediaData.poster_path"
-        width="180"
-        height="275"
-      />
+      <img [alt]="title" [ngSrc]="ENV.url.img + mediaData.poster_path" width="180" height="275" />
     </a>
     <div class="card__content">
       <ult-user-score [score]="mediaData.vote_average" data-testid="movie-score"></ult-user-score>
-      <h4>{{ mediaData.title }}</h4>
-      <p class="date">{{ mediaData.release_date | date }}</p>
+      <h4>{{ title }}</h4>
+      <p class="date">{{ releaseDate | date }}</p>
     </div>
   `,
   styles: [
@@ -34,6 +29,12 @@ import { UserScoreComponent } from '@ult/shared/ui/user-score';
         background-color: #fff;
         /*  ! FIXME: proper sizes */
         width: 182px;
+
+        transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+
+        &:hover {
+          transform: scale(1.03);
+        }
       }
 
       a {
@@ -78,4 +79,18 @@ export class UltMediaCardComponent {
   protected readonly ENV = inject(ENVIRONMENT);
 
   @Input() mediaData!: MediaCardInput;
+
+  get title(): string {
+    if ('title' in this.mediaData) {
+      return this.mediaData.title;
+    }
+    return this.mediaData.name;
+  }
+
+  get releaseDate(): string {
+    if ('title' in this.mediaData) {
+      return this.mediaData.release_date;
+    }
+    return this.mediaData.first_air_date;
+  }
 }

@@ -35,28 +35,47 @@ Trying to provide a good base for both a learning and as a starter repository.
 ## Setup
 
 ```
+# ------------------------------------------------------------------
 # Enable pnpm
-$ corepack enable
+# ------------------------------------------------------------------
+❯ corepack enable
 
+# ------------------------------------------------------------------
 # Install dependencies
-$ pnpm install
+# ------------------------------------------------------------------
+❯ pnpm install
 
+```
+
+## Run
+
+```
+# ------------------------------------------------------------------
 # Start dev server with MSW mocking at localhost:4200
-$ pnpm start:msw movie-db
+# ------------------------------------------------------------------
+❯ pnpm start:msw movie-db
+
 # OR
-$ nx mock movie-db
+
+❯ nx mock movie-db
+
+# ------------------------------------------------------------------
+# OR RUN WITH LIVE DATA, but you first have to add your TMDB BEARER token
+# to `apps/movie-db/.env.serve`
+# See: https://developers.themoviedb.org/3/getting-started/authentication#bearer-token
+# ------------------------------------------------------------------
+
+❯ nx serve movie-db
 ```
 
 ### E2E
 
 ```
-pnpm e2e:msw
-```
+❯ pnpm e2e:msw
 
-OR
+# OR
 
-```
-nx e2e movie-db-e2e [--watch --browser=chrome]
+❯ nx e2e movie-db-e2e [--watch --browser=chrome]
 ```
 
 ## Credits / Resources / Thanks / Shout-outs
@@ -72,6 +91,7 @@ nx e2e movie-db-e2e [--watch --browser=chrome]
   - Testing Jedi
 - And of course the amazing teams and community of [@Angular](https://www.angular.io) and [Nx](https://nx.dev)!
 - [Movies App](https://tastejs.com/movies/) - Amazing sample applications for different frameworks.
+- [Nuxt Movies](https://github.com/nuxt/movies) - TMDB example app with Nuxt and VueJs
 - [Versatile Angular - Younes Jaaidi](https://marmicode.io/blog/versatile-angular) - Angular (SFC) with Vite
 - [Analogjs](https://github.com/analogjs/analog) - Amazing all in one framework for Angular by Brandon Roberts. Using Vite
 - [Unnecessary VSCode Extensions](https://javascript.plainenglish.io/unnecessary-vscode-extensions-e72cb637f1cf) - See [VSCode Extension Settings](/.vscode/extensions.json) and [VSCode workspace settings](.vscode/settings.json)

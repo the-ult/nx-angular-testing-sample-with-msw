@@ -2,7 +2,7 @@ import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { enableProdMode, ENVIRONMENT_INITIALIZER, importProvidersFrom } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { provideRouter, withRouterConfig } from '@angular/router';
+import { provideRouter, withInMemoryScrolling, withRouterConfig } from '@angular/router';
 import { authInterceptor } from '@ult/shared/core';
 import { ENVIRONMENT } from '@ult/shared/data-access';
 import { initMswForAngularApp } from '@ult/shared/test/msw';
@@ -20,6 +20,9 @@ bootstrapApplication(AppRoot, {
     importProvidersFrom(BrowserAnimationsModule),
     provideRouter(
       MOVIE_DB_ROUTES,
+      withInMemoryScrolling({
+        scrollPositionRestoration: 'top',
+      }),
       withRouterConfig({
         paramsInheritanceStrategy: 'always',
       })

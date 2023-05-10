@@ -3,10 +3,13 @@
   padding-bottom: var(--ult-space-xl);
 }
 
-section {
+section.movie-wall {
   display: grid;
   gap: var(--ult-space-xl);
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-
-  // grid-auto-flow: dense;
+  grid-template-columns: repeat(auto-fill, minmax(182px, 1fr));
+  grid-auto-flow: dense;
+  place-content: space-between space-evenly;
+  align-items: start;
+  position: relative;
+  contain: layout;
 }

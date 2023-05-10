@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-return */
 
 // eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
-import { MovieError, Movies } from '@ult/movie/data-access';
+import { MediaError, Movies } from '@ult/shared/data-access';
 import { MoviesPopularPage1, MoviesPopularPage2 } from '@ult/shared/test/mocks';
 import { RequestHandler, rest } from 'msw';
 
@@ -38,19 +38,19 @@ export const MOVIE_HANDLERS: RequestHandler[] = [
   //   );
   // }),
   /// OLD/CURRENT API 0.49.x
-  rest.get<Movies | MovieError>('/movie/popular', (request, res, ctx) => {
+  rest.get<Movies | MediaError>('/movie/popular', (request, response, ctx) => {
     const url = new URL(request.url);
 
     const pageParameter = Number(url.searchParams.get('page'));
 
     if (pageParameter === 0 || pageParameter === 1) {
-      return res(ctx.json(MoviesPopularPage1));
+      return response(ctx.json(MoviesPopularPage1));
     }
     if (pageParameter === 2) {
-      return res(ctx.json(MoviesPopularPage2));
+      return response(ctx.json(MoviesPopularPage2));
     }
 
-    return res(
+    return response(
       // Send a valid HTTP status code
       ctx.status(404),
       // And a response body, if necessary

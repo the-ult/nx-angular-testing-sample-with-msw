@@ -38,8 +38,19 @@
           "libs/shared/ui/header/**/*.ts",
           "libs/shared/ui/header/**/*.html",
           "libs/shared/ui/user-score/**/*.ts",
-          "libs/shared/ui/user-score/**/*.html"
+          "libs/shared/ui/user-score/**/*.html",
+          "libs/shared/ui/carousel/**/*.ts",
+          "libs/shared/ui/carousel/**/*.html"
         ]
+      }
+    },
+    "component-test": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "libs/shared/ui/cypress.config.ts",
+        "testingType": "component",
+        "skipServe": true,
+        "devServerTarget": "movie-db:build"
       }
     }
   },

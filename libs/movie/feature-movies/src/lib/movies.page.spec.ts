@@ -22,7 +22,9 @@ describe('MoviesPage', () => {
   it('should show all movies in cards', async () => {
     mswServer.use(
       // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-      rest.get('http://localhost:4200/movie/popular', (_req, res, ctx) => res(ctx.json(TEST_DATA)))
+      rest.get('http://localhost:4200/movie/popular', (_req, response, ctx) =>
+        response(ctx.json(TEST_DATA))
+      )
     );
     // mswServer.use(
     //   rest.get<never, never, Movies | MovieError>('http://localhost:4200/movie/popular', () =>

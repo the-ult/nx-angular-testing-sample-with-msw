@@ -4,9 +4,9 @@ import { ENVIRONMENT } from '@ult/shared/data-access';
 import { ENV_MOCK } from '@ult/shared/test/mocks';
 import { UltMediaCardComponent } from './media-card.component';
 
-import { MediaCardInput } from '@ult/movie/data-access';
 import { MoviesPopularPage2 as TEST_DATA } from '@ult/shared/test/mocks';
 import { MountConfig } from 'cypress/angular';
+import { MediaCardInput } from './media-card.model';
 
 describe(UltMediaCardComponent.name, () => {
   const mediaCardData: MediaCardInput = TEST_DATA.results[0];

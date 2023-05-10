@@ -14,7 +14,12 @@
             "depConstraints": [
               {
                 "sourceTag": "type:ui",
-                "onlyDependOnLibsWithTags": ["type:ui,type:util"]
+                "onlyDependOnLibsWithTags": [
+                  "type:ui",
+                  "type:util",
+                  "type:data-access",
+                  "type:test"
+                ]
               },
               {
                 "sourceTag": "type:util",
@@ -60,6 +65,14 @@
         "unicorn/prevent-abbreviations": [
           "error",
           {
+            "replacements": {
+              "prop": {
+                "property": false
+              },
+              "res": {
+                "result": false
+              }
+            },
             "ignore": [
               "\\.e2e$",
               "\\.prod$",
@@ -69,8 +82,7 @@
               "e2e",
               "env",
               "i18n",
-              "req",
-              "res"
+              "req"
             ]
           }
         ],

@@ -10,6 +10,11 @@ export const MOVIE_DB_ROUTES: Route[] = [
     path: 'movies/:movieId',
     loadComponent: async () => (await import('@ult/movie/feature-movie-detail')).MovieDetailPage,
   },
-  { path: '', redirectTo: 'movies', pathMatch: 'full' },
+  {
+    path: '',
+    loadComponent: async () => (await import('@ult/movie/feature-shell')).MovieFeatureShellPage,
+
+    pathMatch: 'full',
+  },
   { path: '**', redirectTo: '' },
 ];

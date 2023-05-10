@@ -53,7 +53,7 @@ export const mswMock = (url: string, data: DefaultBodyType): void => {
       const { rest, worker } = win.msw;
 
       // worker.use(rest.get(url, () => HttpResponse.json(data)));
-      worker.use(rest.get(url, (_req, res, ctx) => res(ctx.json(data))));
+      worker.use(rest.get(url, (_req, response, ctx) => response(ctx.json(data))));
     });
   } else {
     // eslint-disable-next-line no-console, no-restricted-syntax

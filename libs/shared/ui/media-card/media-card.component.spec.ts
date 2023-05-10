@@ -3,7 +3,6 @@ import { render, screen } from '@testing-library/angular';
 import { ENVIRONMENT } from '@ult/shared/data-access';
 import { ENV_MOCK } from '@ult/shared/test/mocks';
 
-import { MediaCardInput } from '@ult/movie/data-access';
 import { UltMediaCardComponent } from './media-card.component';
 
 /**
@@ -16,7 +15,8 @@ import { UltMediaCardComponent } from './media-card.component';
  * @see {@link Jest - ES Modules | https://github.com/facebook/jest/issues/9430}
  */
 // eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
-import * as TEST_DATA from '../../../../../shared/test/mocks/src/lib/movie/movies-popular-page-2.json';
+import * as TEST_DATA from '../../test/mocks/src/lib/movie/movies-popular-page-2.json';
+import { MediaCardInput } from './media-card.model';
 
 describe('MediaCardComponent', () => {
   it('should create', async () => {

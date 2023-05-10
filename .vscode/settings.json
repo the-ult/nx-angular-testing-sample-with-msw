@@ -22,7 +22,7 @@
   "javascript.suggest.autoImports": true,
   "javascript.updateImportsOnFileMove.enabled": "prompt",
   "typescript.suggest.autoImports": true,
-  "typescript.updateImportsOnFileMove.enabled": "prompt",
+  "typescript.updateImportsOnFileMove.enabled": "always",
   "editor.codeActionsOnSave": {
     /// Or set to false if you whish to let ESLint eslint-plugin-import handle this
     "source.organizeImports": true,

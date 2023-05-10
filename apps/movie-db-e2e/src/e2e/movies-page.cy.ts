@@ -1,4 +1,4 @@
-import { Movies } from '@ult/movie/data-access';
+import { Movies } from '@ult/shared/data-access';
 import { mswMock, mswResetWorkerHandlers } from '@ult/shared/test/cypress';
 import { MoviesPopularPage2 } from '@ult/shared/test/mocks';
 
@@ -6,7 +6,7 @@ const TEST_DATA: Movies = MoviesPopularPage2;
 
 describe('Movies Page', () => {
   before(() => {
-    cy.visit('/');
+    cy.visit('/movies');
   });
 
   afterEach(() => mswResetWorkerHandlers());

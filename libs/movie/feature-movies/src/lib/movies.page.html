@@ -1,5 +1,5 @@
 <h2>Popular Movies</h2>
-<section>
+<section class="movie-wall">
   <ult-media-card
     *ngFor="let movie of movies$ | async; trackBy: movieTrackBy"
     [mediaData]="movie"

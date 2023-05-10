@@ -5,6 +5,10 @@
     "declaration": true,
     "types": ["node"]
   },
-  "include": ["**/*.ts"],
+  "include": [
+    "**/*.ts",
+    "../../shared/ui/media-card/media-card.model.ts",
+    "../../shared/data-access/src/lib/media-error.model.ts"
+  ],
   "exclude": ["jest.config.ts", "**/*.spec.ts", "**/*.test.ts"]
 }

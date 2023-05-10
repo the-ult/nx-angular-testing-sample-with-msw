@@ -1,8 +1,15 @@
 :host {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
   background-color: var(--ult-theme-primary);
-  height: 64px;
+  height: var(--ult-app-bar-height);
   display: flex;
   padding: 0 24px;
+  z-index: 99;
+  box-shadow: 0 3px 5px -1px hsl(0deg 0% 0% / 20%), 0 6px 10px hsl(0deg 0% 0% / 14.1%),
+    0 1px 18px hsl(0deg 0% 0% / 12.2%);
 }
 
 header {

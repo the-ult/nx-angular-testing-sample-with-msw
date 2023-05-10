@@ -6,10 +6,14 @@
 
   // TODO: add different widths and use them with container-queries
   --ult-page-width: min(95%, 70rem);
+  --ult-app-bar-height: 64px;
   --ult-typography-font-family: 'Roboto Flex', sans-serif;
 
   /// THEME
   --ult-theme-primary: hsl(207deg 91.2% 13%);
   --ult-theme-secondary: hsl(193deg 99% 45%);
   --ult-theme-text-primary-on-dark: hsl(0deg 0% 100%);
+
+  /// COLORS
+  --ult-color-default-contrast: hsl(0deg 0% 100%);
 }
