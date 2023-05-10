@@ -14,12 +14,6 @@ export class MovieService {
 
   // queryMovies$(type: MovieType = 'popular'): Observable<Movies | MovieError> {
   queryMovies$(type: MovieType = 'popular') {
-    // const headers = new HttpHeaders({
-
-    //   // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-    //   Authorization: `Bearer ${this.ENV.bearer}`,
-    // });
-
     return this.http.get<Movies>(`${this.ENV.url.api}/movie/${type}`).pipe(
       parseResponse(MoviesSchema),
       catchError((error: unknown) => {

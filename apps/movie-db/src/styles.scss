@@ -1,7 +1,12 @@
 @use './css';
 
+:where(html) {
+  display: grid;
+  height: 100vh;
+  height: 100dvh;
+}
+
 html,
 body {
   font-family: var(--ult-typography-font-family);
-  height: 100%;
 }
