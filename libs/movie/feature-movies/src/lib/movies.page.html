@@ -1,7 +1,7 @@
 <h2>Popular Movies</h2>
 <section>
   <ult-media-card
-    *ngFor="let movie of movies$ | async"
+    *ngFor="let movie of movies$ | async; trackBy: movieTrackBy"
     [mediaData]="movie"
     [attr.data-testid]="'movie-page-media-card-' + movie.id"
   ></ult-media-card>
