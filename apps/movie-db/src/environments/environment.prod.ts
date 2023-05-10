@@ -1,4 +1,4 @@
-import { EnvironmentBase } from '@ult/shared/data-access';
+import type { EnvironmentBase } from '@ult/shared/data-access';
 
 export const environment: EnvironmentBase = {
   production: true,

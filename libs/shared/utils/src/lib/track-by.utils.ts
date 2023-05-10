@@ -1,4 +1,4 @@
-import { TrackByFunction } from '@angular/core';
+import type { TrackByFunction } from '@angular/core';
 // TODO: we should move these Angular specific utils to a different library.
 // Otherwise when a library uses some utils, `@angular/core` will be bundled as well
 

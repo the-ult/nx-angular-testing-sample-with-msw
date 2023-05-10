@@ -4,7 +4,7 @@ declare namespace Cypress {
   interface Chainable<Subject> {}
 }
 
-import { DefaultBodyType } from 'msw';
+import type { DefaultBodyType } from 'msw';
 
 /**
  * Reset the msw mock server

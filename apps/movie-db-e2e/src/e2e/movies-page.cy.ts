@@ -1,4 +1,4 @@
-import { Movies } from '@ult/shared/data-access';
+import type { Movies } from '@ult/shared/data-access';
 import { mswMock, mswResetWorkerHandlers } from '@ult/shared/test/cypress';
 import { MoviesPopularPage2 } from '@ult/shared/test/mocks';
 

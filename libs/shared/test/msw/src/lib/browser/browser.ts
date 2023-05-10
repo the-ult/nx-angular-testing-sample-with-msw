@@ -1,6 +1,7 @@
 import { inject } from '@angular/core';
 import { ENVIRONMENT } from '@ult/shared/data-access';
-import { graphql, rest, setupWorker, StartOptions } from 'msw';
+import type { StartOptions } from 'msw';
+import { graphql, rest, setupWorker } from 'msw';
 import { HANDLERS } from '../handlers';
 
 type UnhandledRequestStrategy = StartOptions['onUnhandledRequest'];
@@ -32,13 +33,13 @@ export const startMswForBrowser = (
     findWorker: (scriptURL) => scriptURL.includes(mswFile),
     onUnhandledRequest,
   });
-
   /**
    * Add the MSW objects to the window, so we can easily use them with Cypress
    * @see: {@link [MSW Cypress example](https://mswjs.io/docs/api/setup-worker/use#examples)}
    */
   // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
   if (window.Cypress) {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     window.msw = { graphql, rest, worker };
   }
 };

@@ -49,6 +49,11 @@
         "plugin:@typescript-eslint/recommended-requiring-type-checking",
         "plugin:unicorn/recommended"
       ],
+      "parserOptions": {
+        "ecmaVersion": 2022,
+        "project": ["tsconfig.*?.json"],
+        "emitDecoratorMetadata": true
+      },
       "rules": {
         "no-console": "warn",
         "no-unused-vars": "off",
@@ -58,10 +63,14 @@
         "max-nested-callbacks": ["error", 3],
         "no-return-await": "error",
         "prefer-promise-reject-errors": "error",
+        "@typescript-eslint/consistent-type-exports": "error",
+        "@typescript-eslint/consistent-type-imports": "error",
+        "@typescript-eslint/no-import-type-side-effects": "error",
         "@typescript-eslint/no-inferrable-types": "error",
         "@typescript-eslint/no-unnecessary-condition": "error",
-        "@typescript-eslint/prefer-optional-chain": "error",
         "@typescript-eslint/prefer-nullish-coalescing": "error",
+        "@typescript-eslint/prefer-optional-chain": "error",
+        "@typescript-eslint/prefer-as-const": "error",
         "unicorn/prevent-abbreviations": [
           "error",
           {

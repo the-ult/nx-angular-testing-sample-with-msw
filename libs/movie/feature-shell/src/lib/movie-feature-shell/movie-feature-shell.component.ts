@@ -1,7 +1,7 @@
 import { AsyncPipe, NgForOf } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { MovieService, TVShowService } from '@ult/movie/data-access';
-import { Movie, TvShow } from '@ult/shared/data-access';
+import type { Movie, TvShow } from '@ult/shared/data-access';
 import { UltMediaCardComponent } from '@ult/movie/ui/media-card';
 import { trackByProp } from '@ult/shared/utils';
 

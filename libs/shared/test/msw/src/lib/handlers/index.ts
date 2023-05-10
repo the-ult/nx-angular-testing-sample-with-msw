@@ -1,4 +1,4 @@
-import { RequestHandler } from 'msw';
+import type { RequestHandler } from 'msw';
 import { MOVIE_HANDLERS } from './movie.handler';
 import { TV_SHOW_HANDLERS } from './tv-show.handler';
 

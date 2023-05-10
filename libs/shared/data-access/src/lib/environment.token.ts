@@ -1,4 +1,4 @@
 import { InjectionToken } from '@angular/core';
-import { EnvironmentBase } from './environment.model';
+import type { EnvironmentBase } from './environment.model';
 
 export const ENVIRONMENT = new InjectionToken<EnvironmentBase>('Environment');

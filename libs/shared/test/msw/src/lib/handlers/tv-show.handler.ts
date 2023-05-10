@@ -1,7 +1,8 @@
 // eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
-import { MediaError, TvShows } from '@ult/shared/data-access';
+import type { MediaError, TvShows } from '@ult/shared/data-access';
 import { TVShowsPopularPage1, TVShowsPopularPage2 } from '@ult/shared/test/mocks';
-import { RequestHandler, rest } from 'msw';
+import type { RequestHandler } from 'msw';
+import { rest } from 'msw';
 
 /**
  *

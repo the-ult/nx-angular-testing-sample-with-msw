@@ -1,4 +1,4 @@
-import { Movie, TvShow } from '@ult/shared/data-access';
+import type { Movie, TvShow } from '@ult/shared/data-access';
 
 type MovieCardInput = Pick<Movie, 'id' | 'poster_path' | 'release_date' | 'title' | 'vote_average'>;
 type TvShowCardInput = Pick<

@@ -1,17 +1,11 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 
-import {
-  ENVIRONMENT,
-  MediaError,
-  MovieDetail,
-  MovieDetailSchema,
-  Movies,
-  MoviesSchema,
-  MovieType,
-} from '@ult/shared/data-access';
+import type { MediaError, MovieDetail, Movies, MovieType } from '@ult/shared/data-access';
+import { ENVIRONMENT, MovieDetailSchema, MoviesSchema } from '@ult/shared/data-access';
 import { parseResponse } from '@ult/shared/utils';
-import { catchError, Observable, of, throwError } from 'rxjs';
+import type { Observable } from 'rxjs';
+import { catchError, of, throwError } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class MovieService {

@@ -1,6 +1,7 @@
 import { inject } from '@angular/core';
-import { MonoTypeOperatorFunction, tap } from 'rxjs';
-import { z } from 'zod';
+import type { MonoTypeOperatorFunction } from 'rxjs';
+import { tap } from 'rxjs';
+import type { z } from 'zod';
 /// In this case we allow the usage of the @nrwl/nx/enforce-module-boundaries rule
 /// because we are using the ENVIRONMENT token from the shared/data-access module
 // eslint-disable-next-line @nrwl/nx/enforce-module-boundaries

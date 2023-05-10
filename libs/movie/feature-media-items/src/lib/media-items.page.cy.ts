@@ -1,12 +1,12 @@
 import { provideHttpClient } from '@angular/common/http';
-import { HttpClientTestingModule, provideHttpClientTesting } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 import { ENVIRONMENT } from '@ult/shared/data-access';
 import { mswMock } from '@ult/shared/test/cypress';
 import { ENV_MOCK, MoviesPopularPage2 } from '@ult/shared/test/mocks';
 import { startMswForBrowser, worker } from '@ult/shared/test/msw';
-import { MountConfig } from 'cypress/angular';
+import type { MountConfig } from 'cypress/angular';
 import { MediaItemsPage } from './media-items.page';
 
 describe(MediaItemsPage.name, () => {
@@ -16,7 +16,7 @@ describe(MediaItemsPage.name, () => {
   const config: MountConfig<MediaItemsPage> = {
     declarations: [],
     // TODO: use provideHttpClientTesting()
-    imports: [HttpClientTestingModule],
+    // imports: [HttpClientModule, HttpClientTestingModule],
     //   TODO: create test ENV
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     providers: [

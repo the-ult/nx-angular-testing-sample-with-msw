@@ -1,6 +1,6 @@
 /* eslint-disable unicorn/no-await-expression-member */
-import { Route } from '@angular/router';
-import { RouteType } from '@ult/shared/data-access';
+import type { Route } from '@angular/router';
+import type { RouteType } from '@ult/shared/data-access';
 
 interface MovieRoute extends Route {
   data?: {

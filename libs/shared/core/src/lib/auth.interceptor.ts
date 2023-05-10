@@ -1,4 +1,4 @@
-import { HttpInterceptorFn } from '@angular/common/http';
+import type { HttpInterceptorFn } from '@angular/common/http';
 import { inject } from '@angular/core';
 import { ENVIRONMENT } from '@ult/shared/data-access';
 

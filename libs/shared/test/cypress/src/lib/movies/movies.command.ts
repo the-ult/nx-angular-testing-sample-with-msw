@@ -1,6 +1,6 @@
 // TODO: should we move these movie specific commands to the movie domain?
 
-import { Movie } from '@ult/shared/data-access';
+import type { Movie } from '@ult/shared/data-access';
 
 declare global {
   // eslint-disable-next-line @typescript-eslint/no-namespace

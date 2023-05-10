@@ -3,9 +3,9 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MovieService } from '@ult/movie/data-access';
 import { UserScoreComponent } from '@ult/movie/ui/user-score';
-import { MovieDetail } from '@ult/shared/data-access';
+import type { MovieDetail } from '@ult/shared/data-access';
 import { trackByProp } from '@ult/shared/utils';
-import { Observable } from 'rxjs';
+import type { Observable } from 'rxjs';
 
 @Component({
   selector: 'ult-movie-detail-page',

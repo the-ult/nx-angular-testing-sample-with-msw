@@ -1,4 +1,4 @@
-import { graphql, rest, SetupWorker } from 'msw';
+import type { graphql, rest, SetupWorker } from 'msw';
 
 export {};
 
