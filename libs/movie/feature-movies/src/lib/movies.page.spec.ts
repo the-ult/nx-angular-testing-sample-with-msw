@@ -37,7 +37,7 @@ describe('MoviesPage', () => {
 
     const headerControl = screen.getByRole('heading', { level: 2, name: 'Popular Movies' });
 
-    expect(headerControl).toBeInTheDocument();
+    expect(headerControl).toBeVisible();
 
     // Check all media-cards
     const allMediaCards = await screen.findAllByTestId(/^movie-page-media-card-/);

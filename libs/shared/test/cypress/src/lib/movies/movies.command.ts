@@ -1,6 +1,6 @@
 // TODO: should we move these movie specific commands to the movie domain?
 // eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
-import { Movie } from '@ult/movie/data-access';
+import { MediaCardInput } from '@ult/movie/data-access';
 
 declare global {
   // eslint-disable-next-line @typescript-eslint/no-namespace
@@ -14,12 +14,12 @@ declare global {
        *
        * @param testData
        */
-      checkMovieCardData(movieData: Movie): Chainable<void>;
+      checkMovieCardData(movieData: MediaCardInput): Chainable<void>;
     }
   }
 }
 
-Cypress.Commands.add('checkMovieCardData', (movieData: Movie) => {
+Cypress.Commands.add('checkMovieCardData', (movieData: MediaCardInput) => {
   /// ---------------------------------------------------------------
   Cypress.log({
     name: 'CHECK MOVIE',

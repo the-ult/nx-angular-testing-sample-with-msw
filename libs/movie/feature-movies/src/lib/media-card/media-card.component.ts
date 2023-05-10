@@ -1,7 +1,7 @@
 import { DatePipe, NgOptimizedImage } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject, Input } from '@angular/core';
 import { RouterLinkWithHref } from '@angular/router';
-import { Movie } from '@ult/movie/data-access';
+import { MediaCardInput } from '@ult/movie/data-access';
 import { ENVIRONMENT } from '@ult/shared/data-access';
 import { UserScoreComponent } from '@ult/shared/ui/user-score';
 
@@ -10,7 +10,7 @@ import { UserScoreComponent } from '@ult/shared/ui/user-score';
   standalone: true,
   imports: [NgOptimizedImage, RouterLinkWithHref, UserScoreComponent, DatePipe],
   template: `
-    <a [routerLink]="[mediaData.id]">
+    <a [routerLink]="['movies/', mediaData.id]">
       <img
         [alt]="mediaData.title"
         [ngSrc]="ENV.url.img + mediaData.poster_path"
@@ -36,8 +36,12 @@ import { UserScoreComponent } from '@ult/shared/ui/user-score';
         width: 182px;
       }
 
+      a {
+        display: inline-block;
+      }
+
       img {
-        background-image: cover;
+        object-fit: cover;
         border-radius: var(--ult-image-border-radius) var(--ult-image-border-radius) 0 0;
       }
 
@@ -73,8 +77,5 @@ import { UserScoreComponent } from '@ult/shared/ui/user-score';
 export class UltMediaCardComponent {
   protected readonly ENV = inject(ENVIRONMENT);
 
-  @Input() mediaData!: Pick<
-    Movie,
-    'id' | 'poster_path' | 'release_date' | 'title' | 'vote_average'
-  >;
+  @Input() mediaData!: MediaCardInput;
 }
