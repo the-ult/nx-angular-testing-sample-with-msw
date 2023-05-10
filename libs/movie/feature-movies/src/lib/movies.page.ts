@@ -7,13 +7,13 @@ import { MovieService } from './movie.service';
 @Component({
   selector: 'ult-movies-page',
   standalone: true,
-  imports: [UltMediaCardComponent, NgForOf, AsyncPipe],
   templateUrl: './movies.page.html',
   styleUrls: ['./movies.page.scss'],
+  imports: [UltMediaCardComponent, NgForOf, AsyncPipe],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MoviesPage {
   readonly movies$ = inject(MovieService)
     .queryMovies$('popular')
-    .pipe(map((data) => data.results));
+    .pipe(map(({ results }) => results));
 }
