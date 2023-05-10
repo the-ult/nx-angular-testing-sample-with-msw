@@ -1,4 +1,4 @@
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import {
   enableProdMode,
   ENVIRONMENT_INITIALIZER,
@@ -8,6 +8,7 @@ import {
 import { bootstrapApplication } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { provideRouter, withRouterConfig } from '@angular/router';
+import { authInterceptor } from '@ult/shared/core';
 import { ENVIRONMENT } from '@ult/shared/data-access';
 import { MswService } from '@ult/shared/test/msw';
 
@@ -28,7 +29,9 @@ bootstrapApplication(AppRoot, {
         paramsInheritanceStrategy: 'always',
       })
     ),
-    provideHttpClient(),
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+    provideHttpClient(withInterceptors([authInterceptor])),
+
     { provide: ENVIRONMENT, useValue: environment },
     // ! FIXME: Is this the proper way to initialize the MswService? Or should we use
     // ! the APPLICATION_INITIALIZER

@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unsafe-return */
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { MovieError, Movies, MoviesSchema, MovieType } from '@ult/movie/data-access';
 import { ENVIRONMENT } from '@ult/shared/data-access';
@@ -14,14 +14,13 @@ export class MovieService {
 
   // queryMovies$(type: MovieType = 'popular'): Observable<Movies | MovieError> {
   queryMovies$(type: MovieType = 'popular') {
-    // ! FIXME: set bearer token with Interceptor or something
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-      Authorization: `Bearer ${this.ENV.bearer}`,
-    });
+    // const headers = new HttpHeaders({
 
-    return this.http.get<Movies>(`${this.ENV.url.api}/movie/${type}`, { headers }).pipe(
+    //   // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+    //   Authorization: `Bearer ${this.ENV.bearer}`,
+    // });
+
+    return this.http.get<Movies>(`${this.ENV.url.api}/movie/${type}`).pipe(
       parseResponse(MoviesSchema),
       catchError((error: unknown) => {
         if (error instanceof HttpErrorResponse) {
