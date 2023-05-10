@@ -14,7 +14,7 @@ If you wish to use the service with your own API key, add the Bearer token of [T
 NX_API_URL=https://api.themoviedb.org/3
 NX_IMG_URL=https://image.tmdb.org/t/p/w220_and_h330_face
 
-NX_BEARER=[YOUR BEARER TOKEN]
+NX_TMDB_BEARER=[YOUR BEARER TOKEN: https://developers.themoviedb.org/3]
 NX_MSW_API_MOCKING=false
 ```
 
@@ -25,7 +25,7 @@ and a `apps/movie-db/` for usage with MSW:
 NX_API_URL=http://localhost:4200
 NX_IMG_URL=https://image.tmdb.org/t/p/w220_and_h330_face
 NX_MSW_API_MOCKING=true
-NX_BEARER=MOCK_BEARER
+NX_TMDB_BEARER=MOCK_BEARER
 ```
 
 ### project.json
@@ -60,5 +60,5 @@ Add a `apps/movie-db-e2e/.env.e2e` for usage with MSW:
 NX_API_URL=http://localhost:4200
 NX_IMG_URL=https://image.tmdb.org/t/p/w220_and_h330_face
 NX_MSW_API_MOCKING=true
-NX_BEARER=MOCK_BEARER
+NX_TMDB_BEARER=MOCK_BEARER
 ```

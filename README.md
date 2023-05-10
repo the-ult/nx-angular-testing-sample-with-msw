@@ -19,7 +19,6 @@ Trying to provide a good base for both a learning and as a starter repository.
 
 ## Screenshots
 
-
 [TODO]
 
 ## Tech / Tools used
@@ -32,7 +31,6 @@ Trying to provide a good base for both a learning and as a starter repository.
   - [Testing Library Angular](https://testing-library.com/docs/angular-testing-library/intro/) - for unit test assertions
 - [MSWjs](https://mswjs.io)
 - [Zod](https://zod.dev/?id=introduction)
-
 
 ## Setup
 
