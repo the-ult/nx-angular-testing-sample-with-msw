@@ -21,9 +21,9 @@ export class MediaItemsPage {
   readonly mediaType: RouteType;
   readonly trackBy = trackByProp<Movie | TvShow>('id');
 
-  constructor(activatedRoute: ActivatedRoute) {
+  constructor() {
     // ! FIXME: how can we use this without the Evil `as`
-    this.mediaType = activatedRoute.snapshot.data['mediaType'] as RouteType;
+    this.mediaType = inject(ActivatedRoute).snapshot.data['mediaType'] as RouteType;
 
     if (this.mediaType === 'movie') {
       this.mediaItems$ = inject(MovieService)

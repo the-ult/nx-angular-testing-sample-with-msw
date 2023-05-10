@@ -99,11 +99,13 @@ OR
 
 ## Things I would like to add / improve
 
-- [ ] Working Cypress Component Tests with MSWjs 
-    - They now result in a race condition. See: [MSW leaves cypress component test runner in a loop](https://github.com/mswjs/msw/issues/744)
+- [ ] Working Cypress Component Tests with MSWjs
+  - They now result in a race condition. See: [MSW leaves cypress component test runner in a loop](https://github.com/mswjs/msw/issues/744)
 - [ ] Proper Error handling
 - [ ] Add proper Logging `provideLogger()`
 - [ ] Setup Github actions and github page
+- [ ] Refactor and use [Tailwind CSS](https://tailwindcss.com/) ?? (just to try it out)
+- [ ] Responsive (using container-queries)
 - [ ] Do not use image url's while testing (add images to mock assets)
 - [ ] [@ngrx/component-store](https://ngrx.io/guide/component-store) or [@ngneat/elf](https://ngneat.github.io/elf/)
 - [ ] [Playwright tests](https://playwright.dev/)

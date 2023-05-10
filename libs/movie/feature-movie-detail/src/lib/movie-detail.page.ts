@@ -21,8 +21,8 @@ export class MovieDetailPage {
   readonly trackBy = trackByProp<MovieDetail>('id');
   readonly trackByGenre = trackByProp<MovieDetail['genres'][0]>('name');
 
-  constructor(activatedRoute: ActivatedRoute) {
-    const idParameter = activatedRoute.snapshot.paramMap.get('movieId');
+  constructor() {
+    const idParameter = inject(ActivatedRoute).snapshot.paramMap.get('movieId');
 
     if (!idParameter) {
       throw new Error('No movieId param found in route');

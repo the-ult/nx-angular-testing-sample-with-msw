@@ -46,6 +46,21 @@ img {
 
 h1 {
   font-size: 2.2rem;
+  margin-bottom: 0;
+
+  .year {
+    // opacity: 0.8;
+    // ! FIXME: create css variable for this
+    color: rgb(255 255 255 / 70%);
+    font-weight: var(--ult-typography-body-small-font-weight);
+    font-style: normal;
+  }
+}
+
+h2.tagline {
+  font-style: italic;
+  margin: 0 0 var(--ult-space-md) 0;
+  color: rgb(255 255 255 / 70%);
 }
 
 .facts {
@@ -73,10 +88,4 @@ h1 {
   span.genre:not(:first-of-type)::before {
     content: ' , ';
   }
-}
-
-.year {
-  opacity: 0.8;
-  font-weight: var(--ult-typography-body-small-font-weight);
-  font-style: normal;
 }
