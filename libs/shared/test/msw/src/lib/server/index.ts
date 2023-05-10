@@ -14,4 +14,5 @@ afterEach(() => mswServer.resetHandlers());
 // Clean up once the tests are done.
 afterAll(() => mswServer.close());
 
-export { HttpResponse, mswServer, rest } from './server';
+// export { HttpResponse, mswServer, rest } from './server';
+export { mswServer, rest } from './server';
