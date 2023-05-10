@@ -16,8 +16,8 @@ import { UltAppBarComponent, UltNavItemComponent } from '@ult/movie/ui/app-bar';
   ],
   template: `
     <ult-app-bar>
-      <a ultNavItem [routerLink]="['/movies']" routerLinkActive="active-link"> movies </a>
-      <a ultNavItem [routerLink]="['/tv-shows']" routerLinkActive="active-link"> series </a>
+      <a ultNavItem routerLinkActive="active-link" [routerLink]="['/movies']"> movies </a>
+      <a ultNavItem routerLinkActive="active-link" [routerLink]="['/tv-shows']"> series </a>
     </ult-app-bar>
     <main>
       <router-outlet></router-outlet>
@@ -63,6 +63,7 @@ import { UltAppBarComponent, UltNavItemComponent } from '@ult/movie/ui/app-bar';
             aria-label="The Movie Database (TMDB)"
             width="140"
             height="16"
+            alt="TMDB"
           />
         </a>
       </div>

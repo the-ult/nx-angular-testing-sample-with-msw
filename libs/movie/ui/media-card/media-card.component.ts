@@ -11,10 +11,10 @@ import { MediaCardInput } from './media-card.model';
   imports: [NgOptimizedImage, RouterLinkWithHref, UserScoreComponent, DatePipe],
   template: `
     <a [routerLink]="['/movies', mediaData.id]">
-      <img [alt]="title" [ngSrc]="ENV.url.img + mediaData.poster_path" width="180" height="275" />
+      <img width="180" height="275" [alt]="title" [ngSrc]="ENV.url.img + mediaData.poster_path" />
     </a>
     <div class="card__content">
-      <ult-user-score [score]="mediaData.vote_average" data-testid="movie-score"></ult-user-score>
+      <ult-user-score data-testid="movie-score" [score]="mediaData.vote_average"></ult-user-score>
       <h4>{{ title }}</h4>
       <p class="date">{{ releaseDate | date }}</p>
     </div>

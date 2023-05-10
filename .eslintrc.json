@@ -102,6 +102,18 @@
       }
     },
     {
+      "files": ["*.html"],
+      "extends": ["plugin:@angular-eslint/template/all"],
+      "rules": {
+        /**
+         * Any template/HTML related rules you wish to use/reconfigure over and above the
+         * recommended set provided by the @angular-eslint project would go here.
+         */
+        "@angular-eslint/template/no-autofocus": "off",
+        "@angular-eslint/template/i18n": "off"
+      }
+    },
+    {
       "files": ["*.ts"],
       "parser": "@typescript-eslint/parser",
       "parserOptions": {
