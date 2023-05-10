@@ -4,12 +4,14 @@ import { inject, Injectable } from '@angular/core';
 import {
   ENVIRONMENT,
   MediaError,
+  TvShowDetail,
+  TvShowDetailSchema,
   TvShows,
   TVShowsSchema,
   TVShowType,
 } from '@ult/shared/data-access';
 import { parseResponse } from '@ult/shared/utils';
-import { catchError, of, throwError } from 'rxjs';
+import { catchError, Observable, of, throwError } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class TVShowService {
@@ -32,6 +34,26 @@ export class TVShowService {
             results: [],
           };
           return of(emptyResult);
+        }
+
+        return throwError(() => error);
+      })
+    );
+  }
+
+  getTvShow$(id: number): Observable<TvShowDetail | null> {
+    return this.http.get<TvShowDetail>(`${this.ENV.url.api}/movie/${id}`).pipe(
+      parseResponse(TvShowDetailSchema),
+      catchError((error: unknown) => {
+        if (error instanceof HttpErrorResponse) {
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+          console.error((error.error as MediaError).status_message);
+
+          // TODO: show Notification message or emptyState / 404
+          // return of(error.error);
+
+          // eslint-disable-next-line unicorn/no-null
+          return of(null);
         }
 
         return throwError(() => error);

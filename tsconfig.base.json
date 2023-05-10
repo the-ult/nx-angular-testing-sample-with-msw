@@ -32,6 +32,7 @@
       "@ult/movie/feature-movie-detail": ["libs/movie/feature-movie-detail/src/index.ts"],
       "@ult/movie/feature-shell": ["libs/movie/feature-shell/src/index.ts"],
       "@ult/movie/ui/*": ["libs/movie/ui/*"],
+      "@ult/movie/utils": ["libs/movie/utils/src/index.ts"],
       "@ult/shared/core": ["libs/shared/core/src/index.ts"],
       "@ult/shared/data-access": ["libs/shared/data-access/src/index.ts"],
       "@ult/shared/test/cypress": ["libs/shared/test/cypress/src/index.ts"],

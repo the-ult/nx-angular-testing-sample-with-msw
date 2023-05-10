@@ -1,1 +1,1 @@
-export type RouteType = 'movies' | 'tvShows';
+export type RouteType = 'movie' | 'tv';

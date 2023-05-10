@@ -8,11 +8,11 @@ export default defineConfig({
     experimentalRunAllSpecs: true,
     viewportHeight: 1050,
     viewportWidth: 1650,
-
     setupNodeEvents(_on, config) {
       config.env['apiMocking'] = process.env['NX_MSW_API_MOCKING'];
 
       return config;
     },
+    testIsolation: true,
   },
 });

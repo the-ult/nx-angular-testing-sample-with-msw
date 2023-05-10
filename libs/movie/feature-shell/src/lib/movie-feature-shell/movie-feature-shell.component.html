@@ -25,6 +25,7 @@
   <div class="horizontal-scroll">
     <ult-media-card
       *ngFor="let movie of popularMovies$ | async; trackBy: trackBy"
+      mediaType="movie"
       [mediaData]="movie"
       [attr.data-testid]="'shell-page-popular-movies-' + movie.id"
     ></ult-media-card>
@@ -36,6 +37,7 @@
   <div class="horizontal-scroll">
     <ult-media-card
       *ngFor="let show of popularTVShows$ | async; trackBy: trackBy"
+      mediaType="tv"
       [mediaData]="show"
       [attr.data-testid]="'shell-page-popular-tvshows-' + show.id"
     ></ult-media-card>

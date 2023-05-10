@@ -1,8 +1,9 @@
-<h2>Popular {{ mediaType }}</h2>
+<h2>Popular {{ title }}</h2>
 <section class="media-items-wall">
   <ult-media-card
     *ngFor="let mediaItem of mediaItems$ | async; trackBy: trackBy"
     [mediaData]="mediaItem"
+    [mediaType]="mediaType"
     [attr.data-testid]="'media-item-page-media-card-' + mediaItem.id"
   ></ult-media-card>
 </section>

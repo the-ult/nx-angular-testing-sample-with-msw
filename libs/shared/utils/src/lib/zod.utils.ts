@@ -1,7 +1,10 @@
 import { inject } from '@angular/core';
-import { ENVIRONMENT } from '@ult/shared/data-access';
 import { MonoTypeOperatorFunction, tap } from 'rxjs';
-import type { ZodType } from 'zod';
+import { z } from 'zod';
+/// In this case we allow the usage of the @nrwl/nx/enforce-module-boundaries rule
+/// because we are using the ENVIRONMENT token from the shared/data-access module
+// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
+import { ENVIRONMENT } from '@ult/shared/data-access';
 
 /**
  *
@@ -18,7 +21,7 @@ import type { ZodType } from 'zod';
  *
  * @returns
  */
-export function parseResponse<T>(schema: ZodType): MonoTypeOperatorFunction<T> {
+export function parseResponse<TData>(schema: z.Schema<TData>): MonoTypeOperatorFunction<TData> {
   const env = inject(ENVIRONMENT);
 
   // ! FIXME: improve and add proper description
@@ -26,7 +29,7 @@ export function parseResponse<T>(schema: ZodType): MonoTypeOperatorFunction<T> {
   // ! And catchError()
   // eslint-disable-next-line @typescript-eslint/no-unsafe-return
   return tap({
-    next: (value: T) => {
+    next: (value: TData) => {
       if (env.production) {
         const parsed = schema.safeParse(value);
         if (!parsed.success) {
@@ -41,3 +44,12 @@ export function parseResponse<T>(schema: ZodType): MonoTypeOperatorFunction<T> {
     },
   });
 }
+
+// ! FIXME: create complete query/get methods? based on:
+
+// const makeZodSafeFetch = <TData>(url: string, schema: z.Schema<TData>): Promise<TData> => {
+//   return fetch(url)
+//     // eslint-disable-next-line @typescript-eslint/unbound-method
+//     .then((response) => response.json)
+//     .then((response) => schema.parse(response));
+// };

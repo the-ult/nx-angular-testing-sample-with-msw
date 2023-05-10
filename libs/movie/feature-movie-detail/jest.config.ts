@@ -1,5 +1,5 @@
 export default {
-  displayName: 'movies-feature-movie-detail',
+  displayName: 'movie-feature-movie-detail',
   preset: '../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {

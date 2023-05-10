@@ -1,10 +1,11 @@
+import { coerceNumberProperty } from '@angular/cdk/coercion';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 @Component({
   selector: 'ult-user-score',
   standalone: true,
   imports: [],
-  template: `{{ score }}`,
+  template: `<span class="percentage">{{ score }}<span></span></span>`,
   styles: [
     `
       :host {
@@ -19,21 +20,37 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
         line-height: 24px;
         vertical-align: center;
 
-        font-size: var(--ult-typography-caption-font-size);
-        font-weight: var(--ult-typography-subtitle2-font-weight);
+        font-size: var(--ult-typography-body-small-font-size);
+        font-weight: 300;
+        letter-spacing: 0.5px;
 
-        /* TODO: proper color variable */
-        /* color: var(--ult-) */
-        color: #fff;
+        color: var(--ult-color-default-contrast);
         background-color: #204529;
         /* background-color: #571435;
         background-color: #423d0f; */
         /* background-color: var(--ult-theme-background); */
+      }
+
+      .percentage::after {
+        content: '%';
+        position: absolute;
+        top: 0;
+        right: 3px;
+        font-size: 0.5em;
+        color: rgba(255, 255, 255, 0.7);
       }
     `,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UserScoreComponent {
-  @Input() score!: number;
+  private _score!: number;
+
+  @Input()
+  set score(value: number) {
+    this._score = Number(coerceNumberProperty(value).toFixed(1)) * 10;
+  }
+  get score(): number {
+    return this._score;
+  }
 }

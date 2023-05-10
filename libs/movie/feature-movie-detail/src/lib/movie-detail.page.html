@@ -1,1 +1,29 @@
-<p>movies-feature-movie-detail works!</p>
+<ng-container *ngIf="movie$ | async as movie">
+  <div class="movie-details-container">
+    <div class="movie-details">
+      <img
+        width="300"
+        height="450"
+        [alt]="movie.title"
+        [ngSrc]="'https://www.themoviedb.org/t/p/w220_and_h330_face/' + movie.poster_path"
+      />
+      <section>
+        <h1>{{ movie.title }} <em class="year">({{ movie.release_date | date: 'yyyy' }})</em></h1>
+        <div class="facts">
+          <span class="release-date">{{movie.release_date | date: 'mediumDate'}}</span>
+          <span class="genres">
+            <span *ngFor="let genre of movie.genres; trackBy: trackByGenre" class="genre"
+              >{{ genre.name }}</span
+            >
+          </span>
+          <span class="runtime">{{ movie.runtime }} min</span>
+        </div>
+        <ult-user-score [score]="movie.vote_average"></ult-user-score>
+        <h2>{{movie.tagline}}</h2>
+        <h3>Overview</h3>
+        <p>{{movie.vote_average}}</p>
+        <p>{{movie.overview}}</p>
+      </section>
+    </div>
+  </div>
+</ng-container>

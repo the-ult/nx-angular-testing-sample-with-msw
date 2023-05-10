@@ -14,28 +14,28 @@ export const MOVIE_DB_ROUTES: MovieRoute[] = [
     path: 'movies',
     loadComponent: async () => (await import('@ult/movie/feature-media-items')).MediaItemsPage,
     data: {
-      mediaType: 'movies',
+      mediaType: 'movie',
     },
   },
   {
-    path: 'movies/:movieId',
+    path: 'movie/:movieId',
     loadComponent: async () => (await import('@ult/movie/feature-movie-detail')).MovieDetailPage,
   },
   {
     path: 'tv-shows',
     loadComponent: async () => (await import('@ult/movie/feature-media-items')).MediaItemsPage,
     data: {
-      mediaType: 'tvShows',
+      mediaType: 'tv',
     },
   },
-  {
-    path: 'tv-shows/:tvShowId',
-    loadComponent: async () => (await import('@ult/movie/feature-movie-detail')).MovieDetailPage,
-  },
+  // {
+  //   path: 'tv/:tvId',
+  //   loadComponent: async () =>
+  //     (await import('@ult/movie/feature-movie-detail')).MediaItemDetailPage,
+  // },
   {
     path: '',
     loadComponent: async () => (await import('@ult/movie/feature-shell')).MovieFeatureShellPage,
-
     pathMatch: 'full',
   },
   { path: '**', redirectTo: '' },
