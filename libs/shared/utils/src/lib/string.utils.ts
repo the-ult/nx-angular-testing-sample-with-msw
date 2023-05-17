@@ -3,6 +3,8 @@
  *
  * @see {@link [Parse to boolean](https://bloomlab.blogspot.com/2018/06/typescript-recipe-elegant-parse-boolean.html)}
  *
+ *
+ * FIXME: use zod for this => https://twitter.com/mattpocockuk/status/1615110808219918352
  * @returns true | false
  */
 export const primitiveToBoolean = (

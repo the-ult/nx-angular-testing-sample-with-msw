@@ -65,7 +65,7 @@ OR
 Or run with live data.
 
 > In this case you first have to add your TMDB BEARER token
-> to [apps/movie-db/.env.serve](./apps/movie-db/.env.serve)
+> to [apps/movie-db/.env.serve](./apps/movie-db/.env.local)
 >
 > See:
 >
@@ -121,14 +121,6 @@ nx run movie-feature-media-items:component-test --watch
 - [ ] Refactor and use [Tailwind CSS](https://tailwindcss.com/) ?? (just to try it out)
 - [ ] Responsive (using container-queries)
 - [ ] Do not use image url's while testing (add images to mock assets)
-- [ ] [@ngrx/component-store](https://ngrx.io/guide/component-store) or [@ngneat/elf](https://ngneat.github.io/elf/)
-- [ ] [Playwright tests](https://playwright.dev/)
-- [ ] Create an app with [SvelteKit](https://kit.svelte.dev/)
-- [ ] New App with [GraphQL Yoga](https://the-guild.dev/graphql/yoga-server) and TypedDocumentNode
-- [ ] Separate branches / forks (Or.. since it is a mono-repo in the same repo) for:
-  - [ ] Build with ESBuild
-  - [ ] Vite
-  - [ ] [Rome](https://rome.tools/)
 
 ## Credits / Resources / Thanks / Shout-outs
 

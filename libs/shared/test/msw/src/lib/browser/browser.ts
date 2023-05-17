@@ -1,7 +1,8 @@
 import { inject } from '@angular/core';
 import { ENVIRONMENT } from '@ult/shared/data-access';
-import type { StartOptions } from 'msw';
-import { graphql, rest, setupWorker } from 'msw';
+import { graphql, rest } from 'msw';
+import type { StartOptions } from 'msw/browser';
+import { setupWorker } from 'msw/browser';
 import { HANDLERS } from '../handlers';
 
 type UnhandledRequestStrategy = StartOptions['onUnhandledRequest'];
