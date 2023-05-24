@@ -1,6 +1,5 @@
 import { AsyncPipe, DatePipe, NgFor, NgIf, NgOptimizedImage } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ChangeDetectionStrategy, Component, Input, inject } from '@angular/core';
 import { MovieService } from '@ult/movie/data-access';
 import { UserScoreComponent } from '@ult/movie/ui/user-score';
 import type { MovieDetail } from '@ult/shared/data-access';
@@ -21,13 +20,9 @@ export class MovieDetailPage {
   readonly trackBy = trackByProp<MovieDetail>('id');
   readonly trackByGenre = trackByProp<MovieDetail['genres'][0]>('name');
 
+  @Input({ required: true }) idParameter!: number;
+
   constructor() {
-    const idParameter = inject(ActivatedRoute).snapshot.paramMap.get('movieId');
-
-    if (!idParameter) {
-      throw new Error('No movieId param found in route');
-    }
-
-    this.movie$ = inject(MovieService).getMovie$(+idParameter);
+    this.movie$ = inject(MovieService).getMovie$(+this.idParameter);
   }
 }

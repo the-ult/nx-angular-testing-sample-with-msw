@@ -1,8 +1,13 @@
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import type { ApplicationConfig } from '@angular/core';
-import { ENVIRONMENT_INITIALIZER, importProvidersFrom } from '@angular/core';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { provideRouter, withInMemoryScrolling, withRouterConfig } from '@angular/router';
+import { ENVIRONMENT_INITIALIZER } from '@angular/core';
+import { provideAnimations } from '@angular/platform-browser/animations';
+import {
+  provideRouter,
+  withComponentInputBinding,
+  withInMemoryScrolling,
+  withRouterConfig,
+} from '@angular/router';
 import { authInterceptor } from '@ult/shared/core';
 import { ENVIRONMENT } from '@ult/shared/data-access';
 import { initMswForAngularApp } from '@ult/shared/test/msw';
@@ -11,9 +16,11 @@ import { MOVIE_DB_ROUTES } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    importProvidersFrom(BrowserAnimationsModule),
+    // importProvidersFrom(BrowserAnimationsModule),
+    provideAnimations(),
     provideRouter(
       MOVIE_DB_ROUTES,
+      withComponentInputBinding(),
       withInMemoryScrolling({
         scrollPositionRestoration: 'top',
       }),
