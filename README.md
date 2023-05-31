@@ -113,6 +113,10 @@ nx run movie-feature-media-items:component-test --watch
 
 ## Things I would like to add / improve
 
+- [ ] Refactor to use Angular Signals
+- [ ] Create `provideMswHandler` provider
+- [ ] Add/improve tv/movie detail page
+- [ ] Add shared styles as example
 - [ ] Working Cypress Component Tests with MSWjs
   - They now result in a race condition. See: [MSW leaves cypress component test runner in a loop](https://github.com/mswjs/msw/issues/744)
 - [ ] Proper Error handling

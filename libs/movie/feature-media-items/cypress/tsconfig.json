@@ -3,7 +3,8 @@
   "compilerOptions": {
     "outDir": "../../../../dist/out-tsc",
     "module": "es2022",
-    "types": ["node", "cypress", "@testing-library/cypress"]
+    "types": ["node", "cypress", "@testing-library/cypress"],
+    "sourceMap": false
   },
   "include": [
     "support/**/*.ts",
