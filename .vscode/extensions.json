@@ -5,11 +5,13 @@
     "dbaeumer.vscode-eslint",
     "dotenv.dotenv-vscode",
     "esbenp.prettier-vscode",
+    "infinity1207.angular2-switcher",
     "firsttris.vscode-jest-runner",
     "nrwl.angular-console",
     "streetsidesoftware.code-spell-checker",
     "stylelint.vscode-stylelint",
-    "visualstudioexptteam.vscodeintellicode"
+    "visualstudioexptteam.vscodeintellicode",
+    "yoavbls.pretty-ts-errors"
   ],
   "unwantedRecommendations": [
     "2gua.rainbow-brackets",
@@ -25,6 +27,7 @@
     "ionutvmi.path-autocomplete",
     "joy-yu.css-snippets",
     "ms-vscode.vscode-typescript-tslint-plugin",
+    "msjsdiag.debugger-for-chrome",
     "NathanRidley.autotrim",
     "Shan.code-settings-sync",
     "shardulm94.trailing-spaces",

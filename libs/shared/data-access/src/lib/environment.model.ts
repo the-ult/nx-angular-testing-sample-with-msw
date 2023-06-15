@@ -1,5 +1,6 @@
 export type EnvironmentType = 'local' | 'e2e' | 'prd' | 'dev' | 'acc' | 'tst';
 
+// !FIXME => use t3/env or Zod for type safety
 export interface EnvironmentBase {
   [x: string]: unknown;
   production: boolean;

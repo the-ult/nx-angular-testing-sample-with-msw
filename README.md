@@ -114,6 +114,7 @@ nx run movie-feature-media-items:component-test --watch
 ## Things I would like to add / improve
 
 - [ ] Refactor to use Angular Signals
+- [ ] Use OpenAPI-to-zod to generate Zod types
 - [ ] Create `provideMswHandler` provider
 - [ ] Add/improve tv/movie detail page
 - [ ] Add shared styles as example
