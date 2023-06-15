@@ -1,5 +1,4 @@
-import { coerceNumberProperty } from '@angular/cdk/coercion';
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, numberAttribute } from '@angular/core';
 
 @Component({
   selector: 'ult-user-score',
@@ -44,13 +43,5 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UserScoreComponent {
-  private _score!: number;
-
-  @Input()
-  set score(value: number) {
-    this._score = Number(coerceNumberProperty(value).toFixed(1)) * 10;
-  }
-  get score(): number {
-    return this._score;
-  }
+  @Input({ required: true, transform: numberAttribute }) score!: number;
 }

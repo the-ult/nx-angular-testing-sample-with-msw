@@ -1,5 +1,11 @@
 import { AsyncPipe, DatePipe, NgFor, NgIf, NgOptimizedImage } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Input, inject } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input as RouterInput,
+  inject,
+  numberAttribute,
+} from '@angular/core';
 import { MovieService } from '@ult/movie/data-access';
 import { UserScoreComponent } from '@ult/movie/ui/user-score';
 import type { MovieDetail } from '@ult/shared/data-access';
@@ -20,7 +26,7 @@ export class MovieDetailPage {
   readonly trackBy = trackByProp<MovieDetail>('id');
   readonly trackByGenre = trackByProp<MovieDetail['genres'][0]>('name');
 
-  @Input({ required: true }) idParameter!: number;
+  @RouterInput({ required: true, transform: numberAttribute }) idParameter!: number;
 
   constructor() {
     this.movie$ = inject(MovieService).getMovie$(+this.idParameter);
