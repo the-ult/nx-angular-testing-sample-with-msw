@@ -26,9 +26,9 @@ export class MovieDetailPage {
   readonly trackBy = trackByProp<MovieDetail>('id');
   readonly trackByGenre = trackByProp<MovieDetail['genres'][0]>('name');
 
-  @RouterInput({ required: true, transform: numberAttribute }) idParameter!: number;
+  @RouterInput({ required: true, transform: numberAttribute }) movieId!: number;
 
   constructor() {
-    this.movie$ = inject(MovieService).getMovie$(+this.idParameter);
+    this.movie$ = inject(MovieService).getMovie$(+this.movieId);
   }
 }

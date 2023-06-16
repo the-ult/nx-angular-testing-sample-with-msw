@@ -12,4 +12,11 @@ section.media-items-wall {
   align-items: start;
   position: relative;
   contain: layout;
+  scroll-snap-type: x mandatory;
+  overflow-x: scroll;
+  scroll-padding: var(--ult-space-xl);
+
+  > * {
+    scroll-snap-align: start;
+  }
 }

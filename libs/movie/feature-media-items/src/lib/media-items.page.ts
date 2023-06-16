@@ -20,7 +20,7 @@ export class MediaItemsPage {
   readonly mediaItems$!: Observable<(Movie | TvShow)[]>;
   readonly title: 'Movies' | 'TV Shows' = 'Movies';
   readonly mediaType: RouteType;
-  readonly trackBy = trackByProp<Movie | TvShow>('id');
+  readonly trackByMovieId = trackByProp<Movie | TvShow>('id');
 
   constructor() {
     // ! FIXME: how can we use this without the Evil `as`

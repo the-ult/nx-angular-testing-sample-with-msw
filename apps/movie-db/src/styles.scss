@@ -11,3 +11,33 @@ html,
 body {
   font-family: var(--ult-typography-font-family);
 }
+
+/// Extra css-reset => move to own file
+/// based on: https://www.youtube.com/shorts/ydGti7sLVOc
+/// TODO: check with modern-normalize
+
+html {
+  color-scheme: light dark;
+}
+
+/// Dit is waarschijnlijk te groot voor web-apps
+body {
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+img,
+picture,
+svg {
+  max-width: 100%;
+  display: block;
+
+  /// Do we need this for each image?
+  /// In this app, we like the perspective of the image, to be correct, so use object-fit: cover
+  object-fit: cover;
+}
+
+main {
+  width: min(115ch, 100% - 4rem); // or 4 em
+  margin-inline: auto;
+}
