@@ -9,13 +9,13 @@ import { catchError, of, throwError } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class MovieService {
-  private http = inject(HttpClient);
+  #http = inject(HttpClient);
 
-  private readonly ENV = inject(ENVIRONMENT);
+  readonly #ENV = inject(ENVIRONMENT);
 
   // queryMovies$(type: MovieType = 'popular'): Observable<Movies | MovieError> {
   queryMovies$(type: MovieType = 'popular') {
-    return this.http.get<Movies>(`${this.ENV.url.api}/movie/${type}`).pipe(
+    return this.#http.get<Movies>(`${this.#ENV.url.api}/movie/${type}`).pipe(
       parseResponse(MoviesSchema),
       catchError((error: unknown) => {
         if (error instanceof HttpErrorResponse) {
@@ -37,7 +37,7 @@ export class MovieService {
   }
 
   getMovie$(id: number): Observable<MovieDetail | null> {
-    return this.http.get<MovieDetail>(`${this.ENV.url.api}/movie/${id}`).pipe(
+    return this.#http.get<MovieDetail>(`${this.#ENV.url.api}/movie/${id}`).pipe(
       parseResponse(MovieDetailSchema),
       catchError((error: unknown) => {
         if (error instanceof HttpErrorResponse) {
