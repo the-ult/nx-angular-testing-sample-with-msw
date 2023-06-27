@@ -114,10 +114,6 @@
       "files": ["*.html"],
       "extends": ["plugin:@angular-eslint/template/all"],
       "rules": {
-        /**
-         * Any template/HTML related rules you wish to use/reconfigure over and above the
-         * recommended set provided by the @angular-eslint project would go here.
-         */
         "@angular-eslint/template/no-autofocus": "off",
         "@angular-eslint/template/i18n": "off"
       }
@@ -148,7 +144,12 @@
         "rxjs/no-topromise": "error",
         "rxjs/no-exposed-subjects": "error",
         "rxjs/no-subject-value": "error",
-        "rxjs/no-unsafe-first": ["error", { "observable": "[Aa]ction(s|s\\$|\\$)$" }],
+        "rxjs/no-unsafe-first": [
+          "error",
+          {
+            "observable": "[Aa]ction(s|s\\$|\\$)$"
+          }
+        ],
         "rxjs/no-unsafe-takeuntil": [
           "error",
           {
@@ -217,8 +218,6 @@
         "@typescript-eslint/unbound-method": "off",
         "jest/unbound-method": "error",
         "max-nested-callbacks": ["error", 5],
-        // does not make sense in Cypress world
-        "promise/prefer-await-to-then": "off",
         "ui-testing/missing-assertion-in-test": "off"
       }
     }
