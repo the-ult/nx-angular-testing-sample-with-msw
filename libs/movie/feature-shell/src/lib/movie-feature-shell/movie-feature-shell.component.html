@@ -6,8 +6,7 @@
       href="https://www.themoviedb.org/"
       target="_blank"
       aria-label="The Movie DB API"
-      title="The Movie DB API"
-    >
+      title="The Movie DB API">
       TMDB (The Movie Database)
     </a>
     API. <br />
@@ -24,11 +23,10 @@
   <h2>Popular Movies</h2>
   <div class="horizontal-scroll">
     <ult-media-card
-      *ngFor="let movie of popularMovies$ | async; trackBy: trackBy"
+      *ngFor="let movie of popularMovies; trackBy: trackBy"
       mediaType="movie"
       [mediaData]="movie"
-      [attr.data-testid]="'shell-page-popular-movies-' + movie.id"
-    ></ult-media-card>
+      [attr.data-testid]="'shell-page-popular-movies-' + movie.id"></ult-media-card>
   </div>
 </section>
 
@@ -36,10 +34,9 @@
   <h2>Popular TV Shows</h2>
   <div class="horizontal-scroll">
     <ult-media-card
-      *ngFor="let show of popularTVShows$ | async; trackBy: trackBy"
+      *ngFor="let show of popularTVShows; trackBy: trackBy"
       mediaType="tv"
       [mediaData]="show"
-      [attr.data-testid]="'shell-page-popular-tvshows-' + show.id"
-    ></ult-media-card>
+      [attr.data-testid]="'shell-page-popular-tvshows-' + show.id"></ult-media-card>
   </div>
 </section>

@@ -119,7 +119,8 @@
          * recommended set provided by the @angular-eslint project would go here.
          */
         "@angular-eslint/template/no-autofocus": "off",
-        "@angular-eslint/template/i18n": "off"
+        "@angular-eslint/template/i18n": "off",
+        "@angular-eslint/template/no-call-expression": "off"
       }
     },
     {
