@@ -1,12 +1,17 @@
 import { AsyncPipe, NgForOf } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { MovieService, TVShowService } from '@ult/movie/data-access';
+import type { Signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input as RouterInput,
+  computed,
+  inject,
+} from '@angular/core';
+import { MovieFacade, TvShowFacade } from '@ult/movie/data-access';
 import { UltMediaCardComponent } from '@ult/movie/ui/media-card';
-import type { Movie, RouteType, TvShow } from '@ult/shared/data-access';
+import type { Movie, TvShow } from '@ult/shared/data-access';
+import { RouteType } from '@ult/shared/data-access';
 import { trackByProp } from '@ult/shared/utils';
-import type { Observable } from 'rxjs';
-import { map } from 'rxjs';
 
 @Component({
   selector: 'ult-media-items-page',
@@ -17,26 +22,23 @@ import { map } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MediaItemsPage {
-  readonly mediaItems$!: Observable<(Movie | TvShow)[]>;
+  @RouterInput({ required: true }) mediaType!: RouteType;
+
+  readonly mediaItems!: Signal<(Movie | TvShow)[]>;
   readonly title: 'Movies' | 'TV Shows' = 'Movies';
-  readonly mediaType: RouteType;
   readonly trackByMovieId = trackByProp<Movie | TvShow>('id');
 
   constructor() {
     // ! FIXME: how can we use this without the Evil `as`
-    this.mediaType = inject(ActivatedRoute).snapshot.data['mediaType'] as RouteType;
 
     if (this.mediaType === 'movie') {
-      this.mediaItems$ = inject(MovieService)
-        .queryMovies$('popular')
-        .pipe(map((movie) => movie.results));
+      this.mediaItems = computed(() => inject(MovieFacade).$queryMovies('popular')().results);
 
       this.title = 'Movies';
     }
+
     if (this.mediaType === 'tv') {
-      this.mediaItems$ = inject(TVShowService)
-        .queryTVShows$('popular')
-        .pipe(map((tvShow) => tvShow.results));
+      this.mediaItems = computed(() => inject(TvShowFacade).$queryTVShows('popular')().results);
 
       this.title = 'TV Shows';
     }

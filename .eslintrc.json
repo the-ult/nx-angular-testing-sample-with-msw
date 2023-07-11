@@ -115,7 +115,8 @@
       "extends": ["plugin:@angular-eslint/template/all"],
       "rules": {
         "@angular-eslint/template/no-autofocus": "off",
-        "@angular-eslint/template/i18n": "off"
+        "@angular-eslint/template/i18n": "off",
+        "@angular-eslint/template/no-call-expression": "off"
       }
     },
     {

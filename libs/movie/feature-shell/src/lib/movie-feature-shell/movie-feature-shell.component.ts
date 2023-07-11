@@ -1,11 +1,9 @@
 import { AsyncPipe, NgForOf } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { MovieService, TVShowService } from '@ult/movie/data-access';
-import type { Movie, TvShow } from '@ult/shared/data-access';
+import { MovieFacade, TvShowFacade } from '@ult/movie/data-access';
 import { UltMediaCardComponent } from '@ult/movie/ui/media-card';
+import type { Movie, TvShow } from '@ult/shared/data-access';
 import { trackByProp } from '@ult/shared/utils';
-
-import { map } from 'rxjs';
 
 @Component({
   selector: 'ult-movie-feature-shell',
@@ -16,13 +14,10 @@ import { map } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MovieFeatureShellPage {
-  readonly popularMovies$ = inject(MovieService)
-    .queryMovies$('popular')
-    .pipe(map(({ results }) => results));
+  // !FIXME: use computed in the facade
+  readonly popularMovies = inject(MovieFacade).$queryMovies('popular')().results;
 
-  readonly popularTVShows$ = inject(TVShowService)
-    .queryTVShows$('popular')
-    .pipe(map(({ results }) => results));
+  readonly popularTVShows = inject(TvShowFacade).$queryTVShows('popular')().results;
 
   readonly trackBy = trackByProp<Movie | TvShow>('id');
 }

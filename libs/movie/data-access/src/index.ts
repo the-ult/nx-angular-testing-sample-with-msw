@@ -1,2 +1,2 @@
-export * from './lib/movie.service';
-export * from './lib/tv-show.service';
+export * from './lib/movie.facade';
+export * from './lib/tv-show.facade';

@@ -1,21 +1,20 @@
-<ng-container *ngIf="movie$ | async as movie">
+<ng-container *ngIf="movie() as movie">
   <div class="movie-details-container">
     <div class="movie-details">
       <img
         width="300"
         height="450"
         [alt]="movie.title"
-        [ngSrc]="'https://www.themoviedb.org/t/p/w220_and_h330_face/' + movie.poster_path"
-      />
+        [ngSrc]="'https://www.themoviedb.org/t/p/w220_and_h330_face/' + movie.poster_path" />
       <section>
         <h1>{{ movie.title }} <em class="year">({{ movie.release_date | date: 'yyyy' }})</em></h1>
         <h2 class="tagline">{{ movie.tagline }}</h2>
         <div class="facts">
           <span class="release-date">{{movie.release_date | date: 'mediumDate'}}</span>
           <span class="genres">
-            <span *ngFor="let genre of movie.genres; trackBy: trackByGenre" class="genre"
-              >{{ genre.name }}</span
-            >
+            <span *ngFor="let genre of movie.genres; trackBy: trackByGenre" class="genre">
+              {{ genre.name }}
+            </span>
           </span>
           <span class="runtime">{{ movie.runtime }} min</span>
         </div>

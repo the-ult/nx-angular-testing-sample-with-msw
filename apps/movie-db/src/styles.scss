@@ -12,9 +12,11 @@ body {
   font-family: var(--ult-typography-font-family);
 }
 
+/// ========================================================
 /// Extra css-reset => move to own file
 /// based on: https://www.youtube.com/shorts/ydGti7sLVOc
 /// TODO: check with modern-normalize
+/// ========================================================
 
 html {
   color-scheme: light dark;
@@ -38,6 +40,9 @@ svg {
 }
 
 main {
+  /// ch still feels a bit icky..
   width: min(115ch, 100% - 4rem); // or 4 em
   margin-inline: auto;
 }
+
+/// ========================================================
