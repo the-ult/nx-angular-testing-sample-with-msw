@@ -7,7 +7,6 @@
     "e2e": {
       "executor": "@nx/cypress:cypress",
       "options": {
-        "tsConfig": "apps/movie-db-e2e/tsconfig.json",
         "cypressConfig": "apps/movie-db-e2e/cypress.config.ts",
         "devServerTarget": "movie-db:serve:development",
         "testingType": "e2e"

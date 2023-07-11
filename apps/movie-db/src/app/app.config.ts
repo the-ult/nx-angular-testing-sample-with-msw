@@ -1,4 +1,4 @@
-import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
 import type { ApplicationConfig } from '@angular/core';
 import { ENVIRONMENT_INITIALIZER } from '@angular/core';
 import { provideAnimations } from '@angular/platform-browser/animations';
@@ -29,7 +29,7 @@ export const appConfig: ApplicationConfig = {
       })
     ),
     // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-    provideHttpClient(withInterceptors([authInterceptor])),
+    provideHttpClient(withFetch(), withInterceptors([authInterceptor])),
 
     { provide: ENVIRONMENT, useValue: environment },
     // ! FIXME: Is this the proper way to initialize the MswService? Or should we use

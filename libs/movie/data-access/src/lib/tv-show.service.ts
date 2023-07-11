@@ -9,12 +9,12 @@ import { catchError, of, throwError } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class TVShowService {
-  private http = inject(HttpClient);
+  #http = inject(HttpClient);
 
-  private readonly ENV = inject(ENVIRONMENT);
+  readonly #ENV = inject(ENVIRONMENT);
 
   queryTVShows$(type: TVShowType = 'popular') {
-    return this.http.get<TvShows>(`${this.ENV.url.api}/tv/${type}`).pipe(
+    return this.#http.get<TvShows>(`${this.#ENV.url.api}/tv/${type}`).pipe(
       parseResponse(TVShowsSchema),
       catchError((error: unknown) => {
         if (error instanceof HttpErrorResponse) {
@@ -36,7 +36,7 @@ export class TVShowService {
   }
 
   getTvShow$(id: number): Observable<TvShowDetail | null> {
-    return this.http.get<TvShowDetail>(`${this.ENV.url.api}/movie/${id}`).pipe(
+    return this.#http.get<TvShowDetail>(`${this.#ENV.url.api}/movie/${id}`).pipe(
       parseResponse(TvShowDetailSchema),
       catchError((error: unknown) => {
         if (error instanceof HttpErrorResponse) {
