@@ -27,7 +27,7 @@ describe('Movies Page', () => {
 
     cy.findAllByTestId(/^media-item-page-media-card-/).should(
       'have.length',
-      TEST_DATA.results.length
+      TEST_DATA.results.length,
     );
 
     /// Check each movie from our testdata

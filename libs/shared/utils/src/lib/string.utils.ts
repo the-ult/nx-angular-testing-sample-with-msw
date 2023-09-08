@@ -8,7 +8,7 @@
  * @returns true | false
  */
 export const primitiveToBoolean = (
-  value: string | number | boolean | null | undefined
+  value: string | number | boolean | null | undefined,
 ): boolean => {
   if (typeof value === 'string') {
     return value.toLowerCase() === 'true' || !!+value; // here we parse to number first

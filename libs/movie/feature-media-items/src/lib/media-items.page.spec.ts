@@ -26,8 +26,8 @@ describe('MediaItemsPage', () => {
       //   response(ctx.json(TEST_DATA))
       // )
       rest.get<Movies | MediaError>('http://localhost:4200/movie/popular', () =>
-        HttpResponse.json<Movies>(TEST_DATA)
-      )
+        HttpResponse.json<Movies>(TEST_DATA),
+      ),
     );
 
     await render(MediaItemsPage, {
@@ -56,7 +56,7 @@ describe('MediaItemsPage', () => {
 
       expect(within(mediaCardControl).getByRole('link')).toHaveAttribute(
         'href',
-        expect.stringContaining(`/${id}`)
+        expect.stringContaining(`/${id}`),
         // expect.stringContaining(`/movies/${id}`)
       );
 
@@ -64,7 +64,7 @@ describe('MediaItemsPage', () => {
         'src',
         // ! FIXME: should get proper path from ENVIRONMENT
         // expect.stringContaining(`https://image.tmdb.org/t/p/w220_and_h330_face${poster_path}`)
-        expect.stringContaining(`${poster_path}`)
+        expect.stringContaining(`${poster_path}`),
       );
       expect(within(mediaCardControl).getByRole('img')).toBeVisible();
 
@@ -72,7 +72,7 @@ describe('MediaItemsPage', () => {
       ///  VOTE
       /// ---------------------------------------------------------------
       expect(within(mediaCardControl).getByTestId('movie-score')).toHaveTextContent(
-        vote_average.toString()
+        vote_average.toString(),
       );
 
       /// ---------------------------------------------------------------
@@ -82,7 +82,7 @@ describe('MediaItemsPage', () => {
         within(mediaCardControl).getByRole('heading', {
           level: 4,
           name: title,
-        })
+        }),
       ).toHaveTextContent(title);
 
       /// ---------------------------------------------------------------

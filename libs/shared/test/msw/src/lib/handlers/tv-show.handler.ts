@@ -28,7 +28,7 @@ export const TV_SHOW_HANDLERS: RequestHandler[] = [
       },
       {
         status: 404,
-      }
+      },
     );
   }),
 ];

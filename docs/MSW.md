@@ -226,11 +226,11 @@ prepareWorkers().then(() => {
         MOVIE_DB_ROUTES,
         withRouterConfig({
           paramsInheritanceStrategy: 'always',
-        })
+        }),
       ),
       provideHttpClient(
         // withXsrfConfiguration({ cookieName: '', headerName: '' }),
-        withJsonpSupport()
+        withJsonpSupport(),
       ),
     ],
   }).catch((err) => console.error(err));

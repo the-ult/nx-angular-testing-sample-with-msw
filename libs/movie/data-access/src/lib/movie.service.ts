@@ -32,7 +32,7 @@ export class MovieService {
         }
 
         return throwError(() => error);
-      })
+      }),
     );
   }
 
@@ -52,7 +52,7 @@ export class MovieService {
         }
 
         return throwError(() => error);
-      })
+      }),
     );
   }
 }

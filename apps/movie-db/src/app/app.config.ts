@@ -26,7 +26,7 @@ export const appConfig: ApplicationConfig = {
       }),
       withRouterConfig({
         paramsInheritanceStrategy: 'always',
-      })
+      }),
     ),
     // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
     provideHttpClient(withFetch(), withInterceptors([authInterceptor])),

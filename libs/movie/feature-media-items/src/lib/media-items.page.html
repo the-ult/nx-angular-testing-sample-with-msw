@@ -4,5 +4,5 @@
     *ngFor="let mediaItem of mediaItems$ | async; trackBy: trackByMovieId"
     [mediaData]="mediaItem"
     [mediaType]="mediaType"
-    [attr.data-testid]="'media-item-page-media-card-' + mediaItem.id"></ult-media-card>
+    [attr.data-testid]="'media-item-page-media-card-' + mediaItem.id" />
 </section>

@@ -11,7 +11,8 @@
         "outputPath": "dist/libs/shared/data-access",
         "main": "libs/shared/data-access/src/index.ts",
         "tsConfig": "libs/shared/data-access/tsconfig.lib.json",
-        "assets": ["libs/shared/data-access/*.md"]
+        "assets": ["libs/shared/data-access/*.md"],
+        "updateBuildableProjectDepsInPackageJson": true
       }
     },
     "lint": {

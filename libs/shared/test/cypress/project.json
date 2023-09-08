@@ -11,7 +11,8 @@
         "outputPath": "dist/libs/shared/test/cypress",
         "main": "libs/shared/test/cypress/src/index.ts",
         "tsConfig": "libs/shared/test/cypress/tsconfig.lib.json",
-        "assets": ["libs/shared/test/cypress/*.md"]
+        "assets": ["libs/shared/test/cypress/*.md"],
+        "updateBuildableProjectDepsInPackageJson": true
       }
     },
     "lint": {

@@ -26,7 +26,7 @@
       *ngFor="let movie of popularMovies; trackBy: trackBy"
       mediaType="movie"
       [mediaData]="movie"
-      [attr.data-testid]="'shell-page-popular-movies-' + movie.id"></ult-media-card>
+      [attr.data-testid]="'shell-page-popular-movies-' + movie.id" />
   </div>
 </section>
 
@@ -37,6 +37,6 @@
       *ngFor="let show of popularTVShows; trackBy: trackBy"
       mediaType="tv"
       [mediaData]="show"
-      [attr.data-testid]="'shell-page-popular-tvshows-' + show.id"></ult-media-card>
+      [attr.data-testid]="'shell-page-popular-tvshows-' + show.id" />
   </div>
 </section>

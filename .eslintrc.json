@@ -198,7 +198,6 @@
       "rules": {
         "testing-library/prefer-explicit-assert": "error",
         "testing-library/prefer-user-event": "error",
-        "testing-library/prefer-wait-for": "error",
         "jest/consistent-test-it": ["error"],
         "@typescript-eslint/unbound-method": "off",
         "@typescript-eslint/no-unsafe-member-access": "off",

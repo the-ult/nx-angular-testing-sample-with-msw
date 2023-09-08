@@ -11,7 +11,8 @@
         "outputPath": "dist/libs/movie/data-access",
         "main": "libs/movie/data-access/src/index.ts",
         "tsConfig": "libs/movie/data-access/tsconfig.lib.json",
-        "assets": ["libs/movie/data-access/*.md"]
+        "assets": ["libs/movie/data-access/*.md"],
+        "updateBuildableProjectDepsInPackageJson": true
       }
     },
     "lint": {

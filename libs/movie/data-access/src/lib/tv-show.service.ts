@@ -31,7 +31,7 @@ export class TVShowService {
         }
 
         return throwError(() => error);
-      })
+      }),
     );
   }
 
@@ -51,7 +51,7 @@ export class TVShowService {
         }
 
         return throwError(() => error);
-      })
+      }),
     );
   }
 }

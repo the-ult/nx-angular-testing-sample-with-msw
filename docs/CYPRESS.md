@@ -13,7 +13,7 @@ To be able to use the MSW types in cypress we need to declare them:
 `touch libs/shared/test/cypress/types/index.d.ts`
 
 ```ts
-import { graphql, rest, SetupWorkerApi } from 'msw';
+import { graphql, rest } from 'msw';
 
 declare global {
   interface Window {

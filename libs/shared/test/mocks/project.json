@@ -11,7 +11,8 @@
         "outputPath": "dist/libs/shared/test/mocks",
         "main": "libs/shared/test/mocks/src/index.ts",
         "tsConfig": "libs/shared/test/mocks/tsconfig.lib.json",
-        "assets": ["libs/shared/test/mocks/*.md"]
+        "assets": ["libs/shared/test/mocks/*.md"],
+        "updateBuildableProjectDepsInPackageJson": true
       }
     },
     "lint": {

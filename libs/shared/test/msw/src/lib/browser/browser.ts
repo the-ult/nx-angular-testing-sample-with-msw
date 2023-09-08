@@ -18,7 +18,7 @@ export const worker = setupWorker(...HANDLERS);
 export const startMswForBrowser = (
   mswFile = 'mockServiceWorker.js',
   scope = '/',
-  onUnhandledRequest: UnhandledRequestStrategy = 'bypass'
+  onUnhandledRequest: UnhandledRequestStrategy = 'bypass',
 ) => {
   void worker.start({
     serviceWorker: {

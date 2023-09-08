@@ -40,7 +40,7 @@ export const MOVIE_HANDLERS: RequestHandler[] = [
       },
       {
         status: 404,
-      }
+      },
     );
   }),
 
@@ -68,8 +68,8 @@ export const MOVIE_HANDLERS: RequestHandler[] = [
         },
         {
           status: 404,
-        }
+        },
       );
-    }
+    },
   ),
 ];

@@ -8,7 +8,9 @@
   display: flex;
   padding: 0 24px;
   z-index: 99;
-  box-shadow: 0 3px 5px -1px hsl(0deg 0% 0% / 20%), 0 6px 10px hsl(0deg 0% 0% / 14.1%),
+  box-shadow:
+    0 3px 5px -1px hsl(0deg 0% 0% / 20%),
+    0 6px 10px hsl(0deg 0% 0% / 14.1%),
     0 1px 18px hsl(0deg 0% 0% / 12.2%);
 }
 
