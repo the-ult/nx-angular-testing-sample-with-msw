@@ -53,12 +53,7 @@ import { UltAppBarComponent, UltNavItemComponent } from '@ult/movie/ui/app-bar';
       <div>
         Data provided by:
         <a href="https://www.themoviedb.org/" target="_blank" aria-label="TMDB" title="TMDB">
-          <img
-            ngSrc="assets/tmdb_logo.svg"
-            aria-label="The Movie Database (TMDB)"
-            width="140"
-            height="16"
-            alt="TMDB" />
+          <img ngSrc="assets/tmdb_logo.svg" aria-label="The Movie Database (TMDB)" width="140" height="16" alt="TMDB" />
         </a>
       </div>
     </footer>

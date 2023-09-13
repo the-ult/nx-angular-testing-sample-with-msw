@@ -19,10 +19,7 @@
     "selector-no-qualifying-type": [true, { "ignore": ["attribute", "class"] }],
     "selector-no-vendor-prefix": true,
     "selector-type-no-unknown": [true, { "ignore": ["custom-elements"] }],
-    "value-keyword-case": [
-      "lower",
-      { "ignoreFunctions": ["mat-color"], "ignoreKeywords": ["/[A][0-9]{3}/"] }
-    ],
+    "value-keyword-case": ["lower", { "ignoreFunctions": ["mat-color"], "ignoreKeywords": ["/[A][0-9]{3}/"] }],
     "value-no-vendor-prefix": true,
     "plugin/8-point-grid": {
       "base": 8,

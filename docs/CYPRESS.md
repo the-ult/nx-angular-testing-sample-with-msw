@@ -13,14 +13,14 @@ To be able to use the MSW types in cypress we need to declare them:
 `touch libs/shared/test/cypress/types/index.d.ts`
 
 ```ts
-import { graphql, rest } from 'msw';
+import { graphql, http } from 'msw';
 
 declare global {
   interface Window {
     Cypress?: unknown;
     msw: {
       graphql: typeof graphql;
-      rest: typeof rest;
+      http: typeof http;
       worker: SetupWorker;
     };
   }
@@ -80,7 +80,7 @@ export const mswResetWorker = () => {
  * @usage
  * ```ts
  * beforeEach(() => {
- *    mswMock([rest.get('movie/popular', (_req, res, ctx) => res(ctx.json(MoviesPopularPage2)))]);
+ *    mswMock([http.get('movie/popular', (_req, res, ctx) => res(ctx.json(MoviesPopularPage2)))]);
  * });
  * ```
  *
@@ -95,10 +95,10 @@ export const mswMock = (handlers: RequestHandler[]): void => {
     });
 
     cy.window().then((win) => {
-      const { rest, worker } = win.msw;
+      const { http, worker } = win.msw;
 
-      // worker.use(rest.get(url, () => HttpResponse.json(data)));
-      worker.use(rest.get(url, (_req, res, ctx) => res(ctx.json(data))));
+      // worker.use(http.get(url, () => HttpResponse.json(data)));
+      worker.use(http.get(url, (_req, res, ctx) => res(ctx.json(data))));
     });
   } else {
     // eslint-disable-next-line no-console, no-restricted-syntax

@@ -4,7 +4,7 @@ import type { Movies } from '@ult/shared/data-access';
 import { ENVIRONMENT } from '@ult/shared/data-access';
 import { ENV_MOCK } from '@ult/shared/test/mocks';
 import { mswServer } from '@ult/shared/test/msw/server';
-import { HttpResponse, rest } from 'msw';
+import { HttpResponse, http } from 'msw';
 import { MediaItemsPage } from './media-items.page';
 /**
  * Sadly Jest (still) does not properly support ES Modules.
@@ -22,12 +22,10 @@ describe('MediaItemsPage', () => {
   it('should show all movies in cards', async () => {
     mswServer.use(
       // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-      // rest.get('http://localhost:4200/movie/popular', (_req, response, ctx) =>
+      // http.get('http://localhost:4200/movie/popular', (_req, response, ctx) =>
       //   response(ctx.json(TEST_DATA))
       // )
-      rest.get<Movies | MediaError>('http://localhost:4200/movie/popular', () =>
-        HttpResponse.json<Movies>(TEST_DATA),
-      ),
+      http.get<Movies | MediaError>('http://localhost:4200/movie/popular', () => HttpResponse.json<Movies>(TEST_DATA)),
     );
 
     await render(MediaItemsPage, {
@@ -71,9 +69,7 @@ describe('MediaItemsPage', () => {
       /// ---------------------------------------------------------------
       ///  VOTE
       /// ---------------------------------------------------------------
-      expect(within(mediaCardControl).getByTestId('movie-score')).toHaveTextContent(
-        vote_average.toString(),
-      );
+      expect(within(mediaCardControl).getByTestId('movie-score')).toHaveTextContent(vote_average.toString());
 
       /// ---------------------------------------------------------------
       ///  TITLE

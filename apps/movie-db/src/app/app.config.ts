@@ -2,12 +2,7 @@ import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/
 import type { ApplicationConfig } from '@angular/core';
 import { ENVIRONMENT_INITIALIZER } from '@angular/core';
 import { provideAnimations } from '@angular/platform-browser/animations';
-import {
-  provideRouter,
-  withComponentInputBinding,
-  withInMemoryScrolling,
-  withRouterConfig,
-} from '@angular/router';
+import { provideRouter, withComponentInputBinding, withInMemoryScrolling, withRouterConfig } from '@angular/router';
 import { authInterceptor } from '@ult/shared/core';
 import { ENVIRONMENT } from '@ult/shared/data-access';
 import { initMswForAngularApp } from '@ult/shared/test/msw';

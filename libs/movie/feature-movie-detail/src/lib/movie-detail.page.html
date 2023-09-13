@@ -12,9 +12,7 @@
         <div class="facts">
           <span class="release-date">{{movie.release_date | date: 'mediumDate'}}</span>
           <span class="genres">
-            <span *ngFor="let genre of movie.genres; trackBy: trackByGenre" class="genre">
-              {{ genre.name }}
-            </span>
+            <span *ngFor="let genre of movie.genres; trackBy: trackByGenre" class="genre"> {{ genre.name }} </span>
           </span>
           <span class="runtime">{{ movie.runtime }} min</span>
         </div>

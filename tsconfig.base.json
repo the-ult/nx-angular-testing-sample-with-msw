@@ -1,4 +1,5 @@
 {
+  "$schema": "https://json.schemastore.org/tsconfig",
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": ".",
@@ -8,10 +9,9 @@
     "emitDecoratorMetadata": false,
     "esModuleInterop": true,
     "experimentalDecorators": true,
-    "forceConsistentCasingInFileNames": true,
     "importHelpers": true,
     "lib": ["ES2022", "dom"],
-    "module": "ESNext",
+    "module": "ES2022",
     "moduleResolution": "node",
     "pretty": true,
     "resolveJsonModule": true,

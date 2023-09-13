@@ -21,11 +21,7 @@ footer {
   align-items: center;
   color: var(--ult-color-default-contrast);
   padding: var(--ult-space-md);
-  background-image: linear-gradient(
-    to top right,
-    var(--ult-theme-primary),
-    var(--ult-theme-secondary)
-  );
+  background-image: linear-gradient(to top right, var(--ult-theme-primary), var(--ult-theme-secondary));
   margin-inline: auto;
   width: 100%;
   border-top-left-radius: var(--ult-radius-small);

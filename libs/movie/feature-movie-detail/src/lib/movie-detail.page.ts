@@ -1,11 +1,5 @@
 import { AsyncPipe, DatePipe, NgFor, NgIf, NgOptimizedImage } from '@angular/common';
-import {
-  ChangeDetectionStrategy,
-  Component,
-  Input as RouterInput,
-  inject,
-  numberAttribute,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input as RouterInput, inject, numberAttribute } from '@angular/core';
 import { MovieFacade } from '@ult/movie/data-access';
 import { UserScoreComponent } from '@ult/movie/ui/user-score';
 import type { MovieDetail } from '@ult/shared/data-access';

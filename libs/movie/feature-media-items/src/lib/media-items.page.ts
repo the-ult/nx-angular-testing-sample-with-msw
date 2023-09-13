@@ -1,12 +1,6 @@
 import { AsyncPipe, NgForOf } from '@angular/common';
 import type { Signal } from '@angular/core';
-import {
-  ChangeDetectionStrategy,
-  Component,
-  Input as RouterInput,
-  computed,
-  inject,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input as RouterInput, computed, inject } from '@angular/core';
 import { MovieFacade, TvShowFacade } from '@ult/movie/data-access';
 import { UltMediaCardComponent } from '@ult/movie/ui/media-card';
 import type { Movie, TvShow } from '@ult/shared/data-access';

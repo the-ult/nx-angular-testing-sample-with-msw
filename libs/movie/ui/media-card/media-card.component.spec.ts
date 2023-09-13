@@ -34,10 +34,7 @@ describe('MediaCardComponent', () => {
     ///  LINK & POSTER
     /// ---------------------------------------------------------------
 
-    expect(screen.getByRole('link')).toHaveAttribute(
-      'href',
-      expect.stringContaining(`/movies/${id}`),
-    );
+    expect(screen.getByRole('link')).toHaveAttribute('href', expect.stringContaining(`/movies/${id}`));
 
     const imgControl = screen.getByRole('img');
     expect(imgControl).toHaveAttribute(

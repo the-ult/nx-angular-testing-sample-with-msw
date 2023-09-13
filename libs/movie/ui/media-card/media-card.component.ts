@@ -89,8 +89,6 @@ export class UltMediaCardComponent {
   }
 
   get releaseDate() {
-    return isMovieCardInput(this.mediaData)
-      ? this.mediaData.release_date
-      : this.mediaData.first_air_date;
+    return isMovieCardInput(this.mediaData) ? this.mediaData.release_date : this.mediaData.first_air_date;
   }
 }

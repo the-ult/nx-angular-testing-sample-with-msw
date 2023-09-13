@@ -14,12 +14,7 @@
             "depConstraints": [
               {
                 "sourceTag": "type:ui",
-                "onlyDependOnLibsWithTags": [
-                  "type:ui",
-                  "type:util",
-                  "type:data-access",
-                  "type:test"
-                ]
+                "onlyDependOnLibsWithTags": ["type:ui", "type:util", "type:data-access", "type:test"]
               },
               {
                 "sourceTag": "type:util",
@@ -82,17 +77,7 @@
                 "result": false
               }
             },
-            "ignore": [
-              "\\.e2e$",
-              "\\.prod$",
-              "args",
-              "ctx",
-              "dialogRef",
-              "e2e",
-              "env",
-              "i18n",
-              "req"
-            ]
+            "ignore": ["\\.e2e$", "\\.prod$", "args", "ctx", "dialogRef", "e2e", "env", "i18n", "req"]
           }
         ],
         "unicorn/prefer-top-level-await": "off"

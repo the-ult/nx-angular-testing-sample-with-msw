@@ -50,6 +50,7 @@ npx nx generate @nx/workspace:library mock --directory=shared/test --tags=scope:
    export * from './lib/movie';
    ```
 5. Now we can import the mock data like:
+
    ```ts
 
    ```

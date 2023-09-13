@@ -51,10 +51,10 @@ export const mswMock = (url: string, data: DefaultBodyType): void => {
 
     cy.window().then((win) => {
       // Reference global instances set in "src/mocks.js".
-      const { rest, worker } = win.msw;
+      const { http, worker } = win.msw;
 
-      // worker.use(rest.get(url, () => HttpResponse.json(data)));
-      worker.use(rest.get(url, () => HttpResponse.json(data)));
+      // worker.use(http.get(url, () => HttpResponse.json(data)));
+      worker.use(http.get(url, () => HttpResponse.json(data)));
     });
   } else {
     // eslint-disable-next-line no-console, no-restricted-syntax
