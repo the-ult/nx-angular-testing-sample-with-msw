@@ -16,23 +16,24 @@ import { trackByProp } from '@ult/shared/utils';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MediaItemsPage {
+  // !FIXME: the required is not working with a router input => should check in the constructor or ngOnInit as well
   @RouterInput({ required: true }) mediaType!: RouteType;
 
-  readonly mediaItems!: Signal<(Movie | TvShow)[]>;
-  readonly title: 'Movies' | 'TV Shows' = 'Movies';
-  readonly trackByMovieId = trackByProp<Movie | TvShow>('id');
+  protected readonly $mediaItems!: Signal<(Movie | TvShow)[]>;
+  protected readonly title: 'Movies' | 'TV Shows' = 'Movies';
+  protected readonly trackByMovieId = trackByProp<Movie | TvShow>('id');
 
   constructor() {
     // ! FIXME: how can we use this without the Evil `as`
 
     if (this.mediaType === 'movie') {
-      this.mediaItems = computed(() => inject(MovieFacade).$queryMovies('popular')().results);
+      this.$mediaItems = computed(() => inject(MovieFacade).$queryMovies('popular')().results);
 
       this.title = 'Movies';
     }
 
     if (this.mediaType === 'tv') {
-      this.mediaItems = computed(() => inject(TvShowFacade).$queryTVShows('popular')().results);
+      this.$mediaItems = computed(() => inject(TvShowFacade).$queryTVShows('popular')().results);
 
       this.title = 'TV Shows';
     }

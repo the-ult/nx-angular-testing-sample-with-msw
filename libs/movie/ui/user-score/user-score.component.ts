@@ -3,8 +3,7 @@ import { ChangeDetectionStrategy, Component, Input, numberAttribute } from '@ang
 @Component({
   selector: 'ult-user-score',
   standalone: true,
-  imports: [],
-  template: `<span class="percentage">{{ score }}<span></span></span>`,
+  template: `<span class="percentage">{{ score }}</span>`,
   styles: [
     `
       :host {

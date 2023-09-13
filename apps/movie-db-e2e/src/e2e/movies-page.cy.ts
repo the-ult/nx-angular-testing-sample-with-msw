@@ -9,7 +9,9 @@ describe('Movies Page', () => {
     cy.visit('/movies');
   });
 
-  afterEach(() => mswResetWorkerHandlers());
+  afterEach(() => {
+    mswResetWorkerHandlers();
+  });
   // afterEach(() => worker.resetHandlers());
 
   it('should display welcome message', () => {

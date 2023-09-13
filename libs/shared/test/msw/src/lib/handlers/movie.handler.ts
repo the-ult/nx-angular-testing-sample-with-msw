@@ -44,7 +44,7 @@ export const MOVIE_HANDLERS: RequestHandler[] = [
    * @see: https://developers.themoviedb.org/3/movies/get-popular-movies
    */
   http.get<{ movieId: string }, never, MovieDetail | MediaError>('/movie/:movieId', ({ params }) => {
-    const movieId = +params['movieId'];
+    const movieId = +params.movieId;
 
     if (movieId === 436_270) {
       return HttpResponse.json<MovieDetail>(BlackAdam);

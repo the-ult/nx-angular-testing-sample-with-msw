@@ -33,7 +33,9 @@ export const appConfig: ApplicationConfig = {
     {
       provide: ENVIRONMENT_INITIALIZER,
       multi: true,
-      useValue: () => initMswForAngularApp(),
+      useValue: () => {
+        initMswForAngularApp();
+      },
     },
   ],
 };

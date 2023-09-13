@@ -10,8 +10,12 @@ import type { MountConfig } from 'cypress/angular';
 import { MediaItemsPage } from './media-items.page';
 
 describe(MediaItemsPage.name, () => {
-  before(() => startMswForBrowser());
-  afterEach(() => worker.resetHandlers());
+  before(() => {
+    startMswForBrowser();
+  });
+  afterEach(() => {
+    worker.resetHandlers();
+  });
 
   const config: MountConfig<MediaItemsPage> = {
     declarations: [],

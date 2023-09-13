@@ -7,11 +7,11 @@ import { HANDLERS } from '../handlers';
 
 type UnhandledRequestStrategy = StartOptions['onUnhandledRequest'];
 
-export type Options = {
+export interface Options {
   mswFile: string;
   onUnhandledRequest: UnhandledRequestStrategy;
   scope?: string;
-};
+}
 
 export const worker = setupWorker(...HANDLERS);
 

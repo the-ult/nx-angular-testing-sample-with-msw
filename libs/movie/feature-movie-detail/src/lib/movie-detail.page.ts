@@ -16,7 +16,7 @@ import { trackByProp } from '@ult/shared/utils';
 export class MovieDetailPage {
   @RouterInput({ required: true, transform: numberAttribute }) movieId!: number;
 
-  protected movie = inject(MovieFacade).$get(+this.movieId);
+  protected $movie = inject(MovieFacade).$get(+this.movieId);
 
   readonly mediaType: 'Movies' | 'TV Shows' = 'Movies';
   readonly trackByGenre = trackByProp<MovieDetail['genres'][0]>('name');

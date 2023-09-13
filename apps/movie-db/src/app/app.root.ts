@@ -19,7 +19,7 @@ import { UltAppBarComponent, UltNavItemComponent } from '@ult/movie/ui/app-bar';
       <a ultNavItem routerLinkActive="active-link" [routerLink]="['/movies']"> movies </a>
       <a ultNavItem routerLinkActive="active-link" [routerLink]="['/tv-shows']"> series </a>
     </ult-app-bar>
-    <main><router-outle />></main>
+    <main><router-outlet /></main>
     <footer>
       <a
         href="https://github.com/the-ult/angular-nx-playground"
