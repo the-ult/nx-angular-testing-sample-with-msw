@@ -15,9 +15,9 @@ import { trackByProp } from '@ult/shared/utils';
 })
 export class MovieFeatureShellPage {
   // !FIXME: use computed in the facade
-  readonly popularMovies = inject(MovieFacade).$queryMovies('popular')().results;
+  protected readonly popularMovies = inject(MovieFacade).$queryMovies('popular')().results;
 
-  readonly popularTVShows = inject(TvShowFacade).$queryTVShows('popular')().results;
+  protected readonly popularTVShows = inject(TvShowFacade).$queryTVShows('popular')().results;
 
-  readonly trackBy = trackByProp<Movie | TvShow>('id');
+  protected readonly trackBy = trackByProp<Movie | TvShow>('id');
 }

@@ -50,8 +50,9 @@ npx nx generate @nx/workspace:library mock --directory=shared/test --tags=scope:
    export * from './lib/movie';
    ```
 5. Now we can import the mock data like:
+
    ```ts
-   import { MoviesPopularPage1 } from '@ult/shared/test/mocks';
+
    ```
 
 And to add some extra mock data, like to test pagination, we add a `movies-popular-page-2.json` as well.

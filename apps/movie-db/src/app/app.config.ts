@@ -2,12 +2,7 @@ import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/
 import type { ApplicationConfig } from '@angular/core';
 import { ENVIRONMENT_INITIALIZER } from '@angular/core';
 import { provideAnimations } from '@angular/platform-browser/animations';
-import {
-  provideRouter,
-  withComponentInputBinding,
-  withInMemoryScrolling,
-  withRouterConfig,
-} from '@angular/router';
+import { provideRouter, withComponentInputBinding, withInMemoryScrolling, withRouterConfig } from '@angular/router';
 import { authInterceptor } from '@ult/shared/core';
 import { ENVIRONMENT } from '@ult/shared/data-access';
 import { initMswForAngularApp } from '@ult/shared/test/msw';
@@ -26,7 +21,7 @@ export const appConfig: ApplicationConfig = {
       }),
       withRouterConfig({
         paramsInheritanceStrategy: 'always',
-      })
+      }),
     ),
     // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
     provideHttpClient(withFetch(), withInterceptors([authInterceptor])),
@@ -38,7 +33,9 @@ export const appConfig: ApplicationConfig = {
     {
       provide: ENVIRONMENT_INITIALIZER,
       multi: true,
-      useValue: () => initMswForAngularApp(),
+      useValue: () => {
+        initMswForAngularApp();
+      },
     },
   ],
 };

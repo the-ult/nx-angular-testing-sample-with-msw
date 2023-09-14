@@ -7,8 +7,7 @@ import { MovieService } from './movie.service';
 export class MovieFacade {
   #movieService = inject(MovieService);
 
-  readonly $get = (id: number) =>
-    toSignal(this.#movieService.getMovie$(id), { initialValue: undefined });
+  readonly $get = (id: number) => toSignal(this.#movieService.getMovie$(id), { initialValue: undefined });
 
   readonly $queryMovies = (type: MovieType) =>
     toSignal(this.#movieService.queryMovies$(type), {

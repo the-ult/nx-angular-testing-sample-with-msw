@@ -27,7 +27,7 @@ export const MovieDetailSchema = z.object({
       logo_path: z.string().nullable(),
       name: z.string(),
       origin_country: z.string(),
-    })
+    }),
   ),
   production_countries: z.array(z.object({ iso_3166_1: z.string(), name: z.string() })),
   release_date: z.string(),
@@ -38,7 +38,7 @@ export const MovieDetailSchema = z.object({
       english_name: z.string(),
       iso_639_1: z.string(),
       name: z.string(),
-    })
+    }),
   ),
   status: z.string(),
   tagline: z.string().nullable(),

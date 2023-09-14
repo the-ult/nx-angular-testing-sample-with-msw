@@ -14,7 +14,7 @@ import { MediaCardInput, isMovieCardInput } from './media-card.model';
       <img width="180" height="275" [alt]="title" [ngSrc]="ENV.url.img + mediaData.poster_path" />
     </a>
     <div class="card__content">
-      <ult-user-score data-testid="movie-score" [score]="mediaData.vote_average />>
+      <ult-user-score data-testid="movie-score" [score]="mediaData.vote_average" />
       <h4>{{ title }}</h4>
       <p class="date">{{ releaseDate | date }}</p>
     </div>
@@ -89,8 +89,6 @@ export class UltMediaCardComponent {
   }
 
   get releaseDate() {
-    return isMovieCardInput(this.mediaData)
-      ? this.mediaData.release_date
-      : this.mediaData.first_air_date;
+    return isMovieCardInput(this.mediaData) ? this.mediaData.release_date : this.mediaData.first_air_date;
   }
 }

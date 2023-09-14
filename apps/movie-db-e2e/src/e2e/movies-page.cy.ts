@@ -9,7 +9,9 @@ describe('Movies Page', () => {
     cy.visit('/movies');
   });
 
-  afterEach(() => mswResetWorkerHandlers());
+  afterEach(() => {
+    mswResetWorkerHandlers();
+  });
   // afterEach(() => worker.resetHandlers());
 
   it('should display welcome message', () => {
@@ -25,10 +27,7 @@ describe('Movies Page', () => {
       .should('be.visible')
       .should('have.text', 'Popular Movies');
 
-    cy.findAllByTestId(/^media-item-page-media-card-/).should(
-      'have.length',
-      TEST_DATA.results.length
-    );
+    cy.findAllByTestId(/^media-item-page-media-card-/).should('have.length', TEST_DATA.results.length);
 
     /// Check each movie from our testdata
     for (const movie of TEST_DATA.results) {

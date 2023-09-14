@@ -1,1 +1,8 @@
 // create a CODE_OWNERS file
+
+// This is a CODE_OWNERS file for the_ult
+// The following users are responsible for reviewing and approving changes to the specified paths
+
+// The_ult is responsible for the entire repository
+* @the_ult
+

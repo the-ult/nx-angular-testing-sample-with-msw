@@ -1,24 +1,24 @@
 import { inject } from '@angular/core';
 import { ENVIRONMENT } from '@ult/shared/data-access';
-import { graphql, rest } from 'msw';
+import { graphql, http } from 'msw';
 import type { StartOptions } from 'msw/browser';
 import { setupWorker } from 'msw/browser';
 import { HANDLERS } from '../handlers';
 
 type UnhandledRequestStrategy = StartOptions['onUnhandledRequest'];
 
-export type Options = {
+export interface Options {
   mswFile: string;
   onUnhandledRequest: UnhandledRequestStrategy;
   scope?: string;
-};
+}
 
 export const worker = setupWorker(...HANDLERS);
 
 export const startMswForBrowser = (
   mswFile = 'mockServiceWorker.js',
   scope = '/',
-  onUnhandledRequest: UnhandledRequestStrategy = 'bypass'
+  onUnhandledRequest: UnhandledRequestStrategy = 'bypass',
 ) => {
   void worker.start({
     serviceWorker: {
@@ -41,7 +41,7 @@ export const startMswForBrowser = (
   // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
   if (window.Cypress) {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-    window.msw = { graphql, rest, worker };
+    window.msw = { graphql, http, worker };
   }
 };
 

@@ -35,10 +35,7 @@
       "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": [
-          "libs/movie/feature-shell/**/*.ts",
-          "libs/movie/feature-shell/**/*.html"
-        ]
+        "lintFilePatterns": ["libs/movie/feature-shell/**/*.ts", "libs/movie/feature-shell/**/*.html"]
       }
     }
   },

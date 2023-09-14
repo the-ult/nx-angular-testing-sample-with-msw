@@ -14,7 +14,7 @@ function getClientEnvironment(configuration) {
       },
       {
         NODE_ENV: process.env.NODE_ENV || configuration,
-      }
+      },
     );
 
   // Stringify all values so we can feed into webpack DefinePlugin

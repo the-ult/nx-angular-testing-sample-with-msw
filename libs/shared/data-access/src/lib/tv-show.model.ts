@@ -11,7 +11,7 @@ export const TvShowDetailSchema = z.object({
       name: z.string(),
       gender: z.number(),
       profile_path: z.string().nullable(),
-    })
+    }),
   ),
   episode_run_time: z.array(z.number()),
   first_air_date: z.string(),
@@ -41,7 +41,7 @@ export const TvShowDetailSchema = z.object({
       id: z.number(),
       logo_path: z.string().nullable(),
       origin_country: z.string(),
-    })
+    }),
   ),
   number_of_episodes: z.number(),
   number_of_seasons: z.number(),
@@ -57,7 +57,7 @@ export const TvShowDetailSchema = z.object({
       logo_path: z.string().nullable(),
       name: z.string(),
       origin_country: z.string(),
-    })
+    }),
   ),
   production_countries: z.array(z.object({ iso_3166_1: z.string(), name: z.string() })),
   seasons: z.array(
@@ -69,14 +69,14 @@ export const TvShowDetailSchema = z.object({
       overview: z.string(),
       poster_path: z.string(),
       season_number: z.number(),
-    })
+    }),
   ),
   spoken_languages: z.array(
     z.object({
       english_name: z.string(),
       iso_639_1: z.string(),
       name: z.string(),
-    })
+    }),
   ),
   status: z.string(),
   tagline: z.string(),

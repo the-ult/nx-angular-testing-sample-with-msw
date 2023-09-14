@@ -1,2 +1,2 @@
-export { graphql, rest } from 'msw';
+export { graphql } from 'msw';
 export { initMswForAngularApp, startMswForBrowser, worker } from './browser';

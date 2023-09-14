@@ -1,4 +1,4 @@
-import type { graphql, rest } from 'msw';
+import type { graphql, http } from 'msw';
 import type { SetupWorker } from 'msw/browser';
 
 export {};
@@ -8,7 +8,7 @@ declare global {
     Cypress: Cypress.Cypress;
     msw: {
       graphql: typeof graphql;
-      rest: typeof rest;
+      http: typeof http;
       worker: SetupWorker;
     };
   }

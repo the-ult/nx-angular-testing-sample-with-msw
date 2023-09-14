@@ -5,14 +5,18 @@ import { mswServer } from './server';
 
 beforeAll(() => {
   mswServer.listen({ onUnhandledRequest: 'error' });
-  mswServer.printHandlers();
+  console.log(mswServer.listHandlers());
 });
 
 // Reset any runtime handlers tests may use.
-afterEach(() => mswServer.resetHandlers());
+afterEach(() => {
+  mswServer.resetHandlers();
+});
 
 // Clean up once the tests are done.
-afterAll(() => mswServer.close());
+afterAll(() => {
+  mswServer.close();
+});
 
 // export { HttpResponse, mswServer, rest } from './server';
-export { mswServer, rest } from './server';
+export { http, mswServer } from './server';

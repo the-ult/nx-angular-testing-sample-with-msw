@@ -34,10 +34,7 @@
     "lint": {
       "executor": "@nx/linter:eslint",
       "options": {
-        "lintFilePatterns": [
-          "libs/movie/feature-media-items/**/*.ts",
-          "libs/movie/feature-media-items/**/*.html"
-        ]
+        "lintFilePatterns": ["libs/movie/feature-media-items/**/*.ts", "libs/movie/feature-media-items/**/*.html"]
       }
     },
     "component-test": {

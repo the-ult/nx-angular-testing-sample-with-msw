@@ -39,14 +39,14 @@ npx nx generate @nx/workspace:library msw --directory=shared/test --skipBabelrc 
 
 ```ts
 import { MoviesPopularPage1, MoviesPopularPage2 } from '@ult/shared/test/mocks';
-import { RequestHandler, rest } from 'msw';
+import { RequestHandler } from 'msw';
 
 export const MOVIE_HANDLERS: RequestHandler[] = [
   /**
    * Handle the requests for POPULAR Movies
    * @see: https://developers.themoviedb.org/3/movies/get-popular-movies
    */
-  rest.get('/movie/popular', (req, res, ctx) => {
+  http.get('/movie/popular', (req, res, ctx) => {
     const pageParam = req.url.searchParams.get('page');
 
     if (pageParam === '1') {
@@ -226,11 +226,11 @@ prepareWorkers().then(() => {
         MOVIE_DB_ROUTES,
         withRouterConfig({
           paramsInheritanceStrategy: 'always',
-        })
+        }),
       ),
       provideHttpClient(
         // withXsrfConfiguration({ cookieName: '', headerName: '' }),
-        withJsonpSupport()
+        withJsonpSupport(),
       ),
     ],
   }).catch((err) => console.error(err));

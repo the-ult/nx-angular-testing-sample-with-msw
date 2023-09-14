@@ -1,8 +1,8 @@
 import { AsyncPipe, NgForOf } from '@angular/common';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { render, screen, within } from '@testing-library/angular';
-import { ENVIRONMENT } from '@ult/shared/data-access';
 import { UltMediaCardComponent } from '@ult/movie/ui/media-card';
+import { ENVIRONMENT } from '@ult/shared/data-access';
 
 import { ENV_MOCK } from '@ult/shared/test/mocks';
 import { MovieFeatureShellPage } from './movie-feature-shell.component';
@@ -19,7 +19,7 @@ describe('MovieFeatureShellComponent', () => {
       within(heroControl).getByRole('heading', {
         level: 1,
         name: 'Welcome to The Angular Movie DB',
-      })
+      }),
     ).toBeVisible();
   });
 

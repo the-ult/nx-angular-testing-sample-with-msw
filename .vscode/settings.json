@@ -38,14 +38,7 @@
     "extensions": [".ts", ".html", ".graphql"]
   },
 
-  "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact",
-    "graphql",
-    "html"
-  ],
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact", "graphql", "html"],
   /// =========================================================================
   /// FORMATTING
   /// =========================================================================
@@ -70,15 +63,7 @@
   },
   "stylelint.reportInvalidScopeDisables": true,
   "stylelint.reportNeedlessDisables": true,
-  "stylelint.validate": [
-    "css",
-    "less",
-    "postcss",
-    "sass",
-    "scss",
-    "source.css.styled",
-    "styled-css"
-  ],
+  "stylelint.validate": ["css", "less", "postcss", "sass", "scss", "source.css.styled", "styled-css"],
 
   /// =========================================================================
   /// CYPRESS settings
