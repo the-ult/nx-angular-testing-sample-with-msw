@@ -11,7 +11,8 @@
         "outputPath": "dist/libs/movie/utils",
         "main": "libs/movie/utils/src/index.ts",
         "tsConfig": "libs/movie/utils/tsconfig.lib.json",
-        "assets": ["libs/movie/utils/*.md"]
+        "assets": ["libs/movie/utils/*.md"],
+        "updateBuildableProjectDepsInPackageJson": true
       }
     },
     "lint": {

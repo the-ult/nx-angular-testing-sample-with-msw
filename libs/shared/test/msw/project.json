@@ -11,7 +11,8 @@
         "outputPath": "dist/libs/shared/test/msw",
         "main": "libs/shared/test/msw/src/index.ts",
         "tsConfig": "libs/shared/test/msw/tsconfig.lib.json",
-        "assets": ["libs/shared/test/msw/*.md"]
+        "assets": ["libs/shared/test/msw/*.md"],
+        "updateBuildableProjectDepsInPackageJson": true
       }
     },
     "lint": {

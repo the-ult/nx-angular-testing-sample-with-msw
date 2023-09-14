@@ -24,9 +24,9 @@ import { trackByProp } from '@ult/shared/utils';
 export class MediaItemsPage {
   @RouterInput({ required: true }) mediaType!: RouteType;
 
-  readonly mediaItems!: Signal<(Movie | TvShow)[]>;
-  readonly title: 'Movies' | 'TV Shows' = 'Movies';
-  readonly trackByMovieId = trackByProp<Movie | TvShow>('id');
+  protected readonly  mediaItems!: Signal<(Movie | TvShow)[]>;
+  protected readonly title: 'Movies' | 'TV Shows' = 'Movies';
+  protected readonly trackByMovieId = trackByProp<Movie | TvShow>('id');
 
   constructor() {
     // ! FIXME: how can we use this without the Evil `as`
