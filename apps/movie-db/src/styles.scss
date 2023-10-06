@@ -41,7 +41,7 @@ svg {
 
 main {
   /// ch still feels a bit icky..
-  width: min(115ch, 100% - 4rem); // or 4 em
+  width: min(115ch, 100% - 4rem); // or 4 em => em is probably better
   margin-inline: auto;
 }
 
