@@ -2,13 +2,13 @@
 /* tslint:disable */
 
 /**
- * Mock Service Worker (0.0.0-fetch.rc-19).
+ * Mock Service Worker (0.0.0-fetch.rc-20).
  * @see https://github.com/mswjs/msw
  * - Please do NOT modify this file.
  * - Please do NOT serve this file on production.
  */
 
-const INTEGRITY_CHECKSUM = 'e2d8525b2d1bdadf89a15ae5a2619512';
+const INTEGRITY_CHECKSUM = '3343a047c60712815551260184217eb5';
 const IS_MOCKED_RESPONSE = Symbol('isMockedResponse');
 const activeClientIds = new Set();
 
@@ -87,7 +87,6 @@ self.addEventListener('message', async function (event) {
 
 self.addEventListener('fetch', function (event) {
   const { request } = event;
-  const accept = request.headers.get('accept') || '';
 
   // Bypass navigation requests.
   if (request.mode === 'navigate') {
@@ -109,19 +108,7 @@ self.addEventListener('fetch', function (event) {
 
   // Generate unique request ID.
   const requestId = Math.random().toString(16).slice(2);
-
-  event.respondWith(
-    handleRequest(event, requestId).catch((error) => {
-      // At this point, any exception indicates an issue with the original request/response.
-      console.error(
-        `\
-[MSW] Caught an exception from the "%s %s" request (%s). This is probably not a problem with Mock Service Worker. There is likely an additional logging output above.`,
-        request.method,
-        request.url,
-        `${error.name}: ${error.message}`,
-      );
-    }),
-  );
+  event.respondWith(handleRequest(event, requestId));
 });
 
 async function handleRequest(event, requestId) {
