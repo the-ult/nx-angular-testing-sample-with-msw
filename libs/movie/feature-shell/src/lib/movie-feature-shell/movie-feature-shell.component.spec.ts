@@ -4,6 +4,7 @@ import { render, screen, within } from '@testing-library/angular';
 import { UltMediaCardComponent } from '@ult/movie/ui/media-card';
 import { ENVIRONMENT } from '@ult/shared/data-access';
 
+import { describe, expect, it } from '@jest/globals';
 import { ENV_MOCK } from '@ult/shared/test/mocks';
 import { MovieFeatureShellPage } from './movie-feature-shell.component';
 
