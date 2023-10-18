@@ -38,6 +38,13 @@
       }
     },
     {
+      "files": ["*.json"],
+      "parser": "jsonc-eslint-parser",
+      "rules": {
+        "@nx/dependency-checks": "error"
+      }
+    },
+    {
       "files": ["*.ts", "*.tsx"],
       "extends": [
         "plugin:@nx/typescript",
@@ -81,7 +88,8 @@
             "ignore": ["\\.e2e$", "\\.prod$", "args", "ctx", "dialogRef", "e2e", "env", "i18n", "req"]
           }
         ],
-        "unicorn/prefer-top-level-await": "off"
+        "unicorn/prefer-top-level-await": "off",
+        "unicorn/consistent-function-scoping": ["error", { "checkArrowFunctions": false }]
       }
     },
     {
