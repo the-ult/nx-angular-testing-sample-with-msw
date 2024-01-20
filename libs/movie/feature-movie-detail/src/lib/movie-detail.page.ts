@@ -1,4 +1,4 @@
-import { AsyncPipe, DatePipe, NgFor, NgIf, NgOptimizedImage } from '@angular/common';
+import { AsyncPipe, DatePipe, NgOptimizedImage } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input as RouterInput, inject, numberAttribute } from '@angular/core';
 import { MovieFacade } from '@ult/movie/data-access';
 import { UserScoreComponent } from '@ult/movie/ui/user-score';
@@ -8,7 +8,7 @@ import { trackByProp } from '@ult/shared/utils';
 @Component({
   selector: 'ult-movie-detail-page',
   standalone: true,
-  imports: [NgFor, NgIf, AsyncPipe, UserScoreComponent, DatePipe, NgOptimizedImage],
+  imports: [AsyncPipe, UserScoreComponent, DatePipe, NgOptimizedImage],
   templateUrl: './movie-detail.page.html',
   styleUrls: ['./movie-detail.page.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

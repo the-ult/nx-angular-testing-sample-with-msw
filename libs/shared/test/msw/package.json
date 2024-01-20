@@ -2,10 +2,10 @@
   "name": "@ult/shared/test/msw",
   "version": "0.0.1",
   "dependencies": {
-    "@angular/core": "17.0.9",
+    "@angular/core": "17.1.0",
     "@ult/shared/data-access": "*",
     "@ult/shared/test/mocks": "*",
-    "msw": "0.0.0-fetch.rc-23",
+    "msw": "2.1.2",
     "tslib": "^2.6.2"
   }
 }

@@ -1,4 +1,4 @@
-import { AsyncPipe, NgForOf } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { MovieFacade, TvShowFacade } from '@ult/movie/data-access';
 import { UltMediaCardComponent } from '@ult/movie/ui/media-card';
@@ -8,7 +8,7 @@ import { trackByProp } from '@ult/shared/utils';
 @Component({
   selector: 'ult-movie-feature-shell',
   standalone: true,
-  imports: [UltMediaCardComponent, NgForOf, AsyncPipe],
+  imports: [UltMediaCardComponent, AsyncPipe],
   templateUrl: './movie-feature-shell.component.html',
   styleUrls: ['./movie-feature-shell.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -16,21 +16,20 @@
 <section>
   <h2>Popular Movies</h2>
   <div class="horizontal-scroll">
-    <ult-media-card
-      *ngFor="let movie of popularMovies; trackBy: trackBy"
-      mediaType="movie"
-      [mediaData]="movie"
-      [attr.data-testid]="'shell-page-popular-movies-' + movie.id" />
+    @for (movie of popularMovies; track trackBy($index, movie)) {
+      <ult-media-card
+        mediaType="movie"
+        [mediaData]="movie"
+        [attr.data-testid]="'shell-page-popular-movies-' + movie.id" />
+    }
   </div>
 </section>
 
 <section>
   <h2>Popular TV Shows</h2>
   <div class="horizontal-scroll">
-    <ult-media-card
-      *ngFor="let show of popularTVShows; trackBy: trackBy"
-      mediaType="tv"
-      [mediaData]="show"
-      [attr.data-testid]="'shell-page-popular-tvshows-' + show.id" />
+    @for (show of popularTVShows; track trackBy($index, show)) {
+      <ult-media-card mediaType="tv" [mediaData]="show" [attr.data-testid]="'shell-page-popular-tvshows-' + show.id" />
+    }
   </div>
 </section>

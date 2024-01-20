@@ -1,4 +1,4 @@
-import { AsyncPipe, NgForOf } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input as RouterInput, computed, inject } from '@angular/core';
 import { MovieFacade } from '@ult/movie/data-access';
 import { UltMediaCardComponent } from '@ult/movie/ui/media-card';
@@ -11,7 +11,7 @@ import { trackByProp } from '@ult/shared/utils';
   standalone: true,
   templateUrl: './media-items.page.html',
   styleUrls: ['./media-items.page.scss'],
-  imports: [UltMediaCardComponent, NgForOf, AsyncPipe],
+  imports: [UltMediaCardComponent, AsyncPipe],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MediaItemsPage {
