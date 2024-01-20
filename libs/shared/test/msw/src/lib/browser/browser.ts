@@ -22,7 +22,7 @@ export const startMswForBrowser = (
 ) => {
   void worker.start({
     serviceWorker: {
-      url: `${mswFile}`,
+      url: mswFile,
       options: {
         /// Narrow the scope of the Service Worker to intercept requests
         /// only from pages under this path.

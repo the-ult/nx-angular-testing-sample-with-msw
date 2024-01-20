@@ -18,11 +18,10 @@
       }
     },
     "lint": {
-      "executor": "@nx/linter:eslint",
+      "executor": "@nx/eslint:lint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "tsConfig": "apps/movie-db-e2e/tsconfig.json",
-        "lintFilePatterns": ["apps/movie-db-e2e/**/*.{js,ts}"]
+        "tsConfig": "apps/movie-db-e2e/tsconfig.json"
       }
     }
   },

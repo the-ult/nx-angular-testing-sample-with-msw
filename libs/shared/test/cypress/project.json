@@ -11,16 +11,12 @@
         "outputPath": "dist/libs/shared/test/cypress",
         "main": "libs/shared/test/cypress/src/index.ts",
         "tsConfig": "libs/shared/test/cypress/tsconfig.lib.json",
-        "assets": ["libs/shared/test/cypress/*.md"],
-        "updateBuildableProjectDepsInPackageJson": true
+        "assets": ["libs/shared/test/cypress/*.md"]
       }
     },
     "lint": {
-      "executor": "@nx/linter:eslint",
-      "outputs": ["{options.outputFile}"],
-      "options": {
-        "lintFilePatterns": ["libs/shared/test/cypress/**/*.ts"]
-      }
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
     }
   },
   "tags": ["scope:shared", "type:test"]

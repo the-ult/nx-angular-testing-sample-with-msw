@@ -1,5 +1,13 @@
 {
   "name": "@ult/movie/data-access",
   "version": "0.0.1",
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "@angular/common": "17.0.9",
+    "@angular/core": "17.0.9",
+    "@ult/shared/data-access": "*",
+    "@ult/shared/utils": "*",
+    "rxjs": "~7.8.1",
+    "tslib": "^2.6.2"
+  }
 }

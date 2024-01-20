@@ -351,3 +351,5 @@ migrations.json
 .angular
 
 apps/movie-db/.env.local
+
+.nx/cache

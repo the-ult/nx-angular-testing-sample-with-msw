@@ -9,8 +9,7 @@
       "executor": "@nx/angular:ng-packagr-lite",
       "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
       "options": {
-        "project": "libs/movie/feature-shell/ng-package.json",
-        "updateBuildableProjectDepsInPackageJson": true
+        "project": "libs/movie/feature-shell/ng-package.json"
       },
       "configurations": {
         "production": {
@@ -27,16 +26,12 @@
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
         "tsConfig": "libs/movie/feature-shell/tsconfig.spec.json",
-        "jestConfig": "libs/movie/feature-shell/jest.config.ts",
-        "passWithNoTests": true
+        "jestConfig": "libs/movie/feature-shell/jest.config.ts"
       }
     },
     "lint": {
-      "executor": "@nx/linter:eslint",
-      "outputs": ["{options.outputFile}"],
-      "options": {
-        "lintFilePatterns": ["libs/movie/feature-shell/**/*.ts", "libs/movie/feature-shell/**/*.html"]
-      }
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
     }
   },
   "tags": ["scope:movie", "type:shell"]

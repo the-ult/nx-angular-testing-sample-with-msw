@@ -11,7 +11,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
         <img ngSrc="assets/tmdb_logo.svg" alt="The Movie Database (TMDB)" width="154" height="20" />
       </a>
       <nav>
-        <ng-content selector="a[ultNavItem]"></ng-content>
+        <ng-content selector="a[ultNavItem]" />
       </nav>
     </header>
   `,

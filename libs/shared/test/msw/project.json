@@ -11,16 +11,12 @@
         "outputPath": "dist/libs/shared/test/msw",
         "main": "libs/shared/test/msw/src/index.ts",
         "tsConfig": "libs/shared/test/msw/tsconfig.lib.json",
-        "assets": ["libs/shared/test/msw/*.md"],
-        "updateBuildableProjectDepsInPackageJson": true
+        "assets": ["libs/shared/test/msw/*.md"]
       }
     },
     "lint": {
-      "executor": "@nx/linter:eslint",
-      "outputs": ["{options.outputFile}"],
-      "options": {
-        "lintFilePatterns": ["libs/shared/test/msw/**/*.ts"]
-      }
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
     }
   },
   "tags": ["scope:shared", "type:msw"]

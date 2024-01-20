@@ -2,10 +2,15 @@
   "name": "@ult/movie/feature-shell",
   "version": "0.0.1",
   "peerDependencies": {
-    "@angular/common": "^15.0.0",
-    "@angular/core": "^15.0.0"
+    "@angular/common": "17.0.9",
+    "@angular/core": "17.0.9",
+    "@testing-library/angular": "~14.3.0",
+    "@ult/movie/ui": "*",
+    "@ult/shared/data-access": "*",
+    "@jest/globals": "29.7.0",
+    "@ult/shared/test/mocks": "*",
+    "@ult/movie/data-access": "*",
+    "@ult/shared/utils": "*"
   },
-  "dependencies": {
-    "tslib": "^2.3.0"
-  }
+  "dependencies": {}
 }

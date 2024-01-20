@@ -1,5 +1,8 @@
 {
   "name": "@ult/movie/utils",
   "version": "0.0.1",
-  "type": "commonjs"
+  "type": "commonjs",
+  "dependencies": {
+    "tslib": "^2.6.2"
+  }
 }

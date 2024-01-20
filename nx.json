@@ -1,6 +1,5 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
-  "npmScope": "ult",
   "affected": {
     "defaultBase": "main"
   },
@@ -12,32 +11,36 @@
       "environment": "all"
     }
   },
-  "tasksRunnerOptions": {
-    "default": {
-      "runner": "nx-cloud",
-      "options": {
-        "cacheDirectory": "./.cache/nx",
-        "cacheableOperations": ["build", "lint", "test", "e2e", "component-test"],
-        "accessToken": "MGNlZGRmNzYtNTJiNy00NzU2LTlmNzktZGUwYzQ2MGViNDBmfHJlYWQtd3JpdGU="
-      }
-    }
-  },
   "targetDefaults": {
     "build": {
       "dependsOn": ["^build"],
-      "inputs": ["production", "^production"]
-    },
-    "test": {
-      "inputs": ["default", "^production", "{workspaceRoot}/jest.preset.js"]
+      "inputs": ["production", "^production"],
+      "cache": true
     },
     "e2e": {
-      "inputs": ["default", "^production"]
+      "inputs": ["default", "^production"],
+      "cache": true
     },
     "lint": {
-      "inputs": ["default", "{workspaceRoot}/.eslintrc.json"]
+      "inputs": ["default", "{workspaceRoot}/.eslintrc.json"],
+      "cache": true
     },
     "component-test": {
-      "inputs": ["default", "^production"]
+      "inputs": ["default", "^production"],
+      "cache": true
+    },
+    "@nx/jest:jest": {
+      "inputs": ["default", "^production", "{workspaceRoot}/jest.preset.js"],
+      "cache": true,
+      "options": {
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
     }
   },
   "namedInputs": {
@@ -80,10 +83,12 @@
       "buildable": true,
       "skipBabelrc": true
     },
-    "@nx/linter:eslint": {
+    "@nx/eslint:eslint": {
       "cache": true,
       "cacheLocation": "./cache/eslint"
     }
   },
-  "defaultProject": "movie-db"
+  "defaultProject": "movie-db",
+  "nxCloudAccessToken": "MGNlZGRmNzYtNTJiNy00NzU2LTlmNzktZGUwYzQ2MGViNDBmfHJlYWQtd3JpdGU=",
+  "cacheDirectory": "./.cache/nx"
 }

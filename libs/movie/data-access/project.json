@@ -11,16 +11,12 @@
         "outputPath": "dist/libs/movie/data-access",
         "main": "libs/movie/data-access/src/index.ts",
         "tsConfig": "libs/movie/data-access/tsconfig.lib.json",
-        "assets": ["libs/movie/data-access/*.md"],
-        "updateBuildableProjectDepsInPackageJson": true
+        "assets": ["libs/movie/data-access/*.md"]
       }
     },
     "lint": {
-      "executor": "@nx/linter:eslint",
-      "outputs": ["{options.outputFile}"],
-      "options": {
-        "lintFilePatterns": ["libs/movie/data-access/**/*.ts"]
-      }
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
     }
   },
   "tags": ["scope:movie", "type:data-access"]

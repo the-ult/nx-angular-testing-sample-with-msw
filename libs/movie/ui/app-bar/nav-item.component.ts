@@ -15,7 +15,7 @@ import { Component } from '@angular/core';
   selector: 'ult-nav-item, a[ultNavItem]',
   standalone: true,
   exportAs: 'ultNavItem',
-  template: `<ng-content></ng-content>`,
+  template: `<ng-content />`,
   styles: [
     `
       :host {

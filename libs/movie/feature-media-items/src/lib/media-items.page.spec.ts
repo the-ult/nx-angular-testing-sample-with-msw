@@ -62,7 +62,7 @@ describe('MediaItemsPage', () => {
         'src',
         // ! FIXME: should get proper path from ENVIRONMENT
         // expect.stringContaining(`https://image.tmdb.org/t/p/w220_and_h330_face${poster_path}`)
-        expect.stringContaining(`${poster_path}`),
+        expect.stringContaining(poster_path),
       );
       expect(within(mediaCardControl).getByRole('img')).toBeVisible();
 

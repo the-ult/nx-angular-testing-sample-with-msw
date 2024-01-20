@@ -9,8 +9,7 @@
       "executor": "@nx/angular:ng-packagr-lite",
       "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
       "options": {
-        "project": "libs/shared/core/ng-package.json",
-        "updateBuildableProjectDepsInPackageJson": true
+        "project": "libs/shared/core/ng-package.json"
       },
       "configurations": {
         "production": {
@@ -27,15 +26,11 @@
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
         "tsConfig": "libs/shared/core/tsconfig.spec.json",
-        "jestConfig": "libs/shared/core/jest.config.ts",
-        "passWithNoTests": true
+        "jestConfig": "libs/shared/core/jest.config.ts"
       }
     },
     "lint": {
-      "executor": "@nx/linter:eslint",
-      "options": {
-        "lintFilePatterns": ["libs/shared/core/**/*.ts", "libs/shared/core/**/*.html"]
-      }
+      "executor": "@nx/eslint:lint"
     }
   },
   "tags": ["scope:shared", "type:core"]

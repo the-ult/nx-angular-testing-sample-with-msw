@@ -1,4 +1,9 @@
 {
   "name": "@ult/shared/test/cypress",
-  "version": "0.0.1"
+  "version": "0.0.1",
+  "dependencies": {
+    "@ult/shared/data-access": "*",
+    "msw": "0.0.0-fetch.rc-23",
+    "tslib": "^2.6.2"
+  }
 }
