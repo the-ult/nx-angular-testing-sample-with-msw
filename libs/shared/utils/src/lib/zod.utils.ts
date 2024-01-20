@@ -23,27 +23,27 @@ import { ENVIRONMENT } from '@ult/shared/data-access';
  * @returns
  */
 export function parseResponse<TData>(schema: z.Schema<TData>): MonoTypeOperatorFunction<TData> {
-  const env = inject(ENVIRONMENT);
+	const env = inject(ENVIRONMENT);
 
-  // ! FIXME: improve and add proper description
-  // ! Shouldn't we use map() instead of tap()?
-  // ! And catchError()
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-  return tap({
-    next: (value: TData) => {
-      if (env.production) {
-        const parsed = schema.safeParse(value);
-        if (!parsed.success) {
-          // Log to service to be informed
-          console.error(parsed.error);
-        }
-      } else {
-        // Throw in development so we're aware of the error
+	// ! FIXME: improve and add proper description
+	// ! Shouldn't we use map() instead of tap()?
+	// ! And catchError()
+	// eslint-disable-next-line @typescript-eslint/no-unsafe-return
+	return tap({
+		next: (value: TData) => {
+			if (env.production) {
+				const parsed = schema.safeParse(value);
+				if (!parsed.success) {
+					// Log to service to be informed
+					console.error(parsed.error);
+				}
+			} else {
+				// Throw in development so we're aware of the error
 
-        schema.parse(value);
-      }
-    },
-  });
+				schema.parse(value);
+			}
+		},
+	});
 }
 
 // ! FIXME: create complete query/get methods? based on:

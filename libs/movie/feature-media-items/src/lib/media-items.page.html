@@ -1,9 +1,9 @@
 <h2>Popular {{ title }}</h2>
 <section class="media-items-wall">
-  @for (mediaItem of $mediaItems(); track trackByMovieId($index, mediaItem)) {
-  <ult-media-card
-    [mediaData]="mediaItem"
-    [mediaType]="mediaType"
-    [attr.data-testid]="'media-item-page-media-card-' + mediaItem.id" />
-  }
+	@for (mediaItem of $mediaItems(); track trackByMovieId($index, mediaItem)) {
+	<ult-media-card
+		[mediaData]="mediaItem"
+		[mediaType]="mediaType"
+		[attr.data-testid]="'media-item-page-media-card-' + mediaItem.id" />
+	}
 </section>

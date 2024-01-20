@@ -1,16 +1,16 @@
 {
-  "name": "@ult/movie/feature-shell",
-  "version": "0.0.1",
-  "peerDependencies": {
-    "@angular/common": "17.1.0",
-    "@angular/core": "17.1.0",
-    "@testing-library/angular": "~15.1.0",
-    "@ult/movie/ui": "*",
-    "@ult/shared/data-access": "*",
-    "@jest/globals": "29.7.0",
-    "@ult/shared/test/mocks": "*",
-    "@ult/movie/data-access": "*",
-    "@ult/shared/utils": "*"
-  },
-  "dependencies": {}
+	"name": "@ult/movie/feature-shell",
+	"version": "0.0.1",
+	"peerDependencies": {
+		"@angular/common": "17.1.0",
+		"@angular/core": "17.1.0",
+		"@testing-library/angular": "~15.1.0",
+		"@ult/movie/ui": "*",
+		"@ult/shared/data-access": "*",
+		"@jest/globals": "29.7.0",
+		"@ult/shared/test/mocks": "*",
+		"@ult/movie/data-access": "*",
+		"@ult/shared/utils": "*"
+	},
+	"dependencies": {}
 }

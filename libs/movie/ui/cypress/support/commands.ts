@@ -12,14 +12,14 @@ import { mount } from 'cypress/angular';
 // ***********************************************
 
 declare global {
-  // eslint-disable-next-line @typescript-eslint/no-namespace
-  namespace Cypress {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    interface Chainable<Subject> {
-      login(email: string, password: string): void;
-      mount: typeof mount;
-    }
-  }
+	// eslint-disable-next-line @typescript-eslint/no-namespace
+	namespace Cypress {
+		// eslint-disable-next-line @typescript-eslint/no-unused-vars
+		interface Chainable<Subject> {
+			login(email: string, password: string): void;
+			mount: typeof mount;
+		}
+	}
 }
 
 Cypress.Commands.add('mount', mount);
@@ -27,7 +27,7 @@ Cypress.Commands.add('mount', mount);
 //
 // -- This is a parent command --
 Cypress.Commands.add('login', (email, password) => {
-  console.log('Custom command example: Login', email, password);
+	console.log('Custom command example: Login', email, password);
 });
 //
 // -- This is a child command --

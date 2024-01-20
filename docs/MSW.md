@@ -42,23 +42,23 @@ import { MoviesPopularPage1, MoviesPopularPage2 } from '@ult/shared/test/mocks';
 import { RequestHandler } from 'msw';
 
 export const MOVIE_HANDLERS: RequestHandler[] = [
-  /**
-   * Handle the requests for POPULAR Movies
-   * @see: https://developers.themoviedb.org/3/movies/get-popular-movies
-   */
-  http.get('/movie/popular', (req, res, ctx) => {
-    const pageParam = req.url.searchParams.get('page');
+	/**
+	 * Handle the requests for POPULAR Movies
+	 * @see: https://developers.themoviedb.org/3/movies/get-popular-movies
+	 */
+	http.get('/movie/popular', (req, res, ctx) => {
+		const pageParam = req.url.searchParams.get('page');
 
-    if (pageParam === '1') {
-      return res(ctx.json(MoviesPopularPage1));
-    }
-    if (pageParam === '2') {
-      return res(ctx.json(MoviesPopularPage2));
-    }
+		if (pageParam === '1') {
+			return res(ctx.json(MoviesPopularPage1));
+		}
+		if (pageParam === '2') {
+			return res(ctx.json(MoviesPopularPage2));
+		}
 
-    /// DEFAULT TO
-    return res(ctx.json(MoviesPopularPage1));
-  }),
+		/// DEFAULT TO
+		return res(ctx.json(MoviesPopularPage1));
+	}),
 ];
 ```
 
@@ -76,8 +76,8 @@ import { MOVIE_HANDLERS } from './movie.handlers';
  * Add new handlers here, so we can easily add new handlers to the browser and server
  */
 export const HANDLERS: RequestHandler[] = [
-  ...MOVIE_HANDLERS,
-  /// add other handlers
+	...MOVIE_HANDLERS,
+	/// add other handlers
 ];
 ```
 
@@ -114,18 +114,18 @@ export type UNHANDLED_REQUEST_HANDLER = 'bypass' | 'error' | 'warn';
 const MSW_FILE = 'mockServiceWorker.js';
 
 export const startMswForBrowser = (onUnhandledRequest: UNHANDLED_REQUEST_HANDLER = 'bypass') => {
-  const worker = setupWorker(...HANDLERS);
+	const worker = setupWorker(...HANDLERS);
 
-  worker.start({
-    serviceWorker: { url: `./${MSW_FILE}` },
-    // Return the first registered service worker found with the name
-    // of `mockServiceWorker`, disregarding all other parts of the URL
-    findWorker: (scriptURL) => scriptURL.includes(MSW_FILE),
-    onUnhandledRequest,
-  });
-  return { worker };
+	worker.start({
+		serviceWorker: { url: `./${MSW_FILE}` },
+		// Return the first registered service worker found with the name
+		// of `mockServiceWorker`, disregarding all other parts of the URL
+		findWorker: (scriptURL) => scriptURL.includes(MSW_FILE),
+		onUnhandledRequest,
+	});
+	return { worker };
 
-  // throw new Error('startMswForBrowser can only be used in a browser context');
+	// throw new Error('startMswForBrowser can only be used in a browser context');
 };
 ```
 
@@ -138,19 +138,19 @@ touch libs/shared/test/msw/src/lib/msw.service.ts
 ```ts
 @Injectable({ providedIn: 'root' })
 export class MswService {
-  initMswForBrowser() {
-    // ! FIXME: use other environment variable
-    const { mock, production } = inject(ENVIRONMENT);
-    if (mock && !production) {
-      const { worker } = startMswForBrowser();
-      const mock = worker.use;
+	initMswForBrowser() {
+		// ! FIXME: use other environment variable
+		const { mock, production } = inject(ENVIRONMENT);
+		if (mock && !production) {
+			const { worker } = startMswForBrowser();
+			const mock = worker.use;
 
-      /**
-       * Add the MSW objects to the window, so we can easily use them with Cypress
-       */
-      window.msw = { graphql, mock, rest, worker };
-    }
-  }
+			/**
+			 * Add the MSW objects to the window, so we can easily use them with Cypress
+			 */
+			window.msw = { graphql, mock, rest, worker };
+		}
+	}
 }
 ```
 
@@ -196,7 +196,7 @@ Import the worker in your (dev) `environment.ts`
 import '@ult/shared/test/msw/browser';
 
 export const environment = {
-  production: false,
+	production: false,
 };
 ```
 
@@ -209,31 +209,31 @@ export const environment = {
  * @returns
  */
 async function prepareWorkers(): Promise<void> {
-  // !FIXME: use other environment variable
-  if (!environment.production) {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    //@ts-ignore
-    return window.__mockServerReady;
-    // await repositoryWorker.start({ ... });
-  }
+	// !FIXME: use other environment variable
+	if (!environment.production) {
+		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+		//@ts-ignore
+		return window.__mockServerReady;
+		// await repositoryWorker.start({ ... });
+	}
 }
 
 prepareWorkers().then(() => {
-  bootstrapApplication(AppRoot, {
-    providers: [
-      importProvidersFrom(BrowserAnimationsModule),
-      provideRouter(
-        MOVIE_DB_ROUTES,
-        withRouterConfig({
-          paramsInheritanceStrategy: 'always',
-        }),
-      ),
-      provideHttpClient(
-        // withXsrfConfiguration({ cookieName: '', headerName: '' }),
-        withJsonpSupport(),
-      ),
-    ],
-  }).catch((err) => console.error(err));
+	bootstrapApplication(AppRoot, {
+		providers: [
+			importProvidersFrom(BrowserAnimationsModule),
+			provideRouter(
+				MOVIE_DB_ROUTES,
+				withRouterConfig({
+					paramsInheritanceStrategy: 'always',
+				}),
+			),
+			provideHttpClient(
+				// withXsrfConfiguration({ cookieName: '', headerName: '' }),
+				withJsonpSupport(),
+			),
+		],
+	}).catch((err) => console.error(err));
 });
 ```
 

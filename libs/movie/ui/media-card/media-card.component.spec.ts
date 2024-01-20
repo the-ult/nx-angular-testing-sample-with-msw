@@ -19,59 +19,59 @@ import * as TEST_DATA from '../../../shared/test/mocks/src/lib/movie/movies-popu
 import type { MediaCardInput } from './media-card.model';
 
 describe('MediaCardComponent', () => {
-  it('should create', async () => {
-    const mediaCardData: MediaCardInput = TEST_DATA.results[0];
+	it('should create', async () => {
+		const mediaCardData: MediaCardInput = TEST_DATA.results[0];
 
-    await render(UltMediaCardComponent, {
-      componentProperties: { mediaData: mediaCardData },
-      imports: [RouterLinkWithHref],
-      providers: [{ provide: ENVIRONMENT, useValue: ENV_MOCK }],
-    });
+		await render(UltMediaCardComponent, {
+			componentProperties: { mediaData: mediaCardData },
+			imports: [RouterLinkWithHref],
+			providers: [{ provide: ENVIRONMENT, useValue: ENV_MOCK }],
+		});
 
-    const { id, poster_path, release_date, title, vote_average } = mediaCardData;
+		const { id, poster_path, release_date, title, vote_average } = mediaCardData;
 
-    /// ---------------------------------------------------------------
-    ///  LINK & POSTER
-    /// ---------------------------------------------------------------
+		/// ---------------------------------------------------------------
+		///  LINK & POSTER
+		/// ---------------------------------------------------------------
 
-    expect(screen.getByRole('link')).toHaveAttribute('href', expect.stringContaining(`/movies/${id}`));
+		expect(screen.getByRole('link')).toHaveAttribute('href', expect.stringContaining(`/movies/${id}`));
 
-    const imgControl = screen.getByRole('img');
-    expect(imgControl).toHaveAttribute(
-      'src',
-      // ! FIXME: should get proper path from ENVIRONMENT
-      // expect.stringContaining(`https://image.tmdb.org/t/p/w220_and_h330_face${poster_path}`)
-      // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-      expect.stringContaining(`${poster_path}`),
-    );
-    expect(imgControl).toBeVisible();
-    expect(imgControl).toHaveAttribute('width', '180');
-    expect(imgControl).toHaveAttribute('height', '275');
+		const imgControl = screen.getByRole('img');
+		expect(imgControl).toHaveAttribute(
+			'src',
+			// ! FIXME: should get proper path from ENVIRONMENT
+			// expect.stringContaining(`https://image.tmdb.org/t/p/w220_and_h330_face${poster_path}`)
+			// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+			expect.stringContaining(`${poster_path}`),
+		);
+		expect(imgControl).toBeVisible();
+		expect(imgControl).toHaveAttribute('width', '180');
+		expect(imgControl).toHaveAttribute('height', '275');
 
-    /// ---------------------------------------------------------------
-    ///  VOTE
-    /// ---------------------------------------------------------------
-    expect(screen.getByTestId('movie-score')).toHaveTextContent(vote_average.toString());
+		/// ---------------------------------------------------------------
+		///  VOTE
+		/// ---------------------------------------------------------------
+		expect(screen.getByTestId('movie-score')).toHaveTextContent(vote_average.toString());
 
-    /// ---------------------------------------------------------------
-    ///  TITLE
-    /// ---------------------------------------------------------------
-    expect(
-      screen.getByRole('heading', {
-        level: 4,
-        name: title,
-      }),
-    ).toHaveTextContent(title);
+		/// ---------------------------------------------------------------
+		///  TITLE
+		/// ---------------------------------------------------------------
+		expect(
+			screen.getByRole('heading', {
+				level: 4,
+				name: title,
+			}),
+		).toHaveTextContent(title);
 
-    /// ---------------------------------------------------------------
-    ///  RELEASE DATE
-    /// ---------------------------------------------------------------
-    const formattedDate = Intl.DateTimeFormat('en-US', {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric',
-    }).format(new Date(release_date));
+		/// ---------------------------------------------------------------
+		///  RELEASE DATE
+		/// ---------------------------------------------------------------
+		const formattedDate = Intl.DateTimeFormat('en-US', {
+			year: 'numeric',
+			month: 'short',
+			day: 'numeric',
+		}).format(new Date(release_date));
 
-    expect(screen.getByText(formattedDate)).toBeVisible();
-  });
+		expect(screen.getByText(formattedDate)).toBeVisible();
+	});
 });

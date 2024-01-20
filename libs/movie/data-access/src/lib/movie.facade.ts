@@ -7,25 +7,25 @@ const equal = (a: unknown, b: unknown) => a === b;
 
 @Injectable({ providedIn: 'root' })
 export class MovieFacade {
-  readonly #movieService = inject(MovieService);
+	readonly #movieService = inject(MovieService);
 
-  #state = signal(
-    {
-      results: [] as Movie[],
-      page: 0,
-      totalPages: 0,
-      totalResults: 0,
-    },
-    { equal },
-  );
-  // satisfies signal<Movies>;
+	#state = signal(
+		{
+			results: [] as Movie[],
+			page: 0,
+			totalPages: 0,
+			totalResults: 0,
+		},
+		{ equal },
+	);
+	// satisfies signal<Movies>;
 
-  readonly $getMovies = computed(() => this.#state().results, { equal });
-  // !FIXME: update state with the new value
-  readonly $get = (id: number) => toSignal(this.#movieService.getMovie$(id), { initialValue: undefined });
+	readonly $getMovies = computed(() => this.#state().results, { equal });
+	// !FIXME: update state with the new value
+	readonly $get = (id: number) => toSignal(this.#movieService.getMovie$(id), { initialValue: undefined });
 
-  readonly $queryMovies = (type: MovieType) =>
-    toSignal(this.#movieService.queryMovies$(type), {
-      initialValue: { results: [] },
-    });
+	readonly $queryMovies = (type: MovieType) =>
+		toSignal(this.#movieService.queryMovies$(type), {
+			initialValue: { results: [] },
+		});
 }

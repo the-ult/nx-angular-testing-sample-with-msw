@@ -1,91 +1,91 @@
 :host {
-  display: block;
-  color: var(--ult-color-default-contrast);
+	display: block;
+	color: var(--ult-color-default-contrast);
 }
 
 // TODO: move to own component
 .movie-details-container {
-  border-radius: var(--ult-image-border-radius);
-  border-bottom: 1px solid var(--ult-theme-primary);
-  background-position: left calc((50vw - 170px) - 340px) top;
-  background-size: cover;
-  background-repeat: no-repeat;
+	border-radius: var(--ult-image-border-radius);
+	border-bottom: 1px solid var(--ult-theme-primary);
+	background-position: left calc((50vw - 170px) - 340px) top;
+	background-size: cover;
+	background-repeat: no-repeat;
 
-  // TODO: add the background image dynamically within the component
-  // And add a fallback image in css
-  background-image: url('https://image.tmdb.org/t/p/w220_and_h330_face/t/p/w1920_and_h800_multi_faces/tGwO4xcBjhXC0p5qlkw37TrH6S6.jpg');
+	// TODO: add the background image dynamically within the component
+	// And add a fallback image in css
+	background-image: url('https://image.tmdb.org/t/p/w220_and_h330_face/t/p/w1920_and_h800_multi_faces/tGwO4xcBjhXC0p5qlkw37TrH6S6.jpg');
 }
 
 // TODO: move to own class or something? (share with media-card)
 img {
-  object-fit: cover;
-  border-radius: var(--ult-image-border-radius);
+	object-fit: cover;
+	border-radius: var(--ult-image-border-radius);
 }
 
 .movie-details {
-  display: flex;
-  gap: var(--ult-space-xl);
+	display: flex;
+	gap: var(--ult-space-xl);
 
-  // TODO: should we calculate this based on the image colors?
-  border-radius: var(--ult-image-border-radius);
-  background-image: linear-gradient(
-    to right,
-    rgb(31.5 31.5 10.5 / 100%) calc((50vw - 170px) - 340px),
-    rgb(31.5 31.5 10.5 / 84%) 30%,
-    rgb(31.5 31.5 10.5 / 84%) 100%
-  );
+	// TODO: should we calculate this based on the image colors?
+	border-radius: var(--ult-image-border-radius);
+	background-image: linear-gradient(
+		to right,
+		rgb(31.5 31.5 10.5 / 100%) calc((50vw - 170px) - 340px),
+		rgb(31.5 31.5 10.5 / 84%) 30%,
+		rgb(31.5 31.5 10.5 / 84%) 100%
+	);
 
-  // background-image: linear-gradient(
-  //   to right,
-  //   rgb(31.5 31.5 52.5 / 100%) calc((50vw - 170px) - 340px),
-  //   rgb(31.5 31.5 52.5 / 84%) 30%,
-  //   rgb(31.5 31.5 52.5 / 84%) 100%
-  // );
-  padding: 32px 40px;
+	// background-image: linear-gradient(
+	//   to right,
+	//   rgb(31.5 31.5 52.5 / 100%) calc((50vw - 170px) - 340px),
+	//   rgb(31.5 31.5 52.5 / 84%) 30%,
+	//   rgb(31.5 31.5 52.5 / 84%) 100%
+	// );
+	padding: 32px 40px;
 }
 
 h1 {
-  font-size: 2.2rem;
-  margin-bottom: 0;
+	font-size: 2.2rem;
+	margin-bottom: 0;
 
-  .year {
-    // opacity: 0.8;
-    // ! FIXME: create css variable for this
-    color: rgb(255 255 255 / 70%);
-    font-weight: var(--ult-typography-body-small-font-weight);
-    font-style: normal;
-  }
+	.year {
+		// opacity: 0.8;
+		// ! FIXME: create css variable for this
+		color: rgb(255 255 255 / 70%);
+		font-weight: var(--ult-typography-body-small-font-weight);
+		font-style: normal;
+	}
 }
 
 h2.tagline {
-  font-style: italic;
-  margin: 0 0 var(--ult-space-md) 0;
-  color: rgb(255 255 255 / 70%);
+	font-style: italic;
+	margin: 0 0 var(--ult-space-md) 0;
+	color: rgb(255 255 255 / 70%);
 }
 
 .facts {
-  display: flex;
-  gap: var(--ult-space-sm);
-  position: relative;
+	display: flex;
+	gap: var(--ult-space-sm);
+	position: relative;
 
-  span:not(.genre, :first-of-type)::before {
-    // font-size: 1.1em;
-    // line-height: 1;
-    padding-right: var(--ult-space-sm);
-    content: '\2022';
+	span:not(.genre, :first-of-type)::before {
+		// font-size: 1.1em;
+		// line-height: 1;
+		padding-right: var(--ult-space-sm);
+		content: '\2022';
 
-    // width: 100%;
-    // height: 100%;
+		// width: 100%;
+		// height: 100%;
 
-    // position: absolute;
-    // top: 0;
-    // display: inline-flex;
-    // align-content: center;
-    // align-items: center;
-    // z-index: -1;
-  }
+		// position: absolute;
+		// top: 0;
+		// display: inline-flex;
+		// align-content: center;
+		// align-items: center;
+		// z-index: -1;
+	}
 
-  span.genre:not(:first-of-type)::before {
-    content: ' , ';
-  }
+	span.genre:not(:first-of-type)::before {
+		content: ' , ';
+	}
 }

@@ -1,12 +1,12 @@
 {
-  "name": "@ult/shared/utils",
-  "version": "0.0.1",
-  "type": "module",
-  "dependencies": {
-    "@angular/core": "17.0.9",
-    "@ult/shared/data-access": "*",
-    "rxjs": "~7.8.1",
-    "tslib": "^2.6.2",
-    "zod": "~3.22.4"
-  }
+	"name": "@ult/shared/utils",
+	"version": "0.0.1",
+	"type": "module",
+	"dependencies": {
+		"@angular/core": "17.1.0",
+		"@ult/shared/data-access": "*",
+		"rxjs": "~7.8.1",
+		"tslib": "^2.6.2",
+		"zod": "~3.22.4"
+	}
 }

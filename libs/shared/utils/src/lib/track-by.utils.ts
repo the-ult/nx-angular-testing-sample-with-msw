@@ -20,6 +20,6 @@ import type { TrackByFunction } from '@angular/core';
  * @returns TrackByFunction
  */
 export const trackByProp: <T>(property: keyof T) => TrackByFunction<T> =
-  <T>(property: keyof T) =>
-  (_: number, item: T) =>
-    item[property];
+	<T>(property: keyof T) =>
+	(_: number, item: T) =>
+		item[property];

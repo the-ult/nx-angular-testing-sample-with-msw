@@ -1,23 +1,23 @@
 {
-  "name": "movie-data-access",
-  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/movie/data-access/src",
-  "projectType": "library",
-  "targets": {
-    "build": {
-      "executor": "@nx/js:tsc",
-      "outputs": ["{options.outputPath}"],
-      "options": {
-        "outputPath": "dist/libs/movie/data-access",
-        "main": "libs/movie/data-access/src/index.ts",
-        "tsConfig": "libs/movie/data-access/tsconfig.lib.json",
-        "assets": ["libs/movie/data-access/*.md"]
-      }
-    },
-    "lint": {
-      "executor": "@nx/eslint:lint",
-      "outputs": ["{options.outputFile}"]
-    }
-  },
-  "tags": ["scope:movie", "type:data-access"]
+	"name": "movie-data-access",
+	"$schema": "../../../node_modules/nx/schemas/project-schema.json",
+	"sourceRoot": "libs/movie/data-access/src",
+	"projectType": "library",
+	"targets": {
+		"build": {
+			"executor": "@nx/js:tsc",
+			"outputs": ["{options.outputPath}"],
+			"options": {
+				"outputPath": "dist/libs/movie/data-access",
+				"main": "libs/movie/data-access/src/index.ts",
+				"tsConfig": "libs/movie/data-access/tsconfig.lib.json",
+				"assets": ["libs/movie/data-access/*.md"]
+			}
+		},
+		"lint": {
+			"executor": "@nx/eslint:lint",
+			"outputs": ["{options.outputFile}"]
+		}
+	},
+	"tags": ["scope:movie", "type:data-access"]
 }

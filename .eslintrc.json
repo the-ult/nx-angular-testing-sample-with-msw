@@ -1,218 +1,218 @@
 {
-  "root": true,
-  "ignorePatterns": ["**/*"],
-  "plugins": ["@nx"],
-  "overrides": [
-    {
-      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
-      "rules": {
-        "@nx/enforce-module-boundaries": [
-          "error",
-          {
-            "enforceBuildableLibDependency": true,
-            "allow": [],
-            "depConstraints": [
-              {
-                "sourceTag": "type:ui",
-                "onlyDependOnLibsWithTags": ["type:ui", "type:util", "type:data-access", "type:test"]
-              },
-              {
-                "sourceTag": "type:util",
-                "onlyDependOnLibsWithTags": ["type:util"]
-              },
-              {
-                "sourceTag": "scope:movie",
-                "onlyDependOnLibsWithTags": ["scope:movie", "scope:shared", "scope:shared-test"]
-              },
-              {
-                "sourceTag": "scope:shared",
-                "onlyDependOnLibsWithTags": ["scope:shared"]
-              },
-              {
-                "sourceTag": "*",
-                "onlyDependOnLibsWithTags": ["*"]
-              }
-            ]
-          }
-        ]
-      }
-    },
-    {
-      "files": ["*.json"],
-      "parser": "jsonc-eslint-parser",
-      "rules": {
-        "@nx/dependency-checks": "error"
-      }
-    },
-    {
-      "files": ["*.ts", "*.tsx"],
-      "extends": [
-        "plugin:@nx/typescript",
-        "plugin:@typescript-eslint/strict-type-checked",
-        "plugin:@typescript-eslint/stylistic-type-checked",
-        "plugin:unicorn/recommended"
-      ],
-      "parserOptions": {
-        "ecmaVersion": 2022,
-        "project": ["tsconfig.*?.json"],
-        "emitDecoratorMetadata": true
-      },
-      "rules": {
-        "no-console": "warn",
-        "no-unused-vars": "off",
-        "no-await-in-loop": "error",
-        "no-promise-executor-return": "error",
-        "require-atomic-updates": "error",
-        "max-nested-callbacks": ["error", 3],
-        "prefer-promise-reject-errors": "error",
-        "@typescript-eslint/consistent-type-exports": "error",
-        "@typescript-eslint/consistent-type-imports": "error",
-        "@typescript-eslint/no-import-type-side-effects": "error",
-        "@typescript-eslint/no-inferrable-types": "error",
-        "@typescript-eslint/no-unnecessary-condition": "error",
-        "@typescript-eslint/prefer-nullish-coalescing": "error",
-        "@typescript-eslint/prefer-optional-chain": "error",
-        "@typescript-eslint/prefer-as-const": "error",
-        "@typescript-eslint/no-extraneous-class": "warn",
-        "unicorn/prevent-abbreviations": [
-          "error",
-          {
-            "replacements": {
-              "prop": {
-                "property": false
-              },
-              "res": {
-                "result": false
-              }
-            },
-            "ignore": ["\\.e2e$", "\\.prod$", "args", "ctx", "dialogRef", "e2e", "env", "i18n", "req"]
-          }
-        ],
-        "unicorn/prefer-top-level-await": "off",
-        "unicorn/consistent-function-scoping": ["error", { "checkArrowFunctions": false }]
-      }
-    },
-    {
-      "files": ["*.ts"],
-      "extends": ["plugin:@nx/angular"],
-      "rules": {
-        "@angular-eslint/component-class-suffix": [
-          "error",
-          {
-            "suffixes": ["Component", "Container", "Dialog", "Form", "Layout", "Page", "Root"]
-          }
-        ]
-      }
-    },
-    {
-      "files": ["*.html"],
-      "extends": ["plugin:@angular-eslint/template/all"],
-      "rules": {
-        "@angular-eslint/template/no-autofocus": "off",
-        "@angular-eslint/template/i18n": "off",
-        "@angular-eslint/template/no-call-expression": "off"
-      }
-    },
-    {
-      "files": ["*.ts"],
-      "parser": "@typescript-eslint/parser",
-      "parserOptions": {
-        "ecmaVersion": 2022,
-        "project": ["tsconfig.*?.json"],
-        "sourceType": "module"
-      },
-      "plugins": ["rxjs-angular"],
-      "extends": ["plugin:rxjs/recommended"],
-      "rules": {
-        "rxjs-angular/prefer-async-pipe": "error",
-        "rxjs/finnish": [
-          "error",
-          {
-            "types": {
-              "^EventEmitter$": false,
-              "^Subject$": false,
-              "^BehaviorSubject$": false
-            }
-          }
-        ],
-        "rxjs/prefer-observer": "error",
-        "rxjs/no-topromise": "error",
-        "rxjs/no-exposed-subjects": "error",
-        "rxjs/no-subject-value": "error",
-        "rxjs/no-unsafe-first": [
-          "error",
-          {
-            "observable": "[Aa]ction(s|s\\$|\\$)$"
-          }
-        ],
-        "rxjs/no-unsafe-takeuntil": [
-          "error",
-          {
-            "alias": ["untilDestroyed", "take", "first"]
-          }
-        ],
-        "rxjs/suffix-subjects": [
-          "error",
-          {
-            "parameters": true,
-            "properties": true,
-            "suffix": "Subject",
-            "types": {
-              "^EventEmitter$": false
-            },
-            "variables": true
-          }
-        ],
-        "rxjs/throw-error": "error"
-      }
-    },
-    {
-      "files": ["*.js", "*.jsx"],
-      "extends": ["plugin:@nx/javascript"],
-      "rules": {}
-    },
-    {
-      "files": ["*.spec.ts", "*.spec.tsx", "*.spec.js", "*.spec.jsx"],
-      "env": {
-        "jest": true
-      },
-      "rules": {}
-    },
-    {
-      "files": ["**/__tests__/**/*.[jt]s?(x)", "**/?(*.)+(spec|test).[jt]s?(x)"],
-      "env": {
-        "jest": true
-      },
-      "extends": [
-        "plugin:jest/recommended",
-        "plugin:jest/style",
-        "plugin:jest-dom/recommended",
-        "plugin:testing-library/angular"
-      ],
-      "rules": {
-        "testing-library/prefer-explicit-assert": "error",
-        "testing-library/prefer-user-event": "error",
-        "jest/consistent-test-it": ["error"],
-        "@typescript-eslint/unbound-method": "off",
-        "@typescript-eslint/no-unsafe-member-access": "off",
-        "@typescript-eslint/no-unsafe-call": "off",
-        "jest/unbound-method": "error"
-      }
-    },
-    {
-      "files": ["**/*.cy.ts", "**/*.command.ts"],
-      "plugins": ["ui-testing", "jest"],
-      "extends": ["plugin:cypress/recommended", "plugin:ui-testing/cypress"],
-      "rules": {
-        "@typescript-eslint/explicit-function-return-type": "off",
-        "@typescript-eslint/no-explicit-any": "warn",
-        "@typescript-eslint/no-unsafe-call": "off",
-        "@typescript-eslint/no-unsafe-member-access": "off",
-        "@typescript-eslint/no-unsafe-return": "off",
-        "@typescript-eslint/unbound-method": "off",
-        "max-nested-callbacks": ["error", 5],
-        "ui-testing/missing-assertion-in-test": "off"
-      }
-    }
-  ]
+	"root": true,
+	"ignorePatterns": ["**/*"],
+	"plugins": ["@nx"],
+	"overrides": [
+		{
+			"files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+			"rules": {
+				"@nx/enforce-module-boundaries": [
+					"error",
+					{
+						"enforceBuildableLibDependency": true,
+						"allow": [],
+						"depConstraints": [
+							{
+								"sourceTag": "type:ui",
+								"onlyDependOnLibsWithTags": ["type:ui", "type:util", "type:data-access", "type:test"]
+							},
+							{
+								"sourceTag": "type:util",
+								"onlyDependOnLibsWithTags": ["type:util"]
+							},
+							{
+								"sourceTag": "scope:movie",
+								"onlyDependOnLibsWithTags": ["scope:movie", "scope:shared", "scope:shared-test"]
+							},
+							{
+								"sourceTag": "scope:shared",
+								"onlyDependOnLibsWithTags": ["scope:shared"]
+							},
+							{
+								"sourceTag": "*",
+								"onlyDependOnLibsWithTags": ["*"]
+							}
+						]
+					}
+				]
+			}
+		},
+		{
+			"files": ["*.json"],
+			"parser": "jsonc-eslint-parser",
+			"rules": {
+				"@nx/dependency-checks": "error"
+			}
+		},
+		{
+			"files": ["*.ts", "*.tsx"],
+			"extends": [
+				"plugin:@nx/typescript",
+				"plugin:@typescript-eslint/strict-type-checked",
+				"plugin:@typescript-eslint/stylistic-type-checked",
+				"plugin:unicorn/recommended"
+			],
+			"parserOptions": {
+				"ecmaVersion": 2022,
+				"project": ["tsconfig.*?.json"],
+				"emitDecoratorMetadata": true
+			},
+			"rules": {
+				"no-console": "warn",
+				"no-unused-vars": "off",
+				"no-await-in-loop": "error",
+				"no-promise-executor-return": "error",
+				"require-atomic-updates": "error",
+				"max-nested-callbacks": ["error", 3],
+				"prefer-promise-reject-errors": "error",
+				"@typescript-eslint/consistent-type-exports": "error",
+				"@typescript-eslint/consistent-type-imports": "error",
+				"@typescript-eslint/no-import-type-side-effects": "error",
+				"@typescript-eslint/no-inferrable-types": "error",
+				"@typescript-eslint/no-unnecessary-condition": "error",
+				"@typescript-eslint/prefer-nullish-coalescing": "error",
+				"@typescript-eslint/prefer-optional-chain": "error",
+				"@typescript-eslint/prefer-as-const": "error",
+				"@typescript-eslint/no-extraneous-class": "warn",
+				"unicorn/prevent-abbreviations": [
+					"error",
+					{
+						"replacements": {
+							"prop": {
+								"property": false
+							},
+							"res": {
+								"result": false
+							}
+						},
+						"ignore": ["\\.e2e$", "\\.prod$", "args", "ctx", "dialogRef", "e2e", "env", "i18n", "req"]
+					}
+				],
+				"unicorn/prefer-top-level-await": "off",
+				"unicorn/consistent-function-scoping": ["error", { "checkArrowFunctions": false }]
+			}
+		},
+		{
+			"files": ["*.ts"],
+			"extends": ["plugin:@nx/angular"],
+			"rules": {
+				"@angular-eslint/component-class-suffix": [
+					"error",
+					{
+						"suffixes": ["Component", "Container", "Dialog", "Form", "Layout", "Page", "Root"]
+					}
+				]
+			}
+		},
+		{
+			"files": ["*.html"],
+			"extends": ["plugin:@angular-eslint/template/all"],
+			"rules": {
+				"@angular-eslint/template/no-autofocus": "off",
+				"@angular-eslint/template/i18n": "off",
+				"@angular-eslint/template/no-call-expression": "off"
+			}
+		},
+		{
+			"files": ["*.ts"],
+			"parser": "@typescript-eslint/parser",
+			"parserOptions": {
+				"ecmaVersion": 2022,
+				"project": ["tsconfig.*?.json"],
+				"sourceType": "module"
+			},
+			"plugins": ["rxjs-angular"],
+			"extends": ["plugin:rxjs/recommended"],
+			"rules": {
+				"rxjs-angular/prefer-async-pipe": "error",
+				"rxjs/finnish": [
+					"error",
+					{
+						"types": {
+							"^EventEmitter$": false,
+							"^Subject$": false,
+							"^BehaviorSubject$": false
+						}
+					}
+				],
+				"rxjs/prefer-observer": "error",
+				"rxjs/no-topromise": "error",
+				"rxjs/no-exposed-subjects": "error",
+				"rxjs/no-subject-value": "error",
+				"rxjs/no-unsafe-first": [
+					"error",
+					{
+						"observable": "[Aa]ction(s|s\\$|\\$)$"
+					}
+				],
+				"rxjs/no-unsafe-takeuntil": [
+					"error",
+					{
+						"alias": ["untilDestroyed", "take", "first"]
+					}
+				],
+				"rxjs/suffix-subjects": [
+					"error",
+					{
+						"parameters": true,
+						"properties": true,
+						"suffix": "Subject",
+						"types": {
+							"^EventEmitter$": false
+						},
+						"variables": true
+					}
+				],
+				"rxjs/throw-error": "error"
+			}
+		},
+		{
+			"files": ["*.js", "*.jsx"],
+			"extends": ["plugin:@nx/javascript"],
+			"rules": {}
+		},
+		{
+			"files": ["*.spec.ts", "*.spec.tsx", "*.spec.js", "*.spec.jsx"],
+			"env": {
+				"jest": true
+			},
+			"rules": {}
+		},
+		{
+			"files": ["**/__tests__/**/*.[jt]s?(x)", "**/?(*.)+(spec|test).[jt]s?(x)"],
+			"env": {
+				"jest": true
+			},
+			"extends": [
+				"plugin:jest/recommended",
+				"plugin:jest/style",
+				"plugin:jest-dom/recommended",
+				"plugin:testing-library/angular"
+			],
+			"rules": {
+				"testing-library/prefer-explicit-assert": "error",
+				"testing-library/prefer-user-event": "error",
+				"jest/consistent-test-it": ["error"],
+				"@typescript-eslint/unbound-method": "off",
+				"@typescript-eslint/no-unsafe-member-access": "off",
+				"@typescript-eslint/no-unsafe-call": "off",
+				"jest/unbound-method": "error"
+			}
+		},
+		{
+			"files": ["**/*.cy.ts", "**/*.command.ts"],
+			"plugins": ["ui-testing", "jest"],
+			"extends": ["plugin:cypress/recommended", "plugin:ui-testing/cypress"],
+			"rules": {
+				"@typescript-eslint/explicit-function-return-type": "off",
+				"@typescript-eslint/no-explicit-any": "warn",
+				"@typescript-eslint/no-unsafe-call": "off",
+				"@typescript-eslint/no-unsafe-member-access": "off",
+				"@typescript-eslint/no-unsafe-return": "off",
+				"@typescript-eslint/unbound-method": "off",
+				"max-nested-callbacks": ["error", 5],
+				"ui-testing/missing-assertion-in-test": "off"
+			}
+		}
+	]
 }

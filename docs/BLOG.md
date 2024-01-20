@@ -36,7 +36,7 @@ feature-movie-detail
     ```ts
     import { configure } from '@testing-library/angular';
     configure({
-      excludeComponentDeclaration: true,
+    	excludeComponentDeclaration: true,
     });
     ```
 - mswjs

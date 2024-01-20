@@ -1,7 +1,10 @@
 {
-  "$schema": "https://json.schemastore.org/prettierrc",
-  "plugins": ["prettier-plugin-organize-imports"],
-  "printWidth": 120,
-  "singleQuote": true,
-  "bracketSameLine": true
+	"$schema": "https://json.schemastore.org/prettierrc",
+	"plugins": ["prettier-plugin-organize-imports"],
+	"printWidth": 120,
+	"bracketSameLine": true,
+	"bracketSpacing": true,
+	"htmlWhitespaceSensitivity": "ignore",
+	"singleQuote": true,
+	"useTabs": true
 }

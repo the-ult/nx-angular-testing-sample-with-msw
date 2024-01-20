@@ -16,14 +16,14 @@ To be able to use the MSW types in cypress we need to declare them:
 import { graphql, http } from 'msw';
 
 declare global {
-  interface Window {
-    Cypress?: unknown;
-    msw: {
-      graphql: typeof graphql;
-      http: typeof http;
-      worker: SetupWorker;
-    };
-  }
+	interface Window {
+		Cypress?: unknown;
+		msw: {
+			graphql: typeof graphql;
+			http: typeof http;
+			worker: SetupWorker;
+		};
+	}
 }
 ```
 
@@ -57,16 +57,16 @@ import { RequestHandler } from 'msw';
  * ```
  */
 export const mswResetWorker = () => {
-  Cypress.log({
-    name: 'mswResetWorker',
-    displayName: '🔐  RESET THE MSW WORKERS',
-    autoEnd: true,
-  });
+	Cypress.log({
+		name: 'mswResetWorker',
+		displayName: '🔐  RESET THE MSW WORKERS',
+		autoEnd: true,
+	});
 
-  cy.window().then((win) => {
-    const { worker } = win.msw;
-    worker.resetHandlers();
-  });
+	cy.window().then((win) => {
+		const { worker } = win.msw;
+		worker.resetHandlers();
+	});
 };
 
 /**
@@ -87,23 +87,23 @@ export const mswResetWorker = () => {
  * @param handlers
  */
 export const mswMock = (handlers: RequestHandler[]): void => {
-  if (Cypress.env('apiMocking') === 'true') {
-    Cypress.log({
-      name: 'mswMock',
-      displayName: '🔐  MOCK THE MSW WORKERS for given handlers',
-      autoEnd: true,
-    });
+	if (Cypress.env('apiMocking') === 'true') {
+		Cypress.log({
+			name: 'mswMock',
+			displayName: '🔐  MOCK THE MSW WORKERS for given handlers',
+			autoEnd: true,
+		});
 
-    cy.window().then((win) => {
-      const { http, worker } = win.msw;
+		cy.window().then((win) => {
+			const { http, worker } = win.msw;
 
-      // worker.use(http.get(url, () => HttpResponse.json(data)));
-      worker.use(http.get(url, (_req, res, ctx) => res(ctx.json(data))));
-    });
-  } else {
-    // eslint-disable-next-line no-console, no-restricted-syntax
-    console.info('🛑 !! MOCK ENV is not enabled !!');
-  }
+			// worker.use(http.get(url, () => HttpResponse.json(data)));
+			worker.use(http.get(url, (_req, res, ctx) => res(ctx.json(data))));
+		});
+	} else {
+		// eslint-disable-next-line no-console, no-restricted-syntax
+		console.info('🛑 !! MOCK ENV is not enabled !!');
+	}
 };
 ````
 

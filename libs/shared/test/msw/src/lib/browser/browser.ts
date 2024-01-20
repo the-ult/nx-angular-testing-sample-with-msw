@@ -8,41 +8,41 @@ import { HANDLERS } from '../handlers';
 type UnhandledRequestStrategy = StartOptions['onUnhandledRequest'];
 
 export interface Options {
-  mswFile: string;
-  onUnhandledRequest: UnhandledRequestStrategy;
-  scope?: string;
+	mswFile: string;
+	onUnhandledRequest: UnhandledRequestStrategy;
+	scope?: string;
 }
 
 export const worker = setupWorker(...HANDLERS);
 
 export const startMswForBrowser = (
-  mswFile = 'mockServiceWorker.js',
-  scope = '/',
-  onUnhandledRequest: UnhandledRequestStrategy = 'bypass',
+	mswFile = 'mockServiceWorker.js',
+	scope = '/',
+	onUnhandledRequest: UnhandledRequestStrategy = 'bypass',
 ) => {
-  void worker.start({
-    serviceWorker: {
-      url: mswFile,
-      options: {
-        /// Narrow the scope of the Service Worker to intercept requests
-        /// only from pages under this path.
-        scope,
-      },
-    },
-    /// Return the first registered service worker found with the name
-    /// of `mockServiceWorker`, disregarding all other parts of the URL
-    findWorker: (scriptURL) => scriptURL.includes(mswFile),
-    onUnhandledRequest,
-  });
-  /**
-   * Add the MSW objects to the window, so we can easily use them with Cypress
-   * @see: {@link [MSW Cypress example](https://mswjs.io/docs/api/setup-worker/use#examples)}
-   */
-  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-  if (window.Cypress) {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-    window.msw = { graphql, http, worker };
-  }
+	void worker.start({
+		serviceWorker: {
+			url: mswFile,
+			options: {
+				/// Narrow the scope of the Service Worker to intercept requests
+				/// only from pages under this path.
+				scope,
+			},
+		},
+		/// Return the first registered service worker found with the name
+		/// of `mockServiceWorker`, disregarding all other parts of the URL
+		findWorker: (scriptURL) => scriptURL.includes(mswFile),
+		onUnhandledRequest,
+	});
+	/**
+	 * Add the MSW objects to the window, so we can easily use them with Cypress
+	 * @see: {@link [MSW Cypress example](https://mswjs.io/docs/api/setup-worker/use#examples)}
+	 */
+	// eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+	if (window.Cypress) {
+		// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+		window.msw = { graphql, http, worker };
+	}
 };
 
 /**
@@ -62,9 +62,9 @@ export const startMswForBrowser = (
  * ```
  */
 export const initMswForAngularApp = () => {
-  const { apiMocking, production } = inject(ENVIRONMENT);
+	const { apiMocking, production } = inject(ENVIRONMENT);
 
-  if (apiMocking && !production) {
-    startMswForBrowser();
-  }
+	if (apiMocking && !production) {
+		startMswForBrowser();
+	}
 };

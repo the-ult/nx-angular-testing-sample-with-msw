@@ -1,15 +1,15 @@
 {
-  "name": "@ult/movie/feature-movie-detail",
-  "version": "0.0.1",
-  "peerDependencies": {
-    "@angular/common": "*",
-    "@angular/core": "*",
-    "@nx/angular": "17.2.8",
-    "cypress": "^13.3.1",
-    "@ult/movie/data-access": "*",
-    "@ult/movie/ui": "*",
-    "@ult/shared/data-access": "*",
-    "@ult/shared/utils": "*"
-  },
-  "dependencies": {}
+	"name": "@ult/movie/feature-movie-detail",
+	"version": "0.0.1",
+	"peerDependencies": {
+		"@angular/common": "*",
+		"@angular/core": "*",
+		"@nx/angular": "17.2.8",
+		"cypress": "^13.3.1",
+		"@ult/movie/data-access": "*",
+		"@ult/movie/ui": "*",
+		"@ult/shared/data-access": "*",
+		"@ult/shared/utils": "*"
+	},
+	"dependencies": {}
 }

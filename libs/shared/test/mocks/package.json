@@ -1,8 +1,8 @@
 {
-  "name": "@ult/shared/test/mocks",
-  "version": "0.0.1",
-  "dependencies": {
-    "@ult/shared/data-access": "*",
-    "tslib": "^2.6.2"
-  }
+	"name": "@ult/shared/test/mocks",
+	"version": "0.0.1",
+	"dependencies": {
+		"@ult/shared/data-access": "*",
+		"tslib": "^2.6.2"
+	}
 }

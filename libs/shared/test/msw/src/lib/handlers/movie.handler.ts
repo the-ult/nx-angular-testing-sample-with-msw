@@ -11,57 +11,57 @@ import { HttpResponse, http } from 'msw';
  * @see {@link [Type-safe API mocking with Mock Service Worker and TypeScript](https://dev.to/kettanaito/type-safe-api-mocking-with-mock-service-worker-and-typescript-21bf)}
  */
 export const MOVIE_HANDLERS: RequestHandler[] = [
-  /**
-   * Handle the requests for POPULAR Movies
-   * @see: https://developers.themoviedb.org/3/movies/get-popular-movies
-   */
-  http.get<Movies | MediaError>('/movie/popular', ({ request }) => {
-    const url = new URL(request.url);
+	/**
+	 * Handle the requests for POPULAR Movies
+	 * @see: https://developers.themoviedb.org/3/movies/get-popular-movies
+	 */
+	http.get<Movies | MediaError>('/movie/popular', ({ request }) => {
+		const url = new URL(request.url);
 
-    const pageParameter = Number(url.searchParams.get('page'));
+		const pageParameter = Number(url.searchParams.get('page'));
 
-    if (pageParameter === 0 || pageParameter === 1) {
-      return HttpResponse.json<Movies>(MoviesPopularPage1);
-    }
-    if (pageParameter === 2) {
-      return HttpResponse.json<Movies>(MoviesPopularPage2);
-    }
+		if (pageParameter === 0 || pageParameter === 1) {
+			return HttpResponse.json<Movies>(MoviesPopularPage1);
+		}
+		if (pageParameter === 2) {
+			return HttpResponse.json<Movies>(MoviesPopularPage2);
+		}
 
-    // return new Response(null, { status: 201 });
-    return HttpResponse.json<MediaError>(
-      {
-        status_code: 34,
-        status_message: `Movies for page: ${pageParameter} not found`,
-      },
-      {
-        status: 404,
-      },
-    );
-  }),
+		// return new Response(null, { status: 201 });
+		return HttpResponse.json<MediaError>(
+			{
+				status_code: 34,
+				status_message: `Movies for page: ${pageParameter} not found`,
+			},
+			{
+				status: 404,
+			},
+		);
+	}),
 
-  /**
-   * Handle the requests for POPULAR Movies
-   * @see: https://developers.themoviedb.org/3/movies/get-popular-movies
-   */
-  http.get<{ movieId: string }, never, MovieDetail | MediaError>('/movie/:movieId', ({ params }) => {
-    const movieId = +params.movieId;
+	/**
+	 * Handle the requests for POPULAR Movies
+	 * @see: https://developers.themoviedb.org/3/movies/get-popular-movies
+	 */
+	http.get<{ movieId: string }, never, MovieDetail | MediaError>('/movie/:movieId', ({ params }) => {
+		const movieId = +params.movieId;
 
-    if (movieId === 436_270) {
-      return HttpResponse.json<MovieDetail>(BlackAdam);
-    }
+		if (movieId === 436_270) {
+			return HttpResponse.json<MovieDetail>(BlackAdam);
+		}
 
-    if (movieId === 505_642) {
-      return HttpResponse.json<MovieDetail>(WakandaForever);
-    }
+		if (movieId === 505_642) {
+			return HttpResponse.json<MovieDetail>(WakandaForever);
+		}
 
-    return HttpResponse.json<MediaError>(
-      {
-        status_code: 56,
-        status_message: `Movie with ID: ${movieId} not found`,
-      },
-      {
-        status: 404,
-      },
-    );
-  }),
+		return HttpResponse.json<MediaError>(
+			{
+				status_code: 56,
+				status_message: `Movie with ID: ${movieId} not found`,
+			},
+			{
+				status: 404,
+			},
+		);
+	}),
 ];

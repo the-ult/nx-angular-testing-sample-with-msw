@@ -2,14 +2,14 @@
 @use './css';
 
 :where(html) {
-  display: grid;
-  height: 100vh;
-  height: 100dvh;
+	display: grid;
+	height: 100vh;
+	height: 100dvh;
 }
 
 html,
 body {
-  font-family: var(--ult-typography-font-family);
+	font-family: var(--ult-typography-font-family);
 }
 
 /// ========================================================
@@ -19,30 +19,30 @@ body {
 /// ========================================================
 
 html {
-  color-scheme: light dark;
+	color-scheme: light dark;
 }
 
 /// Dit is waarschijnlijk te groot voor web-apps
 body {
-  font-size: 1.125rem;
-  line-height: 1.6;
+	font-size: 1.125rem;
+	line-height: 1.6;
 }
 
 img,
 picture,
 svg {
-  max-width: 100%;
-  display: block;
+	max-width: 100%;
+	display: block;
 
-  /// Do we need this for each image?
-  /// In this app, we like the perspective of the image, to be correct, so use object-fit: cover
-  object-fit: cover;
+	/// Do we need this for each image?
+	/// In this app, we like the perspective of the image, to be correct, so use object-fit: cover
+	object-fit: cover;
 }
 
 main {
-  /// ch still feels a bit icky..
-  width: min(115ch, 100% - 4rem); // or 4 em => em is probably better
-  margin-inline: auto;
+	/// ch still feels a bit icky..
+	width: min(115ch, 100% - 4rem); // or 4 em => em is probably better
+	margin-inline: auto;
 }
 
 /// ========================================================

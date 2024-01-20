@@ -6,18 +6,18 @@ import type { MovieDetail } from '@ult/shared/data-access';
 import { trackByProp } from '@ult/shared/utils';
 
 @Component({
-  selector: 'ult-movie-detail-page',
-  standalone: true,
-  imports: [AsyncPipe, UserScoreComponent, DatePipe, NgOptimizedImage],
-  templateUrl: './movie-detail.page.html',
-  styleUrls: ['./movie-detail.page.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+	selector: 'ult-movie-detail-page',
+	standalone: true,
+	imports: [AsyncPipe, UserScoreComponent, DatePipe, NgOptimizedImage],
+	templateUrl: './movie-detail.page.html',
+	styleUrls: ['./movie-detail.page.scss'],
+	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MovieDetailPage {
-  @RouterInput({ required: true, transform: numberAttribute }) movieId!: number;
+	@RouterInput({ required: true, transform: numberAttribute }) movieId!: number;
 
-  protected $movie = inject(MovieFacade).$get(+this.movieId);
+	protected $movie = inject(MovieFacade).$get(+this.movieId);
 
-  readonly mediaType: 'Movies' | 'TV Shows' = 'Movies';
-  readonly trackByGenre = trackByProp<MovieDetail['genres'][0]>('name');
+	readonly mediaType: 'Movies' | 'TV Shows' = 'Movies';
+	readonly trackByGenre = trackByProp<MovieDetail['genres'][0]>('name');
 }

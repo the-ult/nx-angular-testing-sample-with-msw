@@ -9,20 +9,20 @@ import { ENV_MOCK } from '@ult/shared/test/mocks';
 import { MovieFeatureShellPage } from './movie-feature-shell.component';
 
 describe('MovieFeatureShellComponent', () => {
-  it('should create', async () => {
-    await render(MovieFeatureShellPage, {
-      imports: [UltMediaCardComponent, NgForOf, AsyncPipe, HttpClientTestingModule],
-      providers: [{ provide: ENVIRONMENT, useValue: ENV_MOCK }],
-    });
+	it('should create', async () => {
+		await render(MovieFeatureShellPage, {
+			imports: [UltMediaCardComponent, NgForOf, AsyncPipe, HttpClientTestingModule],
+			providers: [{ provide: ENVIRONMENT, useValue: ENV_MOCK }],
+		});
 
-    const heroControl = screen.getByTestId('hero');
-    expect(
-      within(heroControl).getByRole('heading', {
-        level: 1,
-        name: 'Welcome to The Angular Movie DB',
-      }),
-    ).toBeVisible();
-  });
+		const heroControl = screen.getByTestId('hero');
+		expect(
+			within(heroControl).getByRole('heading', {
+				level: 1,
+				name: 'Welcome to The Angular Movie DB',
+			}),
+		).toBeVisible();
+	});
 
-  // TODO: add extra tests
+	// TODO: add extra tests
 });

@@ -12,34 +12,36 @@ import { Component } from '@angular/core';
  */
 
 @Component({
-  selector: 'ult-nav-item, a[ultNavItem]',
-  standalone: true,
-  exportAs: 'ultNavItem',
-  template: `<ng-content />`,
-  styles: [
-    `
-      :host {
-        text-decoration: none;
-        color: var(--ult-theme-text-primary-on-dark);
-        padding: 4px 16px;
-        text-transform: uppercase;
-        font-size: var(--ult-typography-headline-small-font-size);
-        font-weight: var(--ult-typography-headline-small-font-weight);
+	selector: 'ult-nav-item, a[ultNavItem]',
+	standalone: true,
+	exportAs: 'ultNavItem',
+	template: `
+		<ng-content />
+	`,
+	styles: [
+		`
+			:host {
+				text-decoration: none;
+				color: var(--ult-theme-text-primary-on-dark);
+				padding: 4px 16px;
+				text-transform: uppercase;
+				font-size: var(--ult-typography-headline-small-font-size);
+				font-weight: var(--ult-typography-headline-small-font-weight);
 
-        &:not(:last-child) {
-          margin-right: var(--ult-space);
-        }
+				&:not(:last-child) {
+					margin-right: var(--ult-space);
+				}
 
-        &:hover,
-        &:active {
-          border-bottom: 2px solid var(--ult-theme-secondary);
-        }
-      }
+				&:hover,
+				&:active {
+					border-bottom: 2px solid var(--ult-theme-secondary);
+				}
+			}
 
-      :host-context(.active-link) {
-        border-bottom: 2px solid var(--ult-theme-secondary);
-      }
-    `,
-  ],
+			:host-context(.active-link) {
+				border-bottom: 2px solid var(--ult-theme-secondary);
+			}
+		`,
+	],
 })
 export class UltNavItemComponent {}

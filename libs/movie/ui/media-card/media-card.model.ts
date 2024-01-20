@@ -5,6 +5,6 @@ type TvShowCardInput = Pick<TvShow, 'id' | 'poster_path' | 'first_air_date' | 'n
 export type MediaCardInput = MovieCardInput | TvShowCardInput;
 
 export const isMovieCardInput = (input: MediaCardInput): input is MovieCardInput => {
-  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-  return (input as MovieCardInput).release_date !== undefined;
+	// eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+	return (input as MovieCardInput).release_date !== undefined;
 };

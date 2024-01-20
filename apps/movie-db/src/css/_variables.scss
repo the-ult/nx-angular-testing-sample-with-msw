@@ -1,29 +1,29 @@
 :root {
-  --ult-radius-small: 4px;
-  --ult-radius-medium: 8px;
-  --ult-radius-round: 50%;
-  --ult-image-border-radius: 8px;
+	--ult-radius-small: 4px;
+	--ult-radius-medium: 8px;
+	--ult-radius-round: 50%;
+	--ult-image-border-radius: 8px;
 
-  // TODO: add different widths and use them with container-queries
-  --ult-page-width: min(95%, 70rem);
-  --ult-app-bar-height: 64px;
-  --ult-typography-font-family: 'Roboto Flex', sans-serif;
+	// TODO: add different widths and use them with container-queries
+	--ult-page-width: min(95%, 70rem);
+	--ult-app-bar-height: 64px;
+	--ult-typography-font-family: 'Roboto Flex', sans-serif;
 
-  /// THEME
-  --ult-theme-primary: hsl(207deg 91.2% 13%);
-  --ult-theme-secondary: hsl(193deg 99% 45%);
-  --ult-theme-text-primary-on-dark: hsl(0deg 0% 100%);
+	/// THEME
+	--ult-theme-primary: hsl(207deg 91.2% 13%);
+	--ult-theme-secondary: hsl(193deg 99% 45%);
+	--ult-theme-text-primary-on-dark: hsl(0deg 0% 100%);
 
-  /// COLORS
-  --ult-color-default-contrast: hsl(0deg 0% 100%);
+	/// COLORS
+	--ult-color-default-contrast: hsl(0deg 0% 100%);
 
-  /// FONT SIZES
-  --ult-typography-headline-small-font-size: 24px;
-  --ult-typography-title-small-font-size: 14px;
-  --ult-typography-body-small-font-size: 12px;
+	/// FONT SIZES
+	--ult-typography-headline-small-font-size: 24px;
+	--ult-typography-title-small-font-size: 14px;
+	--ult-typography-body-small-font-size: 12px;
 
-  /// FONT WEIGHTS
-  --ult-typography-headline-small-font-weight: 400;
-  --ult-typography-title-small-font-weight: 500;
-  --ult-typography-body-small-font-weight: 400;
+	/// FONT WEIGHTS
+	--ult-typography-headline-small-font-weight: 400;
+	--ult-typography-title-small-font-weight: 500;
+	--ult-typography-body-small-font-weight: 400;
 }

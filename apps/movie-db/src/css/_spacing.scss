@@ -1,38 +1,38 @@
 :root {
-  /// SPACER/GUTTER
-  --ult-space-unit: 16px;
-  --ult-space-xxs: calc(0.25 * var(--ult-space-unit));
-  --ult-space-xs: calc(0.5 * var(--ult-space-unit));
-  --ult-space-sm: calc(0.75 * var(--ult-space-unit));
-  --ult-space-md: var(--ult-space-unit);
-  --ult-space-lg: calc(1.5 * var(--ult-space-unit));
-  --ult-space-xl: calc(2 * var(--ult-space-unit));
-  --ult-space-xxl: calc(3 * var(--ult-space-unit));
+	/// SPACER/GUTTER
+	--ult-space-unit: 16px;
+	--ult-space-xxs: calc(0.25 * var(--ult-space-unit));
+	--ult-space-xs: calc(0.5 * var(--ult-space-unit));
+	--ult-space-sm: calc(0.75 * var(--ult-space-unit));
+	--ult-space-md: var(--ult-space-unit);
+	--ult-space-lg: calc(1.5 * var(--ult-space-unit));
+	--ult-space-xl: calc(2 * var(--ult-space-unit));
+	--ult-space-xxl: calc(3 * var(--ult-space-unit));
 
-  /// Default gutter/space is 24px
-  --ult-space: var(--ult-space-lg);
+	/// Default gutter/space is 24px
+	--ult-space: var(--ult-space-lg);
 
-  // --ult-space-xxs: calc(0.25 * var(--ult-space-unit));
-  // --ult-space-xs: calc(0.5 * var(--ult-space-unit));
-  // --ult-space-sm: calc(0.75 * var(--ult-space-unit));
-  // --ult-space-md: calc(1.25 * var(--ult-space-unit));
-  // --ult-space-lg: calc(2 * var(--ult-space-unit));
-  // --ult-space-xl: calc(3.25 * var(--ult-space-unit));
-  // --ult-space-xxl: calc(5.25 * var(--ult-space-unit));
-  // --ult-space: var(--ult-space-md);
+	// --ult-space-xxs: calc(0.25 * var(--ult-space-unit));
+	// --ult-space-xs: calc(0.5 * var(--ult-space-unit));
+	// --ult-space-sm: calc(0.75 * var(--ult-space-unit));
+	// --ult-space-md: calc(1.25 * var(--ult-space-unit));
+	// --ult-space-lg: calc(2 * var(--ult-space-unit));
+	// --ult-space-xl: calc(3.25 * var(--ult-space-unit));
+	// --ult-space-xxl: calc(5.25 * var(--ult-space-unit));
+	// --ult-space: var(--ult-space-md);
 
-  /* components padding */
-  --ult-component-padding: var(--space-sm);
+	/* components padding */
+	--ult-component-padding: var(--space-sm);
 
-  // --ult-space-small: 4px;
-  // --ult-space-medium: 8px;
-  // --ult-space-large: 16px;
-  // --ult-space-x-large: 24px;
+	// --ult-space-small: 4px;
+	// --ult-space-medium: 8px;
+	// --ult-space-large: 16px;
+	// --ult-space-x-large: 24px;
 
-  // mobile =>
-  // - margin 16px
-  // gutter: 16px
+	// mobile =>
+	// - margin 16px
+	// gutter: 16px
 
-  // > tablet
-  // 24 px
+	// > tablet
+	// 24 px
 }

@@ -7,9 +7,9 @@ import { AppRoot } from './app/app.root';
 import { environment } from './environments/environment';
 
 if (environment.production) {
-  enableProdMode();
+	enableProdMode();
 }
 
 bootstrapApplication(AppRoot, appConfig).catch((error) => {
-  console.error(error);
+	console.error(error);
 });
